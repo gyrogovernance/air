@@ -12,9 +12,14 @@ import { Page, PageHero, Section, Block } from '../components/Section';
 export default function Home() {
   return (
     <Page>
-      <div className="relative">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[2rem]" aria-hidden="true">
+      <PageHero
+        tint="emerald"
+        icon="🍃"
+        title="AIR"
+        subtitle="We deliver AI-Empowered Human Capacity Development for Alignment on Uniform Power Distribution."
+        backdrop={
           <Strands
+            className="absolute inset-0 h-full w-full"
             colors={['#F97316', '#7C3AED', '#06B6D4']}
             count={3}
             speed={0.5}
@@ -30,21 +35,12 @@ export default function Home() {
             scale={1.5}
             glass={false}
           />
-        </div>
-
-        <div className="relative z-10">
-          <PageHero
-            tint="emerald"
-            icon="🍃"
-            title="AIR"
-            subtitle="We deliver AI-Empowered Human Capacity Development for Alignment on Uniform Power Distribution."
-          >
-            <Link to="/superintelligence" className="btn-primary px-8 py-3.5 text-base inline-flex">
-              Join us <ArrowRight size={18} />
-            </Link>
-          </PageHero>
-        </div>
-      </div>
+        }
+      >
+        <Link to="/superintelligence" className="btn-primary px-8 py-3.5 text-base inline-flex">
+          Join us <ArrowRight size={18} />
+        </Link>
+      </PageHero>
 
       <Section
         tint="teal"

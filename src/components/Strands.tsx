@@ -62,7 +62,9 @@ void main() {
   uv /= max(uScale, 0.0001);
 
   float e = 0.06 + uIntensity * 0.94;
-  float env = pow(max(cos(uv.x * PI * 1.3), 0.0), uTaper);
+  // Fade across full canvas width (not height-normalized x, which clips wide cards)
+  float xSpan = (gl_FragCoord.x / max(uResolution.x, 1.0)) * 2.0 - 1.0;
+  float env = pow(max(cos(xSpan * PI * 0.5), 0.0), uTaper);
 
   vec3 col = vec3(0.0);
 
@@ -338,14 +340,16 @@ export default function Strands({
 
     function resize() {
       if (!ctn) return;
-      const width = ctn.offsetWidth;
-      const height = ctn.offsetHeight;
+      const width = Math.max(1, ctn.clientWidth);
+      const height = Math.max(1, ctn.clientHeight);
       renderer.setSize(width, height);
       program.uniforms.uResolution.value = [width, height];
       renderTarget.setSize(width, height);
       glassProgram.uniforms.uResolution.value = [width, height];
     }
     window.addEventListener('resize', resize);
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(resize) : null;
+    ro?.observe(ctn);
     resize();
 
     let animateId = 0;
@@ -385,6 +389,7 @@ export default function Strands({
     return () => {
       cancelAnimationFrame(animateId);
       window.removeEventListener('resize', resize);
+      ro?.disconnect();
       if (ctn && gl.canvas.parentNode === ctn) {
         ctn.removeChild(gl.canvas);
       }

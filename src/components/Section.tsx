@@ -15,6 +15,7 @@ export function Page({ children }: { children: ReactNode }) {
 /**
  * Page hero inside a glass shell so title/subtitle stay readable on the blob bg.
  * H1 always uses the brand gradient.
+ * `backdrop` fills the card behind content (e.g. Strands) — clipped by the card, under GlassInner.
  */
 export function PageHero({
   title,
@@ -22,6 +23,7 @@ export function PageHero({
   meta,
   icon,
   tint = 'emerald',
+  backdrop,
   children,
 }: {
   title: ReactNode;
@@ -29,10 +31,17 @@ export function PageHero({
   meta?: ReactNode;
   icon?: ReactNode;
   tint?: Tint;
+  backdrop?: ReactNode;
   children?: ReactNode;
 }) {
   return (
     <GlassCard tint={tint}>
+      {backdrop ? (
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+          {backdrop}
+        </div>
+      ) : null}
+
       <header className="relative z-10 p-6 sm:p-8 text-center">
         {icon ? (
           <div className="text-4xl sm:text-5xl mb-3 leading-none" aria-hidden="true">
@@ -47,14 +56,17 @@ export function PageHero({
         ) : null}
 
         {subtitle ? (
-          <GlassInner className="mt-5 p-4 sm:p-5 text-left sm:text-center">
-            <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
+          <div
+            className="hero-subtitle relative z-10 mt-5 p-4 sm:p-5 text-left sm:text-center rounded-xl"
+            style={{ backgroundColor: 'var(--hero-subtitle-bg)' }}
+          >
+            <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-100 leading-relaxed">
               {subtitle}
             </p>
-          </GlassInner>
+          </div>
         ) : null}
 
-        {children ? <div className="mt-6">{children}</div> : null}
+        {children ? <div className="relative z-10 mt-6">{children}</div> : null}
       </header>
     </GlassCard>
   );
@@ -105,7 +117,7 @@ export function Section({
   );
 }
 
-/** Opaque inner content cell where body text lives, not on the tinted glass. */
+/** Frosted inner content cell — translucent so outer card tint stays visible. */
 export function Block({
   children,
   className = '',
