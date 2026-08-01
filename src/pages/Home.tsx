@@ -5,9 +5,8 @@ import { Page, PageHero, Section, Block } from '../components/Section';
 
 /**
  * Home page draft sections (docs/dev/draft.md [/]):
- * 1. Hero: AIR + tagline + Join us
- * 2. Mission line + About us
- * 3. Power Concentration Risks + Methodology / AIR-Craft
+ * 1. Hero: AIR + mission + tagline + About us / Join us
+ * 2. Power Concentration Risks + Methodology / AIR-Craft
  */
 export default function Home() {
   return (
@@ -16,6 +15,13 @@ export default function Home() {
         tint="emerald"
         icon="🍃"
         title="AIR"
+        belowTitle={
+          <Block className="text-center">
+            <p className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100 leading-relaxed">
+              Alignment Infrastructure Routes for Independent Researchers and Engineers, Offices of Community Safety, and AI Labs.
+            </p>
+          </Block>
+        }
         subtitle="We deliver AI-Empowered Human Capacity Development for Alignment on Uniform Power Distribution."
         backdrop={
           <Strands
@@ -37,26 +43,15 @@ export default function Home() {
           />
         }
       >
-        <Link to="/superintelligence" className="btn-primary px-8 py-3.5 text-base inline-flex">
-          Join us <ArrowRight size={18} />
-        </Link>
-      </PageHero>
-
-      <Section
-        tint="teal"
-        icon="🧭"
-        actions={
+        <div className="flex flex-wrap justify-center gap-3">
           <Link to="/about" className="btn-secondary">
             About us
           </Link>
-        }
-      >
-        <Block className="text-center">
-          <p className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100 leading-relaxed">
-            Alignment Infrastructure Routes for Independent Researchers and Engineers, Offices of Community Safety, and AI Labs.
-          </p>
-        </Block>
-      </Section>
+          <Link to="/superintelligence" className="btn-primary px-8 py-3.5 text-base inline-flex">
+            Join us <ArrowRight size={18} />
+          </Link>
+        </div>
+      </PageHero>
 
       <Section
         tint="purple"

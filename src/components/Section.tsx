@@ -21,6 +21,7 @@ export function PageHero({
   title,
   subtitle,
   meta,
+  belowTitle,
   icon,
   tint = 'emerald',
   backdrop,
@@ -29,6 +30,8 @@ export function PageHero({
   title: ReactNode;
   subtitle?: ReactNode;
   meta?: ReactNode;
+  /** Content directly under the H1 (e.g. mission line), before subtitle. */
+  belowTitle?: ReactNode;
   icon?: ReactNode;
   tint?: Tint;
   backdrop?: ReactNode;
@@ -54,6 +57,8 @@ export function PageHero({
         {meta ? (
           <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">{meta}</p>
         ) : null}
+
+        {belowTitle ? <div className="relative z-10 mt-5">{belowTitle}</div> : null}
 
         {subtitle ? (
           <div
