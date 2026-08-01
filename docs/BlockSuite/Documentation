@@ -1,0 +1,1394 @@
+BlockSuite Framework Overview
+People who are really serious about editor should make their own framework.
+
+BlockSuite is a toolkit for building editors and collaborative applications. It implements a series of content editing infrastructures, UI components and editors independently.
+
+You can consider BlockSuite as a UI component library for building various editors, based on a minimized vanilla framework as their runtime. With BlockSuite, you can:
+
+Reuse multiple first-party BlockSuite editors:
+PageEditor: A comprehensive block-based document editor, offering extensive customization and flexibility.
+EdgelessEditor: A graphics editor with opt-in canvas rendering support, but also shares the same rich-text capabilities with the PageEditor.
+Customize, extend and enhance these editors with a rich set of BlockSuite components and examples. All BlockSuite components (including editors) are native web components, making them framework-agnostic and easy to interop with popular frameworks.
+Or, build new editors from scratch based on the underlying vallina framework.
+🚧 BlockSuite is currently in its early stage, with components and extension capabilities still under refinement. Hope you can stay tuned, try it out, or share your feedback!
+
+Motivation
+BlockSuite originated from the AFFiNE knowledge base, with design goals including:
+
+Support for Multimodal Editable Content: When considering knowledge as a single source of truth, building its various view modes (e.g., text, slides, mind maps, tables) still requires multiple incompatible frameworks. Ideally, no matter how the presentation of content changes, there should be a consistent framework that helps.
+Organizing and Visualizing Complex Knowledge: Existing editors generally focus on editing single documents, but often fall short in dealing with complex structures involving intertwined references. This requires the framework to natively manage state across multiple documents.
+Collaboration-Ready: Real-time collaboration is often seen as an optional plugin, but in reality, we could natively use the underlying CRDT technology for editor state management, which helps to build a clearer and more reliable data flow.
+During the development of AFFiNE, it became clear that BlockSuite was advancing beyond merely being an in-house editor and evolving into a versatile framework. That's why we chose to open source and maintain BlockSuite independently.
+
+Features
+With BlockSuite editors, you can selectively reuse all the editing features in AFFiNE:
+
+affine-demo
+
+And under the hood, the vanilla BlockSuite framework supports:
+
+Defining custom blocks and inline embeds.
+Incremental updates, real-time collaboration, and even decentralized data synchronization based on the document streaming mechanism.
+Writing type-safe complex editing logic based on the command mechanism, similar to react hooks designed for document editing.
+Persistence of documents and compatibility with various third-party formats (such as markdown and HTML) based on block snapshot and transformer.
+State scheduling across multiple documents and reusing one document in multiple editors.
+To try out BlockSuite, refer to the quick start example and start with the preset editors in @blocksuite/presets.
+
+Architecture
+The relationship between BlockSuite and AFFiNE is similar to that between the Monaco Editor and VSCode, but with one major difference: BlockSuite is not automatically generated based on the AFFiNE codebase, but is maintained independently with a different tech stack — AFFiNE uses React while BlockSuite uses web components.
+
+This difference has led BlockSuite to set clear boundaries between packages, ensuring:
+
+Both AFFiNE and other projects should equally reuse and extend BlockSuite through components, without any privileges.
+BlockSuite components can be easily reused regardless of whether you are using React or other frameworks.
+To that end, the BlockSuite project is structured around key packages that are categorized into two groups: a headless framework and prebuilt editing components.
+
+Framework
+@blocksuite/store	Data layer for modeling collaborative document states. It is natively built on the CRDT library Yjs, powering all BlockSuite documents with built-in real-time collaboration and time-travel capabilities.
+@blocksuite/inline	Minimal rich text components for inline editing. BlockSuite allows spliting rich text content in different block nodes into different inline editors, making complex content conveniently composable. This significantly reduces the complexity required to implement traditional rich text editing features.
+@blocksuite/block-std	Framework-agnostic library for modeling editable blocks. Its capabilities cover the structure of block fields, events, selection, clipboard support, etc.
+Components
+@blocksuite/blocks	Default block implementations for composing preset editors, including widgets belonging to each block.
+@blocksuite/presets	Plug-and-play editable components including editors (PageEditor / EdgelessEditor) and auxiliary UI components named fragments (CopilotPanel, DocTitle...).
+
+===
+
+Quick Start
+For a swift start with BlockSuite, you can either kick off with ready-made examples for popular frameworks, or simply install the core packages to integrate it into your project.
+
+INFO
+
+If this is your first time using BlockSuite, referring to the overview section may be helpful.
+
+Bootstrap Project
+BlockSuite works with all common frameworks, you can start from these examples that basically builds a TodoMVC-like note app based on BlockSuite.
+
+Framework	Link	Maintaining
+TypeScript LogoVanilla	vanilla-indexeddb	✅
+Next LogoNext	react-basic-next	✅
+React LogoReact	react-basic	✅
+Vue LogoVue	vue-basic	✅
+Angular LogoAngular	angular-basic	✅
+Preact LogoPreact	preact-basic	✅
+Svelte LogoSvelte	svelte-basic	✅
+Solid LogoSolid	solid-basic	✅
+Init From Scratch
+To use BlockSuite in your existing project, simply install these core packages:
+
+
+yarn install \
+  @blocksuite/presets@canary \
+  @blocksuite/blocks@canary \
+  @blocksuite/store@canary
+Key takeaways in the snippet above:
+
+The @blocksuite/presets package contains the prebuilt editors and opt-in additional UI components.
+To work with the BlockSuite document model and first-party blocks, the @blocksuite/store and @blocksuite/blocks packages are required.
+The BlockSuite canary versions are released daily based on the master branch, which is also used in production in AFFiNE.
+Then you can use the prebuilt PageEditor out of the box, with an initialized doc instance attached as its document model:
+
+index.ts
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+import { createEmptyDoc, PageEditor } from '@blocksuite/presets';
+import { Text } from '@blocksuite/store';
+
+(async () => {
+  // Init editor with default block tree
+  const doc = createEmptyDoc().init();
+  const editor = new PageEditor();
+  editor.doc = doc;
+  document.body.appendChild(editor);
+
+  // Update block node with some initial text content
+  const paragraphs = doc.getBlockByFlavour('affine:paragraph');
+  const paragraph = paragraphs[0];
+  doc.updateBlock(paragraph, { text: new Text('Hello World!') });
+})();
+
+
+The PageEditor here is a standard web component that can also be reused with <page-editor> HTML tag. Another EdgelessEditor also works similarly - simply attach the editor with a doc and you are all set.
+
+For the doc.getBlockByFlavour and doc.updateBlock APIs used here, please see the introduction about block tree basics for further details.
+
+As the next step, you can choose to:
+
+Explore how BlockSuite break down editors into different component types. Taking a look at the list of BlockSuite components may also be helpful.
+Try collaborative editing following the steps.
+Learn about basic concepts in BlockSuite framework that are used throughout the development of editors.
+Note that BlockSuite is still under rapid development. For any questions or feedback, feel free to let us know!
+
+===
+
+BlockSuite Component Types
+INFO
+
+🌐 This documentation has a Chinese translation.
+
+After getting started, this section outlines the foundational editing components in BlockSuite, namely Editor, Fragment, Block and Widget.
+
+Editors and Fragments
+The @blocksuite/presets package includes reusable editors like PageEditor and EdgelessEditor. Besides these editors, BlockSuite also defines fragments - UI components that are NOT editors but are dependent on the document's state. These fragments, such as sidebars, panels, and toolbars, may be independent in lifecycle from the editors, yet should work out-of-the-box when attached to the block tree.
+
+The distinction between editors and fragments lies in their complexity and functionality. Fragments typically offer more simplified capabilities, serving specific UI purposes, whereas editors provide comprehensive editing capabilities over the block tree. Nevertheless, both editors and fragments shares similar data flows.
+
+showcase-fragments-2
+
+Blocks and Widgets
+To address the complexity and diversity of editing needs, BlockSuite architects its editors as assemblies of multiple editable blocks, termed BlockSpecs. Each block spec encapsulates the data schema, view, service, and logic required to compose the editor. These block specs collectively define the editable components within the editor's environment.
+
+Within each block spec, there can be Widgets specific to that block's implementation, enhancing interactivity within the editor. BlockSuite leverages this widget mechanism to register dynamic UI components such as drag handles and slash menus within the page editor.
+
+component-types
+
+Composing Editors by Blocks
+In BlockSuite, the editor is typically designed to be remarkably lightweight. The actual editable blocks are registered to the EditorHost component, which is a container for mounting block UI components.
+
+BlockSuite by default offers a host based on the lit framework. For example, this is a conceptually usable BlockSuite editor composed of BlockSpecs:
+
+
+// Default BlockSuite editable blocks
+import { PageEditorBlockSpecs } from '@blocksuite/blocks';
+// The container for mounting block UI components
+import { EditorHost } from '@blocksuite/lit';
+// The store for working with block tree
+import { type Doc } from '@blocksuite/store';
+
+// Standard lit framework primitives
+import { html, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+
+@customElement('simple-page-editor')
+export class SimplePageEditor extends LitElement {
+  @property({ attribute: false })
+  doc!: Doc;
+
+  override render() {
+    return html` <editor-host .doc=${this.doc} .specs=${PageEditorBlockSpecs}></editor-host> `;
+  }
+}
+In other words, you can think of the BlockSuite editor as being composed in this way:
+
+
+type Editor = BlockSpec[];
+With very little overhead.
+
+So, as long as there is a corresponding host implementation, you can use the component model of frameworks like react or vue to implement your BlockSuite editors:
+
+framework-agnostic
+
+Explore the PageEditor source code to see how this pattern allows composing minimal real-world editors.
+
+One Block, Multiple Specs
+BlockSuite encourages the derivation of various block spec implementations from a single block model to enrich the editing experience. For instance, the root node of the block tree, the root block, is implemented differently for PageEditor and EdgelessEditor through two different specs but with the same shared RootBlockModel. The two block specs serve as the top-level UI components for their respective editors:
+
+showcase-page-edgeless-editors
+
+This allows you to implement various editors easily on top of the same document, providing diverse editing experiences and great potentials in customizability.
+
+Summary
+So far, we have explored the interplay between different BlockSuite component types. The subsequent sections will delve deeper into the detailed framework functionalities, beginning with block tree manipulation. For the moment, understanding the structured outline of the BlockSuite components gallery might provide clearer insights.
+
+===
+
+Working with Block Tree
+INFO
+
+🌐 This documentation has a Chinese translation.
+
+In previous examples, we demonstrated how a doc collaborates with an editor. In this document, we will introduce the basic structure of the block tree within the doc and the common methods for controlling it in an editor environment.
+
+Block Tree Basics
+In BlockSuite, each doc object manages an independent block tree composed of various types of blocks. These blocks can be defined through the BlockSchema, which specifies their fields and permissible nesting relationships among different block types. Each block type has a unique block.flavour, following a namespace:name naming structure. Since the preset editors in BlockSuite are derived from the AFFiNE project, the default editable blocks use the affine prefix.
+
+To manipulate blocks, you can utilize several primary APIs under doc:
+
+doc.addBlock
+doc.updateBlock
+doc.deleteBlock
+doc.getBlockById
+Here is an example demonstrating the manipulation of the block tree through these APIs:
+
+
+// The first block will be added as root
+const rootId = doc.addBlock('affine:page');
+
+// Insert second block as a child of the root with empty props
+const props = {};
+const noteId = doc.addBlock('affine:note', props, rootId);
+
+// You can also provide an optional `parentIndex`
+const paragraphId = doc.addBlock('affine:paragraph', props, noteId, 0);
+
+const modelA = doc.root!.children[0].children[0];
+const modelB = doc.getBlockById(paragraphId);
+console.log(modelA === modelB); // true
+
+// Update the paragraph type to 'h1'
+doc.updateBlock(modelA, { type: 'h1' });
+
+doc.deleteBlock(modelA);
+This example creates a subset of the block tree hierarchy defaultly used in @blocksuite/presets, illustrated as follows:
+
+block-nesting
+
+In BlockSuite, you need to initialize a valid document structure before attaching it to editors, which is also why it requires init() after createEmptyDoc().
+
+INFO
+
+The block tree hierarchy is specific to the preset editors. At the framework level, @blocksuite/store does NOT treat the "first-party" affine:* blocks with any special way. Feel free to add blocks from different namespaces for the block tree!
+
+All block operations on doc are automatically recorded and can be reversed using doc.undo() and doc.redo(). By default, operations within a certain period are automatically merged into a single record. However, you can explicitly add a history record during operations by inserting doc.captureSync() between block operations:
+
+
+const rootId = doc.addBlock('affine:page');
+const noteId = doc.addBlock('affine:note', props, rootId);
+
+// Capture a history record now
+doc.captureSync();
+
+// ...
+This is particularly useful when adding multiple blocks at once but wishing to undo them individually.
+
+Block Tree in Editor
+To understand the common operations on the block tree in an editor environment, it's helpful to grasp the basic design of the editor. This can start with the following code snippet:
+
+
+const { host } = editor;
+const { spec, selection, command } = host.std;
+Firstly, let's explain the newly introduced host and std, which are determined by the framework-agnostic architecture of BlockSuite:
+
+As mentioned before, the editor.host - also known as the EditorHost component, is a container for mounting block UI components. It handles the heavy lifting involved in mapping the block tree to the component tree.
+Regardless of the framework used to implement EditorHost, they can access the same headless standard library designed for editable blocks through host.std. For example, std.spec contains all the registered BlockSpecs.
+TIP
+
+We usually access host.spec instead of host.std.spec to simplify the code.
+
+As the runtime for the block tree, this is the mental model inside the editor:
+
+editor-structure
+
+Selecting Blocks
+The essence of editor lies in allowing users to dynamically select and modify the data. In BlockSuite, you can use the SelectionManager, which is responsible for managing selections, through std.selection or host.selection. As an example, after selecting some blocks in the editor, you can execute the following code snippets line by line in the console:
+
+
+// Get current selection state
+const cached = selection.value;
+
+// Clear current selection state
+selection.clear();
+
+// Recover the selection state from cache
+selection.set(cached);
+
+// Try setting only part of the selection
+selection.set([cached[0]]);
+In block-std, BlockSuite implements several atomic selection types for SelectionManager, such as TextSelection and BlockSelection. The content currently selected by the user is automatically divided into these primitive selection data structures, recorded in the list returned by selection.value. Through selection.set(), you can also programmatically control the current selection state of the editor.
+
+This allows the selection manager to handle different types of selections, as shown in the following illustration, using the same API:
+
+selection-types
+
+In selection.value, different types of selection states can coexist simultaneously. Each selection object records at least the id and path of the corresponding selected block (i.e., the sequence of ids of all blocks from the root block to that block). Moreover, you can further categorize different types of selections using the group field. For example in PageEditor, both TextSelection and BlockSelection belong to the note group. Hence, the example structure of block selection in the above image is as follows:
+
+
+[
+  {
+    type: 'block',
+    group: 'note',
+    path: ['root_id', 'note_id', 'paragraph_1_id'],
+  },
+  {
+    type: 'block',
+    group: 'note',
+    path: ['root_id', 'note_id', 'paragraph_2_id'],
+  },
+];
+For the more complex native selection, the TextSelection can be used to model it. It marks the start and end positions of the native selection in the block through the from and to fields, recording only the index and length of the inline text sequence in the respective block. This simplification is made possible by the architecture of BlockSuite, where editable blocks use @blocksuite/inline as the rich text editing component. Each block tree node's rich text content is rendered independently into different inline editors, eliminating nesting between rich text instances:
+
+flat-inlines
+
+Additionally, the entire selection.value object is isolated under the clientId scope of the current session. During collaborative editing, selection instances between different clients will be distributed in real-time (via providers), facilitating the implementation of UI states like remote cursors.
+
+For more advanced usage and details, please refer to the Selection documentation.
+
+Service and Commands
+In many cases, operations on the block tree within an editor environment need further encapsulation. For example, when using the selection manager mentioned before, since the atomic selection state only includes ids, retrieving the corresponding block model based on selection.value often requires some boilerplate, as follows:
+
+
+function getFirstSelectedModel(host: EditorHost) {
+  const { selection, doc } = host;
+  const firstSelection = selection.value[0];
+  const { path } = firstSelection;
+  const leafId = path[path.length - 1];
+  const blockModel = doc.getBlockById(leafId);
+  return blockModel;
+}
+This direct usage is not very convenient. Also, as BlockSuite encourages completely splitting the editor into different BlockSpecs (recall here), which indicates that methods and properties globally available in the editor should also be implemented on the block level. A mechanism is needed at this point to organize such code, ensuring maintainability in large projects. This is why BlockSuite introduces the concept of BlockService.
+
+Service
+In BlockSuite, service is used for registering state or methods specific to a certain block type. For example, instead of implementing the getFirstSelectedModel method yourself, you can use shortcuts predefined on RootService:
+
+
+const rootService = host.spec.getService('affine:page');
+
+// Get models of selected blocks
+rootService.selectedModel;
+// Get UI components of selected blocks
+rootService.selectedBlocks;
+Here, getService is used to obtain the service corresponding to a certain block spec. Each service is a plain class, existing as a singleton throughout the lifecycle of the host (with a corresponding mounted lifecycle hook). Some typical uses of service include:
+
+For blocks that serve as the root node of the block tree, common editor APIs can be registered on their services for application developers.
+For blocks requiring specific dynamic configurations, service can be used to pass in corresponding options. For example, a service can accept configurations related to image uploading for image block.
+For blocks that need to execute certain side effects (such as subscribing to keyboard shortcuts) when the editor loads, operations on host can be done in the mounted callback of their services. In this way, even if the block does not yet exist in the block tree, the corresponding logic will still execute.
+As an example, the following code more specifically shows how the two getters selectedBlocks and selectedModels mentioned earlier are implemented using a service:
+
+
+import { BlockService } from '@blocksuite/block-std';
+import type { BlockComponent } from '@blocksuite/lit';
+import type { RootBlockModel } from './root-model.js';
+
+export class RootService extends BlockService<RootBlockModel> {
+  // ...
+
+  // A plain getter in service
+  get selectedBlocks() {
+    let result: BlockComponent[] = [];
+    // Here we are using something new...
+    // Introducing commands!
+    this.std.command
+      .chain()
+      .tryAll(chain => [chain.getTextSelection(), chain.getImageSelections(), chain.getBlockSelections()])
+      .getSelectedBlocks()
+      .inline(({ selectedBlocks }) => {
+        if (!selectedBlocks) return;
+        result = selectedBlocks;
+      })
+      .run();
+    return result;
+  }
+
+  // Another plain getter
+  get selectedModels() {
+    return this.selectedBlocks.map(block => block.model);
+  }
+}
+Commands
+Besides the service, this code snippet also utilizes the chain of commands occurring on this.std.command (the CommandManager). This is about using predefined Commands.
+
+In BlockSuite, you can always control the editor solely through direct operations on host and doc. However, in the real world, it's often necessary to treat some operations as variables, dynamically constructing control flow (e.g., dynamically combining different subsequent processing logics based on current selection states). This is where commands really shines. It allows complex sequences of operations to be recorded as reusable chains, and also simplifies the context sharing between operations.
+
+The code at the end of the previous section demonstrates the basic usage of commands:
+
+The pipe method is used to start a new command chain.
+The tryAll method sequentially executes multiple sub-commands on the current chain's context.
+Commands like getSelectedBlock and getTextSelection are used for actual block tree operations.
+The inline method transfers the state on the command context object to the outside or executes other side effects.
+The run method is used to finally execute the command chain. The context will be destroyed after the command chain execution.
+In the above methods, task-specific commands like getSelectedBlock are not implemented by the command manager but are registered by individual blocks. In fact, since BlockSuite separates the framework-specific host from the framework-agnostic block-std.
+
+You can refer to the Command documentation for more advanced uses of commands.
+
+INFO
+
+We plan to continue supplementing and documenting some of the most commonly used commands, please stay tuned.
+
+Defining New Blocks
+So far, we have introduced almost all the main parts that make up a block spec. Now, it's time to learn how to create new block types.
+
+In BlockSuite, the block spec is built from three main components: schema, service, and view. Among these, the definition of the view part is specific to the frontend framework used. For example, in the case of PageEditor and EdgelessEditor based on @blocksuite/lit, the block specs are defined with lit primitives in this way:
+
+
+import type { BlockSpec } from '@blocksuite/block-std';
+import { literal } from 'lit/static-html.js';
+
+const MyBlockSpec: BlockSpec = {
+  schema: MyBlockSchema, // Define this with `defineBlockSchema`
+  service: MyBlockService, // Extend `BlockService`
+  // Define lit components here
+  view: {
+    component: literal`my-block-component`,
+    widgets: {
+      myToolbar: literal`my-toolbar`,
+      myMenu: literal`my-menu`,
+    },
+  },
+};
+This design aims at balancing ease of use with customizability. Both the service and view are built around the schema, which allows for different components, services, and widgets to be implemented for the same block model, enabling:
+
+A single block to have multiple component views. For example, PageEditor and EdgelessEditor have different implementations of the root block (recall here).
+A single block to be configured with different widget combinations. For instance, you can remove all widgets to compose read-only editors.
+A single block to even be implemented based on different frontend frameworks, by simply providing an EditorHost middleware implementation for the respective framework.
+framework-agnostic
+
+INFO
+
+In terms of cross-framework support, the biggest difference between BlockSuite and other popular editor frameworks is that BlockSuite has no DOM host of its own. Instead, it implements a middleware like @blocksuite/lit, mapping the block tree to the framework's component tree. Thus, the entire content area of a BlockSuite editor is natively controlled by different frameworks, rather than creating many different framework component subtrees within a BlockSuite-controlled DOM tree through excessive use of createRoot.
+The reason BlockSuite uses lit by default is that as a web component framework, the lit component tree IS the DOM tree natively. This simplifies the three-phase update process of block tree -> component tree -> DOM tree to just block tree -> component (DOM) tree.
+Furthermore, BlockSuite also supports defining the most commonly used type of custom block in a more straightforward way: the embed block. This type of block does not nest other blocks and manages its internal area's state entirely on its own. For example, to create a GitHub link card that can be displayed in PageEditor, you can start by defining the model:
+
+
+import { BlockModel } from '@blocksuite/store';
+import { defineEmbedModel } from '@blocksuite/blocks';
+
+// Define strongly typed block model
+export class EmbedGithubModel extends defineEmbedModel<{
+  owner: string;
+  repo: string;
+}>(BlockModel) {}
+Then based on this model, a lit-based UI component for the block can be defined:
+
+
+import { EmbedBlockComponent } from '@blocksuite/blocks';
+import type { EmbedGithubBlockModel } from './embed-github-model.js';
+import { html } from 'lit';
+import { customElement } from 'lit/decorators.js';
+
+@customElement('affine-embed-github-block')
+export class EmbedGithubBlock extends EmbedBlockComponent<EmbedGithubModel> {
+  // styles...
+
+  override render() {
+    return this.renderEmbed(() => {
+      return html`
+        <div class="affine-embed-github-block">
+          <h3>GitHub Card</h3>
+          <div>${this.model.owner}/${this.model.repo}</div>
+        </div>
+      `;
+    });
+  }
+}
+As next step, we can further define the corresponding BlockSpec:
+
+
+import { createEmbedBlock } from '@blocksuite/blocks';
+import { EmbedGithubBlockModel } from './embed-github-model.js';
+
+export const EmbedGithubBlockSpec = createEmbedBlock({
+  schema: {
+    name: 'github',
+    version: 1,
+    toModel: () => new EmbedGithubModel(),
+    props: () => ({
+      owner: '',
+      repo: '',
+    }),
+  },
+  view: {
+    component: literal`affine-embed-github-block`,
+  },
+});
+Finally, by inserting this BlockSpec into the host.specs array, you can expand with new block types:
+
+
+// ...
+import { PageEditorBlockSpecs } from '@blocksuite/blocks';
+import { EmbedGithubBlockSpec } from './embed-block-spec.js';
+
+const editor = new PageEditor();
+editor.specs = [...PageEditorBlockSpecs, EmbedGithubBlockSpec];
+editor.doc = doc;
+After completing the above steps, you can insert the new block type into the block tree:
+
+
+const props = {
+  owner: 'toeverything', // The company behind BlockSuite and AFFiNE 🤫
+  repo: 'https://github.com/toeverything/blocksuite',
+};
+
+// The 'affine' prefix is kept by default, but you can also override it.
+doc.addBlock('affine:embed-github', props, parentId);
+You can view the source code for the above example in BlockSuite repository.
+
+Combining the earlier example of composing PageEditor entirely based on block spec (recall here), this should give you a more direct understanding of BlockSuite's extensibility.
+
+===
+
+Data Synchronization
+INFO
+
+🌐 This documentation has a Chinese translation.
+
+This guide explores several optimal ways to synchronize (in other words, save and load) documents in BlockSuite.
+
+Snapshot API
+Traditionally, you might expect a JSON-based API that works somewhat like editor.load(). For such scenarios, BlockSuite indeed conveniently fulfills this need through its built-in snapshot mechanism:
+
+
+import { Job } from '@blocksuite/store';
+
+const { collection } = doc;
+
+// A job is required for performing the tasks
+const job = new Job({ collection });
+
+// Export current doc content to snapshot JSON
+const json = await job.docToSnapshot(doc);
+
+// Import snapshot JSON to a new doc
+const newDoc = await job.snapshotToDoc(json);
+The snapshot stores the JSON representation of the doc block tree, preserving its nested structure. Additionally, BlockSuite has designed an Adapter API on top of the snapshot to handle conversions between the block tree and third-party formats like markdown and HTML.
+
+Document Streaming
+Different from the classic mechanism above, BlockSuite natively supports a state management strategy that can be mentally paralleled with React Server Components. This allows the state of the block tree to be directly used as serializable data, streaming from the server (or local database) to the client.
+
+In this case, the document data stored on the server is no longer JSON, but always a binary representation of CRDT (similar to protobuf or RSC payload). As the block tree in BlockSuite is natively implemented by CRDT, and the CRDT data is always updated first during state updates (see this article), the block tree state in the BlockSuite editor is always driven entirely by CRDT data. Therefore, compared to the RSC mindset:
+
+
+ui = f(data)(state)
+The BlockSuite mindset is always:
+
+
+ui = f(data)
+This is equivalent to updating the server first every time you update a todo list item, and then updating the state with the data returned from the server. However, with the ability of CRDT that automatically resolves conflicts, this process can be reliably completed locally and synchronized with remote documents.
+
+In contrast, traditional editors typically only support APIs like editor.load(), which is more similar to a compromised f(data)(state) model, and has more complexity when dealing with real-time collaboration with multiple data sources.
+
+In BlockSuite, the data-driven synchronization strategy is implemented through providers:
+
+When creating a new document, you only need to connect the doc to a specific provider (or multiple providers) to expect the CRDT data of the block tree to be synchronized via these providers.
+Similarly, when loading an existing document, the method is to create a new empty doc object and connect it to the corresponding provider. At this time, the block tree data will also flow in from the provider data source:
+
+import { AffineSchemas } from '@blocksuite/blocks';
+import { AffineEditorContainer } from '@blocksuite/presets';
+import { Schema } from '@blocksuite/store';
+import { DocCollection, Text } from '@blocksuite/store';
+import { IndexeddbPersistence } from 'y-indexeddb';
+
+const schema = new Schema().register(AffineSchemas);
+const collection = new DocCollection({ schema });
+collection.meta.initialize();
+
+// Let's start with an empty doc
+const doc = collection.createDoc();
+const editor = new AffineEditorContainer();
+editor.doc = doc;
+document.body.append(editor);
+
+// Case 1.
+// If you are creating a new doc,
+// init in this way and the blocks will be automatically written to IndexedDB
+function createDoc() {
+  new IndexeddbPersistence('provider-demo', doc.spaceDoc);
+
+  doc.load(() => {
+    const pageBlockId = doc.addBlock('affine:page', {
+      title: new Text('Test'),
+    });
+    doc.addBlock('affine:surface', {}, pageBlockId);
+    const noteId = doc.addBlock('affine:note', {}, pageBlockId);
+    doc.addBlock('affine:paragraph', { text: new Text('Hello World!') }, noteId);
+  });
+}
+
+// Case 2.
+// If you are loading an existing doc,
+// simply load content using the provider callback
+function loadDoc() {
+  const provider = new IndexeddbPersistence('provider-demo', doc.spaceDoc);
+  provider.on('synced', () => doc.load());
+}
+Furthermore, by connecting multiple providers, documents can automatically be synchronized to a variety of different backends:
+
+pluggable-providers
+
+As an example, when testing real-time collabortion in BlockSuite following the steps, all the clients would connect to the WebSocket provider. The first client should enter case 1, and the clients joining the room afterwards would run into case 2.
+
+===
+
+Block Spec
+In BlockSuite, a BlockSpec defines the structure and interactive elements for a specific block type within the editor. BlockSuite editors are typically composed entirely of block specs, with the top-level UI often implemented as a dedicated block, usually of the affine:page type.
+
+A block spec contains the following properties:
+
+schema: Defines the structure and data types for the block's content.
+service: Used for registering methods for specific actions and external invocations.
+view: Represents the visual representation and layout of the block.
+component: The primary user interface element of the block.
+widgets: Additional interactive elements enhancing the block's functionality.
+block-spec
+
+Example
+Note that in block spec, the definition of view is related to UI frameworks. By default, we provide a @blocksuite/lit package to help build a lit block view. But it's still possible to use other UI frameworks. We'll introduce later about how to write custom block renderers.
+
+Here is a example of a lit-based block spec:
+
+
+import type { BlockSpec } from '@blocksuite/block-std';
+import { literal } from 'lit/static-html.js';
+
+const MyBlockSepc: BlockSpec = {
+  schema: MyBlockSchema,
+  service: MyBlockService,
+  view: {
+    component: literal`my-block-component`,
+    widgets: {
+      myBlockToolbar: literal`my-block-toolbar`,
+      myBlockMenu: literal`my-block-menu`,
+    },
+  },
+};
+We'll introduce each part of the block spec in the following sections.
+
+===
+
+Selection
+Selection is a very common concept in structure editors. It's used for representing the current cursor position or the current selected blocks.
+
+In BlockSuite, we use a data driven approach to represent the selection. It also follows the CRDT-native data flow, which means the selection state is always derived from serializable data.
+
+Selection Model
+The selection model contains a list of atomic selections. Each selection represents a range of the content. For example, if you have a text block with the following content:
+
+Hello
+
+World
+
+In the default PageEditor, it will be modeled as following block tree nodes:
+
+
+Root Block
+  Note Block
+    Paragraph Block 1
+    Paragraph Block 2
+So if you select the text partially via mouse drag as following:
+
+text-selection-example
+
+The selection model will be:
+
+
+[
+  {
+    type: 'text',
+    group: 'note',
+    from: {
+      path: ['root_id', 'note_id', 'paragraph_1_id'],
+      index: 1,
+      length: 5,
+    },
+    to: {
+      path: ['root_id', 'note_id', 'paragraph_2_id'],
+      index: 0,
+      length: 4,
+    },
+  },
+];
+If you select the blocks via block level selection like this:
+
+block-selection-example
+
+The selection model will be:
+
+
+[
+  {
+    type: 'block',
+    group: 'note',
+    path: ['root_id', 'note_id', 'paragraph_1_id'],
+  },
+  {
+    type: 'block',
+    group: 'note',
+    path: ['root_id', 'note_id', 'paragraph_2_id'],
+  },
+];
+Types and Groups
+Selection model has two important properties: type and group.
+
+The type of a selection means which kind of selection it is. And the group of a selection indicates the scope of selection.
+
+Some types of selections can share the same group because they have the same scope. For example, the text selection and the block selection can share the note group because they are both in the affine:note block. And you may also have a cell and row selection in a table block, and they can share the table group.
+
+Update Selection State
+You can get the selection manager from std.selection or host.selection. With the selection manager, you can read the selection model from value. And you can also write the selection model by set and update:
+
+
+const { selection } = host.std;
+
+const current = selection.value;
+const next = transformSelection(current);
+selection.set(next);
+
+// This can also be written as:
+selection.update(current => transformSelection(current));
+The set method will override all current selections.
+
+You can also create a new selection by using selection.create method:
+
+
+const blockSelection = selection.create('block', { path: [0, 1, 2] });
+If you want to pick some selections by type from the current selection model, you can reuse the pick and find methods to help:
+
+
+const textSelection: Selection = selection.pick('text');
+const blockSelections: Selection[] = selection.find('block');
+You can also clear all the selections by calling clear. If you just want to clear a certain type of selections, you can pass the type as the first argument of clear method:
+
+
+// clear all selections
+selection.clear();
+
+// clear text selection
+selection.clear('text');
+And we also provide a setGroup method to override the selections in a specific group. Of course, we also provide a getGroup method.
+
+
+const noteSelections = selection.getGroup('note');
+const nextNoteSelections = yourLogic(noteSelections);
+selection.setGroup('note', nextNoteSelections);
+Subscribe to Selection Changes
+You can subscribe to the selection changes by using changed slot.
+
+
+selection.slots.changed.on(nextSelection => {
+  renderSelectionToUI(nextSelection);
+});
+You can also subscribe to the remote selection changes by using remoteChanged slot. This is useful when you want to display the selection of other users.
+
+
+selection.slots.remoteChanged.on(nextSelectionMap => {
+  for (const [userId, nextSelection] of nextSelectionMap) {
+    renderRemoteSelectionToUI(nextSelection, userId);
+  }
+});
+Create Custom Selection
+You can create your own selection type by extending the BaseSelection interface.
+
+
+import { BaseSelection, PathFinder } from '@blocksuite/block-std';
+import z from 'zod';
+
+const MySelectionSchema = z.object({
+  path: z.array(z.string()),
+});
+
+export class MySelection extends BaseSelection {
+  static override type = 'mySelection';
+  static override group = 'note';
+
+  override equals(other: BaseSelection): boolean {
+    if (other instanceof MySelection) {
+      return PathFinder.equals(this.path, other.path);
+    }
+    return false;
+  }
+
+  override toJSON(): Record<string, unknown> {
+    return {
+      type: this.type,
+      path: this.path,
+    };
+  }
+
+  static override fromJSON(json: Record<string, unknown>): ImageSelection {
+    MySelectionSchema.parse(json);
+    return new MySelection({
+      path: json.path as string[],
+    });
+  }
+}
+
+declare global {
+  namespace BlockSuite {
+    interface Selection {
+      mySelection: typeof MySelection;
+    }
+  }
+}
+After that, you need to register the selection to selection manager:
+
+
+selection.register(MySelection);
+Now you can use the MySelection in the selection model.
+
+
+const mySelection = selection.create('mySelection', {
+  path: ['a', 'b', 'c'],
+});
+
+===
+
+Event
+This document introduces the handling of UI events, event flows within the block tree, and the implementation of hotkeys in BlockSuite.
+
+Handling UI Events
+For UI events such as click in editor, there is an underlying event dispatcher in @blocksuite/block-std to dispatch events. With the dispatcher, you can handle events in your block view implementation in this manner:
+
+
+@customElements('my-block')
+class MyBlockView extends BlockComponent<MyBlockModel> {
+  private _handleClick = () => {
+    //...
+  };
+
+  override connectedCallback() {
+    super.connectedCallback();
+    this.handleEvent('click', this._handleClick);
+  }
+}
+Event Bubbling
+All events on dispatcher are bound to the root element of the block view to make it possible to bubble events to the parent block view.
+
+
+class ChildView extends BlockComponent<MyBlockModel> {
+  private _handleClick = () => {
+    console.log('click1');
+  };
+
+  override connectedCallback() {
+    super.connectedCallback();
+    this.handleEvent('click', this._handleClick);
+  }
+}
+
+class ParentView extends BlockComponent<MyBlockModel> {
+  private _handleClick = () => {
+    console.log('click2');
+  };
+
+  override connectedCallback() {
+    super.connectedCallback();
+    this.handleEvent('click', this._handleClick);
+  }
+}
+When you click on the ChildView, the console will print:
+
+
+click1
+click2
+You may want to stop the event from bubbling to the parent block view. You can simply return true in the event handler:
+
+
+class ChildView extends BlockComponent<MyBlockModel> {
+  private _handleClick = () => {
+    console.log('click1');
+    return true;
+  };
+
+  override connectedCallback() {
+    super.connectedCallback();
+    this.handleEvent('click', this._handleClick);
+  }
+}
+Then the console will only print:
+
+
+click1
+The event bubbling is implemented by event target. For the events that won't support bubbling, the event dispatcher will use block path to dispatch events to the parent block views.
+
+Event Scope
+By default, handleEvents will only subscribe events triggered by the block view and its children. We also provide two more scopes to subscribe to make it possible to handle events triggered by other blocks.
+
+Flavour Scope
+The flavour scope will subscribe to events triggered by the block view and other blocks with the same flavour.
+
+
+class MyBlock extends BlockComponent<MyBlockModel> {
+  override connectedCallback() {
+    super.connectedCallback();
+    this.handleEvent('click', this._handleClick, { flavour: true });
+  }
+}
+Global Scope
+The global scope will subscribe to events triggered by the block view and all other blocks.
+
+
+class MyBlock extends BlockComponent<MyBlockModel> {
+  override connectedCallback() {
+    super.connectedCallback();
+    this.handleEvent('click', this._handleClick, { global: true });
+  }
+}
+Handling Hotkeys
+The hotkey is a special event that can be triggered by the keyboard.
+
+Key names may be strings like "Shift-Ctrl-Enter"—a key identifier prefixed with zero or more modifiers. Key identifiers are based on the strings that can appear in KeyEvent.key.
+
+Use lowercase letters to refer to letter keys (or uppercase letters if you want shift to be held). You may use "Space" as an alias for the " " name.
+
+Modifiers can be given in any order. Shift- (or s-), Alt- (or a-), Ctrl- (or c- or Control-) and Cmd- (or m- or Meta-) are recognized. For characters that are created by holding shift, the Shift- prefix is implied, and should not be added explicitly.
+
+You can use Mod- as a shorthand for Cmd- on Mac and Ctrl- on other platforms.
+
+
+class MyBlock extends BlockComponent<MyBlockModel> {
+  override connectedCallback() {
+    super.connectedCallback();
+    this.bindHotkey({
+      'Mod-b': () => {},
+      'Alt-Space': () => {},
+    });
+  }
+}
+Same as handleEvent, you can return true in the hotkey handler to stop the event from bubbling to the parent block view.
+
+===
+
+Command
+Commands are the reusable actions for triggering state updates. Inside a command, you can query different states of the editor, or perform operations to update them. With the command API, you can define chainable commands and execute them.
+
+Command Chain
+Commands are executed in a chain, and each command can decide whether to continue the chain or not.
+
+
+std.command.chain().command1().command2().command3().run();
+You will need to call chain() to start a new chain. Then, you can call any command defined in the Commands interface. And finally, call run() to execute the chain.
+
+Try
+If a command fails, the chain will be interrupted. However, you can use try() to call a list of commands until one of them succeeds.
+
+
+std.command
+  .chain()
+  .try(cmd => [cmd.command1(), cmd.command2()])
+  .command3()
+  .run();
+In this chain, command3 will be executed only if command1 or command2 succeeds. If command1 succeeds, command2 will not be executed.
+
+TryAll
+tryAll is used to attempt to execute an array of commands within a chain. Unlike try, which stops executing the list of commands as soon as one of them succeeds, tryAll will execute every command in the array, regardless of the individual outcomes of each command.
+
+This means that even if one of the commands succeeds, tryAll will still continue to execute the remaining commands in the array. The chain will only proceed to the next command after tryAll if at least one command in the array succeeds. If all commands fail, the chain will be interrupted.
+
+
+std.command
+  .chain()
+  .tryAll(cmd => [cmd.command1(), cmd.command2(), cmd.command3()])
+  .command4()
+  .run();
+If command1, command2, or command3 succeeds, command4 will be executed. If all commands in tryAll fail, the chain will stop, and command4 will not be executed.
+
+Use tryAll when you want to ensure that multiple strategies or operations are attempted, even if the success of one is enough to allow the chain to continue. This approach is useful when each command in the array should be given a chance to execute, regardless of the success of the others.
+
+Writing Commands
+Commands are defined as pure functions.
+
+
+import type { Command } from '@blocksuite/block-std';
+export const myCommand: Command = (ctx, next) => {
+  if (fail) {
+    return;
+  }
+
+  return next();
+};
+
+declare global {
+  namespace BlockSuite {
+    interface Commands {
+      my: typeof myCommand;
+    }
+  }
+}
+
+// Add the command to the std command list
+std.command.add('my', myCommand);
+
+// You can call it with
+std.command.chain().my().run();
+Only when the command calls next(), the next command in the chain will be executed.
+
+Command Context
+When a list of commands are executed, they share a context object. This object is standalone for each command execution, and you can use it to store temporary data.
+
+
+import type { Command } from '@blocksuite/block-std';
+export const myCommand: Command<never, 'myCommandData'> = (ctx, next) => {
+  if (fail) {
+    return;
+  }
+
+  return next({ myCommandData: 'hello' });
+};
+
+declare global {
+  namespace BlockSuite {
+    interface CommandContext {
+      myCommandData: string;
+    }
+
+    interface Commands {
+      myCommand: typeof myCommand;
+    }
+  }
+}
+Then, commands executed after myCommand can access the data:
+
+
+export const myCommand: Command<'myCommandData'> = (ctx, next) => {
+  const data = ctx.myCommandData;
+  console.log(data);
+};
+Command Options
+You can pass options to a command when calling it:
+
+
+import type { Command } from '@blocksuite/block-std';
+
+type MyCommandOptions = {
+  configA: number;
+  configB: string;
+};
+export const myCommand: Command<never, never, MyCommandOptions> = (ctx, next) => {
+  const { configA, configB } = ctx;
+
+  if (fail) {
+    return;
+  }
+
+  return next();
+};
+
+// You can call it with
+std.command.chain().my({ configA: 0, configB: 'hello' }).run();
+Please notice that commands take only one argument, so you need to wrap the options in an object if you want to pass multiple options.
+
+Inline Command
+You can also use inline command for some temporary commands.
+
+
+std.command
+  .chain()
+  .inline((ctx, next) => {
+    // ...
+    return next();
+  })
+  .run();
+Command Returns
+After .run, the command chain will return two values: success and ctx.
+
+
+const [success, ctx] = std.command.chain().commandA().commandB().run();
+If all commands passed, the success will be true, otherwise it will be false.
+
+The ctx will be the final context updated by .next in a command chain.
+
+For example:
+
+
+const command1 = (ctx, next) => {
+  return next({ data: 0, str: 'hello' });
+};
+
+const command2 = (ctx, next) => {
+  return next({ data: 1 });
+};
+
+const [success, ctx] = std.command.chain().command1().command2().run();
+
+// This will pass
+expect(ctx.data).toBe(1);
+
+// This will pass too
+expect(ctx.str).toBe('hello');
+
+===
+
+@blocksuite/store
+This package is the data layer for modeling collaborative document states. It's natively built on the CRDT library Yjs, powering all BlockSuite documents with built-in real-time collaboration and time-travel capabilities.
+
+Doc
+In BlockSuite, a Doc is the container for a block tree, providing essential functionalities for creating, retrieving, updating, and deleting blocks inside it. Under the hood, every doc holds a Yjs subdocument.
+
+Besides the block tree, the selection state is also stored in the doc.awarenessStore inside the doc. This store is also built on top of the Yjs awareness.
+
+DocCollection
+In BlockSuite, a DocCollection is defined as an opt-in collection of multiple docs, providing comprehensive features for managing cross-doc updates and data synchronization. You can access the collection via the doc.collection getter, or you can also create a collection manually:
+
+
+import { DocCollection, Schema } from '@blocksuite/store';
+
+const schema = new Schema();
+
+// You can register a batch of block schemas to the collection
+schema.register(AffineSchemas);
+
+const collection = new DocCollection({ schema });
+collection.meta.initialize();
+Then multiple docs can be created under the collection:
+
+
+const collection = new DocCollection({ schema });
+collection.meta.initialize();
+
+// This is an empty doc at this moment
+const doc = collection.createDoc();
+As an example, the createEmptyDoc is a simple helper implemented exactly in this way (source):
+
+
+import { AffineSchemas } from '@blocksuite/blocks/models';
+import { Schema, DocCollection } from '@blocksuite/store';
+
+export function createEmptyDoc() {
+  const schema = new Schema().register(AffineSchemas);
+  const collection = new DocCollection({ schema });
+  collection.meta.initialize();
+  const doc = collection.createDoc();
+
+  return {
+    doc,
+    async init() {
+      await doc.load(() => {
+        const rootBlockId = doc.addBlock('affine:page', {});
+        doc.addBlock('affine:surface', {}, rootBlockId);
+        const noteId = doc.addBlock('affine:note', {}, rootBlockId);
+        doc.addBlock('affine:paragraph', {}, noteId);
+      });
+      return doc;
+    },
+  };
+}
+
+
+===
+
+@blocksuite/inline
+This package is a minimal rich text component for inline editing. It uses an external Y.Text as it source of truth. Every inlineEditor instance attaches to an independant Y.Text, so rich text content in different block nodes can be splitted into different inline editors, making complex content conveniently composable. This significantly reduces the complexity required to implement traditional rich text editing features.
+
+flat-inlines
+
+You can use InlineEditor without other BlockSuite dependencies:
+
+
+import * as Y from 'yjs';
+import { InlineEditor } from '@blocksuite/inline';
+
+const doc = new Y.Doc();
+const yText = doc.getText('text');
+const inlineEditor = new InlineEditor(yText);
+
+const myEditor = document.getElementById('my-editor');
+inlineEditor.mount(myEditor);
+The inline editor playground is used for online testing and you can also check out the source code in its repository.
+
+Attributes
+Attributes is the property of delta structure, which is used to store formatting information.
+
+A delta expressing a bold text node in this manner:
+
+
+{
+  "insert": "Hello World",
+  "attributes": {
+    "bold": true
+  }
+}
+The inline editor use zod to validate attributes, you can use the inlineEditor.setAttributesSchema to set the schema:
+
+
+// Generally you don't have to extend `baseTextAttributes`
+const customSchema = baseTextAttributes.extend({
+  reference: z
+    .object({
+      type: type: z.enum([
+        'LinkedPage',
+      ]),
+      pageId: z.string(),
+    })
+    .optional()
+    .nullable()
+    .catch(undefined),
+  background: z.string().optional().nullable().catch(undefined),
+  color: z.string().optional().nullable().catch(undefined),
+});
+
+const doc = new Y.Doc();
+const yText = doc.getText('text');
+const inlineEditor = new InlineEditor(yText);
+inlineEditor.setAttributesSchema(customSchema);
+
+const editorContainer = document.getElementById('editor');
+inlineEditor.mount(editorContainer);
+InlineEditor has default attributes schema, so you can skip this step if you think it is enough.
+
+
+// Default attributes schema
+const baseTextAttributes = z.object({
+  bold: z.literal(true).optional().nullable().catch(undefined),
+  italic: z.literal(true).optional().nullable().catch(undefined),
+  underline: z.literal(true).optional().nullable().catch(undefined),
+  strike: z.literal(true).optional().nullable().catch(undefined),
+  code: z.literal(true).optional().nullable().catch(undefined),
+  link: z.string().optional().nullable().catch(undefined),
+});
+Attributes Renderer
+Attributes Renderer is a function that takes a delta and returns TemplateResult<1>, which is a valid lit-html template result.
+
+InlineEditor use this function to render text with custom format and it is also the way to customize the text render.
+
+
+type AffineTextAttributes = {
+  // Your custom attributes
+};
+
+const attributeRenderer: AttributeRenderer<AffineTextAttributes> = (
+  delta,
+  // You can use `selected` to check if the text node is selected
+  selected
+) => {
+  // Generate style from delta
+  return html`<span style=${style}><v-text .str=${delta.insert}></v-text></span>`;
+};
+
+const doc = new Y.Doc();
+const yText = doc.getText('text');
+const inlineEditor = new InlineEditor(yText);
+inlineEditor.setAttributeRenderer(attributeRenderer);
+
+const editorContainer = document.getElementById('editor');
+inlineEditor.mount(editorContainer);
+You will see there is a v-text in the template, it is a custom element that render text node. InlineEditor use them to calculate range so you have to use them to render text content from delta.
+
+Rich Text Component
+If you find the InlineEditor features may be limited or a bit verbose to use, you can refer to or directly use the rich-text encapsulated in the @blocksuite/blocks package. It contains basic editing features like copy/cut/paste, undo/redo (including range restore).
+
+===
+
+# Building and Testing BlockSuite
+
+## Using Playground
+
+To run BlockSuite from source, please ensure you have installed [Node.js](https://nodejs.org/en/download) and [yarn](https://yarnpkg.com/).
+
+```sh
+yarn install
+yarn dev
+```
+
+Be sure to use the correct version of yarn specified in package.json.
+
+Then there would be multiple entries to choose from:
+
+- The [localhost:5173/starter/?init](http://localhost:5173/starter/?init) entry is recommended for local debugging.
+- The [localhost:5173/starter/](http://localhost:5173/starter/) entry lists all of the starter presets.
+- The [localhost:5173](http://localhost:5173) entry is a comprehensive example with local-first (IndexedDB-based) data persistence and real-time collaboration support.
+
+All these entries are published to [try-blocksuite.vercel.app](https://try-blocksuite.vercel.app).
+
+And this would build the BlockSuite packages:
+
+```sh
+yarn build
+```
+
+## Testing
+
+### Test Locally
+
+Adding test cases is strongly encouraged when you contribute new features and bug fixes. We use [Playwright](https://playwright.dev/) for E2E test, and [vitest](https://vitest.dev/) for unit test.
+
+To test locally, please make sure browser binaries are already installed via `npx playwright install`. Then there are multi commands to choose from:
+
+```sh
+# run tests in headless mode in another terminal window
+yarn test
+
+# or run tests in headed mode for debugging
+yarn test -- --debug
+```
+
+In headed mode, `await page.pause()` can be used in test cases to suspend the test runner. Note that the usage of the [Playwright VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) is also highly recommended.
+
+To test browser compatibility, the `BROWSER` environment variable can be used:
+
+```sh
+# supports `firefox|webkit|chromium`
+BROWSER=firefox yarn test
+
+# passing playwright params with the -- syntax
+BROWSER=webkit yarn test -- --debug
+```
+
+To investigate flaky tests, we can mark a test case as `test.only`, then perform `npx playwright test --repeat-each=10` to reproduce the problem by repeated execution. It's also very helpful to run `yarn test -- --debug` with `await page.pause()` added before certain asserters.
+
+### Test Collaboration
+
+To test the real-time collaboration feature of BlockSuite locally, please follow these two simple steps:
+
+1. Open [localhost:5173/starter/?init&room=hello](http://localhost:5173/starter/?init&room=hello) in the first browser tab.
+2. Open [localhost:5173/starter/?room=hello](http://localhost:5173/starter/?room=hello) in a second tab.
+
+See the [documentation](https://blocksuite.io/guide/data-synchronization.html#document-streaming) about what's happening under the hood.
+
+===
+
+# Building and Testing BlockSuite
+
+## Using Playground
+
+To run BlockSuite from source, please ensure you have installed [Node.js](https://nodejs.org/en/download) and [yarn](https://yarnpkg.com/).
+
+```sh
+yarn install
+yarn dev
+```
+
+Be sure to use the correct version of yarn specified in package.json.
+
+Then there would be multiple entries to choose from:
+
+- The [localhost:5173/starter/?init](http://localhost:5173/starter/?init) entry is recommended for local debugging.
+- The [localhost:5173/starter/](http://localhost:5173/starter/) entry lists all of the starter presets.
+- The [localhost:5173](http://localhost:5173) entry is a comprehensive example with local-first (IndexedDB-based) data persistence and real-time collaboration support.
+
+All these entries are published to [try-blocksuite.vercel.app](https://try-blocksuite.vercel.app).
+
+And this would build the BlockSuite packages:
+
+```sh
+yarn build
+```
+
+## Testing
+
+### Test Locally
+
+Adding test cases is strongly encouraged when you contribute new features and bug fixes. We use [Playwright](https://playwright.dev/) for E2E test, and [vitest](https://vitest.dev/) for unit test.
+
+To test locally, please make sure browser binaries are already installed via `npx playwright install`. Then there are multi commands to choose from:
+
+```sh
+# run tests in headless mode in another terminal window
+yarn test
+
+# or run tests in headed mode for debugging
+yarn test -- --debug
+```
+
+In headed mode, `await page.pause()` can be used in test cases to suspend the test runner. Note that the usage of the [Playwright VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) is also highly recommended.
+
+To test browser compatibility, the `BROWSER` environment variable can be used:
+
+```sh
+# supports `firefox|webkit|chromium`
+BROWSER=firefox yarn test
+
+# passing playwright params with the -- syntax
+BROWSER=webkit yarn test -- --debug
+```
+
+To investigate flaky tests, we can mark a test case as `test.only`, then perform `npx playwright test --repeat-each=10` to reproduce the problem by repeated execution. It's also very helpful to run `yarn test -- --debug` with `await page.pause()` added before certain asserters.
+
+### Test Collaboration
+
+To test the real-time collaboration feature of BlockSuite locally, please follow these two simple steps:
+
+1. Open [localhost:5173/starter/?init&room=hello](http://localhost:5173/starter/?init&room=hello) in the first browser tab.
+2. Open [localhost:5173/starter/?room=hello](http://localhost:5173/starter/?room=hello) in a second tab.
+
+See the [documentation](https://blocksuite.io/guide/data-synchronization.html#document-streaming) about what's happening under the hood.
