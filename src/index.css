@@ -32,8 +32,8 @@
   --glass-inner-bg: rgba(255, 255, 255, 0.4);
   --glass-inner-border: rgba(255, 255, 255, 0.95);
 
-  /* Hero subtitle plate — SOLID (no alpha). Change this for light mode. */
-  --hero-subtitle-bg: #ffffff;
+  /* Hero subtitle plate — translucent so strands / card tint show through. */
+  --hero-subtitle-bg: rgba(255, 255, 255, 0.60);
 
   --glass-nav-fallback: rgba(255, 255, 255, 0.92);
   --glass-card-fallback: rgba(255, 255, 255, 0.7);
@@ -63,8 +63,8 @@
   --glass-inner-bg: rgba(255, 255, 255, 0.09);
   --glass-inner-border: rgba(36, 36, 36, 0.22);
 
-  /* Hero subtitle plate — SOLID (no alpha). Change this for dark mode. */
-  --hero-subtitle-bg: #2a2f55;
+  /* Hero subtitle plate — translucent so strands / card tint show through. */
+  --hero-subtitle-bg: rgba(42, 47, 85, 0.60);
 
   --glass-nav-fallback: rgba(20, 20, 20, 0.95);
   --glass-card-fallback: rgba(30, 30, 30, 0.8);
