@@ -62,7 +62,7 @@ export default function Superintelligence() {
         title="Invest in Humanity"
         actions={
           <Link to="/superintelligence/fund" className="btn-primary">
-            Support us
+            Support interest
           </Link>
         }
       >

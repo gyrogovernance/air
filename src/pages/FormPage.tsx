@@ -4,7 +4,7 @@ import { Page, PageHero, Section, Block } from '../components/Section';
 
 const FORMEASY_URL = import.meta.env.VITE_FORMEASY_URL as string | undefined;
 
-/** Fund support form (FormEasy only). Craft and Fellowship use GitHub Issue Forms and Discussions. */
+/** Fund interest form (FormEasy only). Craft and Fellowship use GitHub Issue Forms and Discussions. */
 const FormPage: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -72,7 +72,7 @@ const FormPage: React.FC = () => {
           <Block className="text-center py-6">
             <h1 className="section-title title-gradient tracking-tight mb-3">Thank you!</h1>
             <p className="text-gray-600 dark:text-gray-300 max-w-sm mx-auto leading-relaxed">
-              Thank you for your support. A member of the Collective Superintelligence Fund will contact you.
+              Thank you for registering your interest. We are not accepting funds through this site at this time. We will be in touch when the fund pathway opens.
             </p>
             <div className="mt-8">
               <Link to="/" className="btn-primary">
@@ -89,8 +89,8 @@ const FormPage: React.FC = () => {
     <Page>
       <PageHero
         icon="💚"
-        title="Support the Collective Superintelligence Fund"
-        subtitle="Invest in humanity. Support all those left out by conventional labs."
+        title="Support interest"
+        subtitle="This form registers interest in supporting the future fund. We are not accepting funds through this site at this time."
         tint="purple"
       />
 
@@ -161,7 +161,7 @@ const FormPage: React.FC = () => {
               disabled={submitting}
               className="w-full sm:w-auto min-w-[240px] py-3.5 px-8 rounded-full bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 hover:brightness-110 transition-all text-white font-bold text-sm tracking-wider shadow-lg disabled:opacity-60 disabled:pointer-events-none"
             >
-              {submitting ? 'SUBMITTING…' : 'SUBMIT APPLICATION'}
+              {submitting ? 'SUBMITTING…' : 'REGISTER INTEREST'}
             </button>
             <p className="text-center text-xs text-gray-500 dark:text-gray-400">
               By submitting, you agree to our{' '}

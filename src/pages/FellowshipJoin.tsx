@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Page, PageHero, Section, Block } from '../components/Section';
-import PrototypePill from '../components/PrototypePill';
+import PrototypePill, { VoluntaryPill } from '../components/PrototypePill';
 
 const INTRO_URL =
   'https://github.com/gyrogovernance/air-craft/discussions/new?category=introductions';
@@ -18,29 +18,60 @@ export default function FellowshipJoin() {
         badge={<PrototypePill detail />}
         icon="🎫"
         title="Join the AIR Fellowship"
-        subtitle="Open enrollment, not an admissions process. You are a Fellow once you post your introduction."
+        belowTitle={
+          <div className="flex justify-center">
+            <VoluntaryPill />
+          </div>
+        }
+        subtitle="Open enrollment, without admissions."
         tint="emerald"
       />
 
       <Section tint="cyan" icon="🛤️" title="Three steps">
-        <Block className="space-y-4">
-          <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-200 leading-relaxed">
+        <Block>
+          <ol className="space-y-6">
             <li>
-              Create a GitHub account if you do not have one. GitHub is required, including for articles and reports.
+              <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-50 tracking-tight">
+                <span className="text-emerald-700 dark:text-emerald-400 tabular-nums mr-2">1.</span>
+                Create a GitHub account
+              </p>
+              <p className="mt-1.5 pl-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                Skip this if you already have one. GitHub is required for membership, articles, and reports.
+              </p>
             </li>
             <li>
-              Read the{' '}
-              <a href={AGREEMENT_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-700 dark:text-emerald-400">
-                AIR Fellow Agreement ↗
-              </a>
-              .
+              <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-50 tracking-tight">
+                <span className="text-emerald-700 dark:text-emerald-400 tabular-nums mr-2">2.</span>
+                Read the Fellow Agreement
+              </p>
+              <p className="mt-1.5 pl-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <a
+                  href={AGREEMENT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-emerald-700 dark:text-emerald-400"
+                >
+                  AIR Fellow Agreement ↗
+                </a>
+              </p>
             </li>
             <li>
-              Post your introduction with your real public name. That post is your membership record. Claim{' '}
-              <a href={ASSIGNMENTS_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-700 dark:text-emerald-400">
-                assignments ↗
-              </a>{' '}
-              later if you want. No day-one production requirement.
+              <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-50 tracking-tight">
+                <span className="text-emerald-700 dark:text-emerald-400 tabular-nums mr-2">3.</span>
+                Post your introduction
+              </p>
+              <p className="mt-1.5 pl-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                Use your real public name. That post is your membership record. You can claim{' '}
+                <a
+                  href={ASSIGNMENTS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-emerald-700 dark:text-emerald-400"
+                >
+                  assignments ↗
+                </a>{' '}
+                later.
+              </p>
             </li>
           </ol>
         </Block>

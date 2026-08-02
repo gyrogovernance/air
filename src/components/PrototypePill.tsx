@@ -9,3 +9,18 @@ export default function PrototypePill({ detail = false }: { detail?: boolean }) 
     </span>
   );
 }
+
+const VOLUNTARY_COPY =
+  'Contributions to AIR are made on a voluntary basis, with no compensation, unless a separate written agreement explicitly states otherwise.';
+
+/** Notice pill for open-enrollment / unpaid contribution surfaces. */
+export function VoluntaryPill() {
+  return (
+    <span
+      className="inline-flex max-w-xl text-center px-3 py-1.5 text-xs font-semibold leading-snug rounded-full border border-emerald-500/35 bg-emerald-500/10 text-emerald-900 dark:text-emerald-200"
+      role="note"
+    >
+      {VOLUNTARY_COPY}
+    </span>
+  );
+}

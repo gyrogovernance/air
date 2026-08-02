@@ -123,8 +123,9 @@ const pages: Record<string, PageSeo> = {
   },
   '/superintelligence/fund': {
     path: '/superintelligence/fund',
-    title: 'Support the Fund | AIR',
-    description: 'Support the Collective Superintelligence Fund backing fellowship participants in AI safety and governance.',
+    title: 'Support interest | AIR',
+    description:
+      'Register interest in supporting the future Collective Superintelligence Fund. We are not accepting funds through this site at this time.',
   },
   '/privacy': {
     path: '/privacy',

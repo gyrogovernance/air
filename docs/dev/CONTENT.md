@@ -19,7 +19,7 @@ Model-facing outline of the public site at [air.gyrogovernance.com](https://air.
   │    └─ /craft/form      Submit project
   └─ /superintelligence    Collective Superintelligence (nav child)
        ├─ /superintelligence/form   Join Fellowship
-       └─ /superintelligence/fund   Support Fund
+       └─ /superintelligence/fund   Support interest
 /privacy                   Privacy Policy
 /cookies                   Cookie Policy
 
@@ -107,7 +107,7 @@ Section order matches live page:
 
 - **Hero (✨):** “We redefine superintelligence as the seamless cooperation between humans and machines in the era of Transformative AI (TAI) and Artificial General Intelligence (AGI) (see Bostrom, Superintelligence, 2014; Korompilias, Gyroscopic Global Governance, 2025).” CTA **Learn more** → [github.com/gyrogovernance/superintelligence](https://github.com/gyrogovernance/superintelligence).
 - **Our Fellowship (👥):** “Built for misfits, generalists, autodidacts, and marginalized individuals who want to contribute to independent AI safety research and governance now.” **Who is eligible?** “We support the 99% of AI safety candidates who wish to build their portfolio and career in alignment and AGI safety, but existing labs often do not have the capacity to integrate.” Open enrollment  -  no selective admissions. CTA **Join** → `/superintelligence/form`.
-- **Invest in Humanity (💚):** “For every hire a lab makes, 100 to 1000 people are left out. The Collective Superintelligence Fund aims to support all those who join our Fellowship program.” CTA **Support us** → `/superintelligence/fund`.
+- **Invest in Humanity (💚):** “For every hire a lab makes, 100 to 1000 people are left out. The Collective Superintelligence Fund aims to support all those who join our Fellowship program.” CTA **Support interest** → `/superintelligence/fund`.
 
 ### Join / submit / fund entry points
 
@@ -126,7 +126,7 @@ Issue Form requires: public name, GitHub profile, **link to Fellowship introduct
 
 #### `/superintelligence/form`  -  `FellowshipJoin`
 
-Prototype detail pill. Static instructions. Open enrollment  -  **not an admissions process**. “You are a Fellow once you post your introduction.”
+Prototype detail pill plus voluntary-contribution pill under the H1: “Contributions to AIR are made on a voluntary basis, with no compensation, unless a separate written agreement explicitly states otherwise.” Static instructions. Open enrollment  -  **not an admissions process**. “You are a Fellow once you post your introduction.”
 
 - [Create GitHub account](https://github.com/join)
 - Primary CTA: **Post your introduction on GitHub** → [Introductions](https://github.com/gyrogovernance/air-craft/discussions/new?category=introductions)
@@ -136,7 +136,7 @@ No follow-up contact copy. No “Submit application” language.
 
 #### `/superintelligence/fund`  -  `FormPage` (FormEasy)
 
-POST JSON to `VITE_FORMEASY_URL` with `formType=fund`, `name`, `email`, `message`, `organization` (optional). Privacy/cookies note. Submit label **SUBMIT APPLICATION**. Cancel → `/superintelligence`. Success → `/` with Fund contact follow-up.
+Title **Support interest**. Subtitle: “This form registers interest in supporting the future fund. We are not accepting funds through this site at this time.” POST JSON to `VITE_FORMEASY_URL` with `formType=fund`, `name`, `email`, `message`, `organization` (optional). Privacy/cookies note. Submit label **REGISTER INTEREST**. Cancel → `/superintelligence`. Success → `/` (interest registered; funds not accepted on site yet).
 
 ### `/privacy` · `/cookies`
 
