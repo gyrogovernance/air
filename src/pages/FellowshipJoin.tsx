@@ -10,7 +10,7 @@ const GITHUB_JOIN_URL = 'https://github.com/join';
 const ASSIGNMENTS_URL =
   'https://github.com/gyrogovernance/air-craft/discussions/categories/assignments';
 
-/** Join Fellowship — GitHub Discussions introduction (not FormEasy). */
+/** Join Fellowship via GitHub Discussions introduction (not FormEasy). */
 export default function FellowshipJoin() {
   return (
     <Page>
@@ -18,7 +18,7 @@ export default function FellowshipJoin() {
         badge={<PrototypePill detail />}
         icon="🎫"
         title="Join the AIR Fellowship"
-        subtitle="Open enrollment — not an admissions process. You are a Fellow once you post your introduction."
+        subtitle="Open enrollment, not an admissions process. You are a Fellow once you post your introduction."
         tint="emerald"
       />
 
@@ -40,7 +40,7 @@ export default function FellowshipJoin() {
               <a href={ASSIGNMENTS_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-700 dark:text-emerald-400">
                 assignments ↗
               </a>{' '}
-              later if you want — no day-one production requirement.
+              later if you want. No day-one production requirement.
             </li>
           </ol>
         </Block>

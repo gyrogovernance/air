@@ -97,13 +97,13 @@ const pages: Record<string, PageSeo> = {
     path: '/craft/form',
     title: 'Submit a Project | AIR-Craft',
     description:
-      'Submit a dataset, report, eval, or tool to AIR-Craft via GitHub Issue Form. Real name and typed signature required. Listed on air.gyrogovernance.com/craft.',
+      'Submit a dataset, report, eval, or tool to AIR-Craft via GitHub Issue Form. Real name and Fellowship introduction link required. Listed on air.gyrogovernance.com/craft.',
   },
   '/superintelligence/form': {
     path: '/superintelligence/form',
     title: 'Join the Fellowship | AIR',
     description:
-      'Join the AIR Fellowship by posting an introduction on GitHub Discussions. Open enrollment — you are a Fellow once you post. Not an admissions process.',
+      'Join the AIR Fellowship by posting an introduction on GitHub Discussions. Open enrollment: you are a Fellow once you post. Not an admissions process.',
   },
   '/superintelligence/fund': {
     path: '/superintelligence/fund',

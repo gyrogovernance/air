@@ -4,7 +4,7 @@ import { Page, PageHero, Section, Block } from '../components/Section';
 
 const FORMEASY_URL = import.meta.env.VITE_FORMEASY_URL as string | undefined;
 
-/** Fund support form — FormEasy only. Craft / Fellowship use GitHub Issue Forms & Discussions. */
+/** Fund support form (FormEasy only). Craft and Fellowship use GitHub Issue Forms and Discussions. */
 const FormPage: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);

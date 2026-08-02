@@ -117,10 +117,10 @@ air/
 | `/about` | About |
 | `/infrastructure` | Human Capacity Development Infrastructure |
 | `/craft` | AIR-Craft (datasets, tools, reports) |
-| `/craft/form` | CraftSubmit — GitHub Issue Form instructions |
+| `/craft/form` | CraftSubmit  -  GitHub Issue Form instructions |
 | `/superintelligence` | Collective Superintelligence + fellowship |
-| `/superintelligence/form` | FellowshipJoin — GitHub Discussions introduction |
-| `/superintelligence/fund` | FormPage — FormEasy fund support |
+| `/superintelligence/form` | FellowshipJoin  -  GitHub Discussions introduction |
+| `/superintelligence/fund` | FormPage  -  FormEasy fund support |
 | `/privacy`, `/cookies` | Legal |
 | `/index` | Redirect → `/craft` |
 | `/index/form` | Redirect → `/craft/form` |
@@ -168,7 +168,7 @@ Keyword themes (natural use, not stuffing): alignment infrastructure, AI safety,
 Designed as a static Vite export (`dist/`):
 
 - **Primary:** GitHub Pages via `.github/workflows/deploy-pages.yml`
-  - Triggers: push to `main`, cron `0 6 * * *` (06:00 UTC daily — refresh Craft SEO fallback), `workflow_dispatch`
+  - Triggers: push to `main`, cron `0 6 * * *` (06:00 UTC daily  -  refresh Craft SEO fallback), `workflow_dispatch`
   - Runtime: `oven-sh/setup-bun@v2`, `bun install --frozen-lockfile`, `bun run build`
   - Build env: `VITE_SITE_URL=https://air.gyrogovernance.com`; `VITE_FORMEASY_URL` from GitHub secret `VITE_FORMEASY_URL`
   - Artifact: `dist/` (includes `404.html` SPA fallback); `actions/deploy-pages@v4`

@@ -15,7 +15,7 @@ export function Page({ children }: { children: ReactNode }) {
 /**
  * Page hero inside a glass shell so title/subtitle stay readable on the blob bg.
  * H1 always uses the brand gradient.
- * `backdrop` fills the card behind content (e.g. Strands) — clipped by the card, under GlassInner.
+ * `backdrop` fills the card behind content (e.g. Strands)  -  clipped by the card, under GlassInner.
  */
 export function PageHero({
   title,
@@ -141,7 +141,7 @@ export function Section({
   );
 }
 
-/** Frosted inner content cell — translucent so outer card tint stays visible. */
+/** Frosted inner content cell  -  translucent so outer card tint stays visible. */
 export function Block({
   children,
   className = '',

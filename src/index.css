@@ -32,7 +32,7 @@
   --glass-inner-bg: rgba(255, 255, 255, 0.4);
   --glass-inner-border: rgba(255, 255, 255, 0.95);
 
-  /* Hero subtitle plate — translucent so strands / card tint show through. */
+  /* Hero subtitle plate  -  translucent so strands / card tint show through. */
   --hero-subtitle-bg: rgba(255, 255, 255, 0.60);
 
   --glass-nav-fallback: rgba(255, 255, 255, 0.92);
@@ -63,7 +63,7 @@
   --glass-inner-bg: rgba(255, 255, 255, 0.09);
   --glass-inner-border: rgba(36, 36, 36, 0.22);
 
-  /* Hero subtitle plate — translucent so strands / card tint show through. */
+  /* Hero subtitle plate  -  translucent so strands / card tint show through. */
   --hero-subtitle-bg: rgba(42, 47, 85, 0.60);
 
   --glass-nav-fallback: rgba(20, 20, 20, 0.95);
@@ -312,7 +312,7 @@ body {
   flex-direction: column;
   gap: 0.15rem;
   border-radius: 1rem;
-  /* Opaque fallback — child backdrop-filter is unreliable inside a filtered .glass-nav */
+  /* Opaque fallback  -  child backdrop-filter is unreliable inside a filtered .glass-nav */
   background: var(--glass-nav-fallback);
   border: 1.5px solid var(--glass-nav-border);
   box-shadow: var(--glass-nav-shadow);
@@ -422,7 +422,7 @@ body {
   filter: brightness(1.05);
 }
 
-/* Secondary / outline — frosted fill + saturated text (gyro secondary-button pattern) */
+/* Secondary / outline  -  frosted fill + saturated text (gyro secondary-button pattern) */
 .btn-secondary,
 .btn-outline {
   color: #1d4ed8;

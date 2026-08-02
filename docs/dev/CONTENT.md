@@ -1,4 +1,4 @@
-# AIR website — structure and content
+# AIR website  -  structure and content
 
 Model-facing outline of the public site at [air.gyrogovernance.com](https://air.gyrogovernance.com). Source of truth for routes and copy is `src/pages/*`, `src/lib/nav.ts`, `src/router.tsx`, and `src/components/Footer.tsx`. Operator: **Gyro Governance Lab** ([gyrogovernance.com](https://gyrogovernance.com/)). License note on site: CC BY-SA 4.0.
 
@@ -43,7 +43,7 @@ Legacy redirects:
 | The Human Mark (THM) | Epistemic taxonomy for jailbreaks, deceptive alignment, existential risk |
 | Collective Superintelligence | Human–machine cooperation infrastructure (not “another model”); Fellowship + Fund |
 | AIR-Craft | Skilled work: datasets, reports, tools by Fellows and Lab |
-| GGG | Gyroscopic Global Governance — whitepaper / multi-domain governance sandbox |
+| GGG | Gyroscopic Global Governance  -  whitepaper / multi-domain governance sandbox |
 
 **Canonical consensus line:** “All Artificial categories of Authority and Agency are Indirect, constitutively dependent on Human Intelligence.”
 
@@ -55,7 +55,7 @@ Legacy redirects:
 
 ## Page outlines
 
-### `/` — Home
+### `/`  -  Home
 
 - **Hero (AIR 🍃):** Prototype badge; audience line “Alignment Infrastructure Routes for Independent Researchers, Engineers, Offices of Community Safety, and AI Labs.”; delivery subtitle; CTAs **About us** → `/about`, **Join us** → `/superintelligence`. WebGL `Strands` backdrop.
 - **Power Concentration Risks (⚖️):**
@@ -64,30 +64,30 @@ Legacy redirects:
   - **What do we do to mitigate such risks?** We provide protocols as shared infrastructure to help you research and build solutions to today’s most urgent crises in the age of Transformative AI, and we welcome anyone who wants to contribute, without credential or hiring gatekeeping.
   - CTAs: **Alignment Infrastructure** → `/infrastructure`, **AI Safety Interventions** → `/craft`.
 
-### `/about` — About
+### `/about`  -  About
 
 - **About (ℹ️, page H1):** “AIR is a framework for Alignment on Uniform Power Distribution through AI-Empowered Human Capacity Development. This Alignment operates over a Unified Scope for AI safety and governance, enabling us to collectively address the interconnected crises of poverty, unemployment, misinformation, and ecological degeneration.” CTA **Alignment infrastructure** → `/infrastructure`.
 - **How we work (🔄):** Working-principle quote; “We provide Guides to help you coordinate in any topic you choose, aligning all contributions with Four Routes for effective operationalization of your AI safety and governance interventions.” CTA **Collective Superintelligence Fellowship** → `/superintelligence`.
-- **Our Common Consensus (🤝):** Consensus line; AI as pattern-matching / Indirect Authority and Agency; enhanced capability is more sophisticated transformation, not a change of class (Direct/Indirect); capacity vs identity; safety failures when the distinction is violated; four capacities and corresponding displacements. CTA **✋ The Human Mark ↗** → [gyrogovernance.com/#thm](https://gyrogovernance.com/#thm).
+- **Our Common Consensus (🤝):** Consensus line; AI as pattern-matching / Indirect Authority and Agency; enhanced capability is more sophisticated transformation, not a change of class (Direct/Indirect); capacity vs identity; safety failures when the distinction is violated; four capacities and corresponding displacements. CTA **✋ The Human Mark � - ** → [gyrogovernance.com/#thm](https://gyrogovernance.com/#thm).
 
-### `/infrastructure` — Human Capacity Development Infrastructure
+### `/infrastructure`  -  Human Capacity Development Infrastructure
 
 Section order matches live page:
 
 1. **Hero (🤝):** Uniform Power Distribution Guides (protocols as infrastructure; four capacities and displacements) + Unified Scope Routes (AI-Empowered Economy, Employment, Education, Ecology). CTA **About us** → `/about`.
 2. **Collective Superintelligence blurb (✨):** “Collective Superintelligence is central to our research at Gyro Governance Lab. Rather than another AI model, it is the infrastructure that helps humans get better together through technology.” CTA **Superintelligence** → `/superintelligence`.
-3. **Protocols (📜):** GGG as foundational whitepaper linking Collective Superintelligence to alleviation of Poverty, Unemployment, Misinformation, and Ecological Degradation. Four protocols: **Common Governance Model** (Economy), **Gyroscope Protocol** (Employment), **✋ The Human Mark** (Education), **Gyroscopic Global Governance** overall (Ecology). CTA **Learn more ↗** → [gyrogovernance.com/#ggg](https://gyrogovernance.com/#ggg).
+3. **Protocols (📜):** GGG as foundational whitepaper linking Collective Superintelligence to alleviation of Poverty, Unemployment, Misinformation, and Ecological Degradation. Four protocols: **Common Governance Model** (Economy), **Gyroscope Protocol** (Employment), **✋ The Human Mark** (Education), **Gyroscopic Global Governance** overall (Ecology). CTA **Learn more � - ** → [gyrogovernance.com/#ggg](https://gyrogovernance.com/#ggg).
 4. **The Human Mark (✋):** Subtitle “Epistemic Taxonomy for Jailbreaks, Deceptive Alignment, and Existential Risk.” THM as risk-management taxonomy distinguishing knowledge capacity via constitutive dependence on Direct Authority and Agency preserved through ancestry; epistemology / evidence-law grounding (direct testimony vs hearsay).
    - **Risks:** Governance Traceability Displacement; Information Variety Displacement; Inference Accountability Displacement; Intelligence Integrity Displacement.
    - **Applications:** Jailbreak testing; Deceptive alignment detection; Control evaluations; Mechanistic interpretability; Regulatory compliance.
-   - CTAs: **More info ↗** → `#thm`; **GitHub Repo ↗** → [github.com/gyrogovernance/tools](https://github.com/gyrogovernance/tools); **Interactive NotebookLM ↗** → [NotebookLM notebook](https://notebooklm.google.com/notebook/34e2d367-101a-4457-83fc-9c1049d29e32?authuser=1).
+   - CTAs: **More info � - ** → `#thm`; **GitHub Repo � - ** → [github.com/gyrogovernance/tools](https://github.com/gyrogovernance/tools); **Interactive NotebookLM � - ** → [NotebookLM notebook](https://notebooklm.google.com/notebook/34e2d367-101a-4457-83fc-9c1049d29e32?authuser=1).
 
-### `/craft` — AIR-Craft
+### `/craft`  -  AIR-Craft
 
 - **Hero (🛩️):** “Skilled work in AI safety and governance with datasets, reports, and tools by our Fellows and Lab.”
-- **Projects (🗂️):** Cards rendered from [gyrogovernance/air-craft](https://github.com/gyrogovernance/air-craft) `AIR-Craft.md`.
+- **Projects (� - �️):** Cards rendered from [gyrogovernance/air-craft](https://github.com/gyrogovernance/air-craft) `AIR-Craft.md`.
   - **Build snapshot** (`scripts/sync-air-craft.mjs` → `src/data/airCraft.generated.json`): first paint, `/craft` SEO description/keywords, refreshed on every `bun run build` and on the daily GitHub Pages deploy. Build override: `AIR_CRAFT_MD_URL` or `VITE_AIR_CRAFT_MD_URL`. If remote fetch fails at build: previous generated file, else seed list in the sync script.
-  - **Live fetch** after mount: same raw URL; runtime override **`VITE_AIR_CRAFT_MD_URL` only**. On failure, keep the build snapshot. Live fetch updates cards only — document head / OG for `/craft` stay on the build snapshot until the next deploy.
+  - **Live fetch** after mount: same raw URL; runtime override **`VITE_AIR_CRAFT_MD_URL` only**. On failure, keep the build snapshot. Live fetch updates cards only  -  document head / OG for `/craft` stay on the build snapshot until the next deploy.
   - Canonical list source: [`AIR-Craft.md`](https://github.com/gyrogovernance/air-craft/blob/main/AIR-Craft.md), rebuilt in that repo from `AIR-Craft.seed.md` + open Issues labeled `submission` (`.github/workflows/rebuild-air-craft.yml`). Current snapshot projects:
 
 | Domain | Emoji | Title | Description | Link |
@@ -99,30 +99,30 @@ Section order matches live page:
 
 - **Submit your Project (📤):** Process: (1) Register via Fellowship introduction on GitHub Discussions; (2) Work and Iterate through Self-Audit on your own terms; (3) Submit to AIR-Craft via GitHub Issue Form. CTA **Join** → `/craft/form`.
 
-### `/superintelligence` — Collective Superintelligence
+### `/superintelligence`  -  Collective Superintelligence
 
 - **Hero (✨):** “We redefine superintelligence as the seamless cooperation between humans and machines in the era of Transformative AI (TAI) and Artificial General Intelligence (AGI) (see Bostrom, Superintelligence, 2014; Korompilias, Gyroscopic Global Governance, 2025).” CTA **Learn more** → [github.com/gyrogovernance/superintelligence](https://github.com/gyrogovernance/superintelligence).
-- **Our Fellowship (👥):** “Built for misfits, generalists, autodidacts, and marginalized individuals who want to contribute to independent AI safety research and governance now.” **Who is eligible?** “We support the 99% of AI safety candidates who wish to build their portfolio and career in alignment and AGI safety, but existing labs often do not have the capacity to integrate.” Open enrollment — no selective admissions. CTA **Join** → `/superintelligence/form`.
+- **Our Fellowship (👥):** “Built for misfits, generalists, autodidacts, and marginalized individuals who want to contribute to independent AI safety research and governance now.” **Who is eligible?** “We support the 99% of AI safety candidates who wish to build their portfolio and career in alignment and AGI safety, but existing labs often do not have the capacity to integrate.” Open enrollment  -  no selective admissions. CTA **Join** → `/superintelligence/form`.
 - **Invest in Humanity (💚):** “For every hire a lab makes, 100 to 1000 people are left out. The Collective Superintelligence Fund aims to support all those who join our Fellowship program.” CTA **Support us** → `/superintelligence/fund`.
 
 ### Join / submit / fund entry points
 
 Craft and Fellowship no longer use FormEasy. Fund still does.
 
-#### `/craft/form` — `CraftSubmit`
+#### `/craft/form`  -  `CraftSubmit`
 
 Prototype detail pill. Static instructions. Links:
 
-- Primary: [Submit to AIR-Craft](https://github.com/gyrogovernance/air-craft/issues/new?template=submit-to-air-craft.yml)
-- Secondary: [Review a submission](https://github.com/gyrogovernance/air-craft/issues/new?template=review-a-submission.yml)
+- Primary: [Submit to AIR-Craft](https://github.com/gyrogovernance/air-craft/issues/new?template=1-submit.yml)
+- Secondary: [Review a submission](https://github.com/gyrogovernance/air-craft/issues/new?template=2-review.yml)
 - Prerequisite: [Post your introduction](https://github.com/gyrogovernance/air-craft/discussions/new?category=introductions)
 - Agreement: [FELLOW_AGREEMENT.md](https://github.com/gyrogovernance/air-craft/blob/main/FELLOW_AGREEMENT.md)
 
-Issue Form requires: public name, typed signature + date, GitHub profile, **link to Fellowship introduction**, route, artifact type, title, summary, primary link, THM self-audit, peer-feedback preference. Closing a submission Issue withdraws it from the public list. No “we will contact you” follow-up copy.
+Issue Form requires: public name, GitHub profile, **link to Fellowship introduction**, route, artifact type, title, summary, primary link, THM self-audit, peer-feedback preference. Closing a submission Issue withdraws it from the public list. 
 
-#### `/superintelligence/form` — `FellowshipJoin`
+#### `/superintelligence/form`  -  `FellowshipJoin`
 
-Prototype detail pill. Static instructions. Open enrollment — **not an admissions process**. “You are a Fellow once you post your introduction.”
+Prototype detail pill. Static instructions. Open enrollment  -  **not an admissions process**. “You are a Fellow once you post your introduction.”
 
 - [Create GitHub account](https://github.com/join)
 - Primary CTA: **Post your introduction on GitHub** → [Introductions](https://github.com/gyrogovernance/air-craft/discussions/new?category=introductions)
@@ -130,7 +130,7 @@ Prototype detail pill. Static instructions. Open enrollment — **not an admissi
 
 No follow-up contact copy. No “Submit application” language.
 
-#### `/superintelligence/fund` — `FormPage` (FormEasy)
+#### `/superintelligence/fund`  -  `FormPage` (FormEasy)
 
 POST JSON to `VITE_FORMEASY_URL` with `formType=fund`, `name`, `email`, `message`, `organization` (optional). Privacy/cookies note. Submit label **SUBMIT APPLICATION**. Cancel → `/superintelligence`. Success → `/` with Fund contact follow-up.
 
@@ -142,17 +142,17 @@ Legal pages for the AIR site operated by Gyro Governance Lab. Effective / last u
 
 ## External destinations (frequently linked)
 
-- [gyrogovernance.com](https://gyrogovernance.com/) — Lab home
-- [gyrogovernance.com/#thm](https://gyrogovernance.com/#thm) — The Human Mark
-- [gyrogovernance.com/#ggg](https://gyrogovernance.com/#ggg) — Gyroscopic Global Governance
-- [gyrogovernance.com/articles/ggg-simulator-results/](https://gyrogovernance.com/articles/ggg-simulator-results/) — GGG simulator results (Craft Ecology)
-- [github.com/gyrogovernance/superintelligence](https://github.com/gyrogovernance/superintelligence) — Superintelligence repo / Moments Economy whitepaper path
-- [github.com/gyrogovernance/tools](https://github.com/gyrogovernance/tools) — THM-related tools
-- [github.com/gyrogovernance/air-craft](https://github.com/gyrogovernance/air-craft) — AIR-Craft list (`AIR-Craft.md`), Fellow Agreement, Issue/Discussion forms
+- [gyrogovernance.com](https://gyrogovernance.com/)  -  Lab home
+- [gyrogovernance.com/#thm](https://gyrogovernance.com/#thm)  -  The Human Mark
+- [gyrogovernance.com/#ggg](https://gyrogovernance.com/#ggg)  -  Gyroscopic Global Governance
+- [gyrogovernance.com/articles/ggg-simulator-results/](https://gyrogovernance.com/articles/ggg-simulator-results/)  -  GGG simulator results (Craft Ecology)
+- [github.com/gyrogovernance/superintelligence](https://github.com/gyrogovernance/superintelligence)  -  Superintelligence repo / Moments Economy whitepaper path
+- [github.com/gyrogovernance/tools](https://github.com/gyrogovernance/tools)  -  THM-related tools
+- [github.com/gyrogovernance/air-craft](https://github.com/gyrogovernance/air-craft)  -  AIR-Craft list (`AIR-Craft.md`), Fellow Agreement, Issue/Discussion forms
 - [AIR Fellow Agreement](https://github.com/gyrogovernance/air-craft/blob/main/FELLOW_AGREEMENT.md)
-- [Submit to AIR-Craft](https://github.com/gyrogovernance/air-craft/issues/new?template=submit-to-air-craft.yml)
+- [Submit to AIR-Craft](https://github.com/gyrogovernance/air-craft/issues/new?template=1-submit.yml)
 - [Fellowship introductions](https://github.com/gyrogovernance/air-craft/discussions/new?category=introductions)
-- [Chrome Web Store — AI Inspector](https://chromewebstore.google.com/detail/ai-inspector/hcblmheihnlngnogobgclhfahjljnbok?utm_source=item-share-cb)
+- [Chrome Web Store  -  AI Inspector](https://chromewebstore.google.com/detail/ai-inspector/hcblmheihnlngnogobgclhfahjljnbok?utm_source=item-share-cb)
 - [GyroGem on Gemini](https://gemini.google.com/gem/1B-gQt-M3aKfsv9HDp_8gTQHG89bCfqlO?usp=sharing)
 - [THM NotebookLM](https://notebooklm.google.com/notebook/34e2d367-101a-4457-83fc-9c1049d29e32?authuser=1)
 
@@ -160,7 +160,7 @@ Legal pages for the AIR site operated by Gyro Governance Lab. Effective / last u
 
 ## What this site is / is not
 
-**Is:** Public narrative and entry points for AIR — framework overview, infrastructure (Guides, Routes, THM, GGG), AIR-Craft portfolio, Fellowship and Fund applications.
+**Is:** Public narrative and entry points for AIR  -  framework overview, infrastructure (Guides, Routes, THM, GGG), AIR-Craft portfolio, Fellowship and Fund applications.
 
 **Is not:** The full research wiki, BlockSuite/desktop product architecture, or kernel docs (see other `docs/` files for those). Do not invent products, pages, or claims beyond this outline unless the live source files say so.
 

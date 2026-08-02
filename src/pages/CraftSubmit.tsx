@@ -3,15 +3,15 @@ import { Page, PageHero, Section, Block } from '../components/Section';
 import PrototypePill from '../components/PrototypePill';
 
 const SUBMIT_URL =
-  'https://github.com/gyrogovernance/air-craft/issues/new?template=submit-to-air-craft.yml';
+  'https://github.com/gyrogovernance/air-craft/issues/new?template=1-submit.yml';
 const REVIEW_URL =
-  'https://github.com/gyrogovernance/air-craft/issues/new?template=review-a-submission.yml';
+  'https://github.com/gyrogovernance/air-craft/issues/new?template=2-review.yml';
 const INTRO_URL =
   'https://github.com/gyrogovernance/air-craft/discussions/new?category=introductions';
 const AGREEMENT_URL =
   'https://github.com/gyrogovernance/air-craft/blob/main/FELLOW_AGREEMENT.md';
 
-/** Submit project — GitHub Issue Form (not FormEasy). */
+/** Submit project via GitHub Issue Form (not FormEasy). */
 export default function CraftSubmit() {
   return (
     <Page>
@@ -19,7 +19,7 @@ export default function CraftSubmit() {
         badge={<PrototypePill detail />}
         icon="🛩️"
         title="Submit Your Project to AIR-Craft"
-        subtitle="List public work on air.gyrogovernance.com/craft. Issues only — Submit and Review. Include a link to your Fellowship introduction."
+        subtitle="List public work on air.gyrogovernance.com/craft. Issues are Submit and Review only. Include a link to your Fellowship introduction."
         tint="emerald"
       />
 
@@ -31,11 +31,11 @@ export default function CraftSubmit() {
               <a href={INTRO_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-700 dark:text-emerald-400">
                 post your introduction ↗
               </a>{' '}
-              (open enrollment — you are a Fellow once you post).
+              (open enrollment; you are a Fellow once you post).
             </li>
             <li>Work and iterate through Self-Audit on your own terms.</li>
             <li>
-              Open the Submit form. Use your real public name, typed signature and date, and link your introduction. Agree to the{' '}
+              Open the Submit form. Use your real public name and link your introduction. Agree to the{' '}
               <a href={AGREEMENT_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-700 dark:text-emerald-400">
                 Fellow Agreement ↗
               </a>
