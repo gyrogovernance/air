@@ -6,7 +6,7 @@ type Tint = 'emerald' | 'green' | 'teal' | 'cyan' | 'blue' | 'purple' | 'orange'
 /** Consistent page column used by all routes. */
 export function Page({ children }: { children: ReactNode }) {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-9 sm:pt-9 pb-10 sm:pb-14 space-y-8">
       {children}
     </div>
   );
@@ -23,6 +23,7 @@ export function PageHero({
   meta,
   belowTitle,
   icon,
+  badge,
   tint = 'emerald',
   backdrop,
   children,
@@ -33,6 +34,8 @@ export function PageHero({
   /** Content directly under the H1 (e.g. mission line), before subtitle. */
   belowTitle?: ReactNode;
   icon?: ReactNode;
+  /** Optional status chip above the title (e.g. Prototype). */
+  badge?: ReactNode;
   tint?: Tint;
   backdrop?: ReactNode;
   children?: ReactNode;
@@ -46,6 +49,8 @@ export function PageHero({
       ) : null}
 
       <header className="relative z-10 p-6 sm:p-8 text-center">
+        {badge ? <div className="mb-3 flex justify-center">{badge}</div> : null}
+
         {icon ? (
           <div className="text-4xl sm:text-5xl mb-3 leading-none" aria-hidden="true">
             {icon}
@@ -80,6 +85,7 @@ export function PageHero({
 /**
  * One draft section = one outer glass shell.
  * `icon` gives each section a distinct visual mark (avoid repeating the same emoji).
+ * `hero` promotes the section heading to page H1 with brand gradient (for merged page tops).
  */
 export function Section({
   tint = 'emerald',
@@ -87,27 +93,40 @@ export function Section({
   icon,
   children,
   actions,
+  hero = false,
 }: {
   tint?: Tint;
   title?: ReactNode;
   icon?: ReactNode;
   children: ReactNode;
   actions?: ReactNode;
+  hero?: boolean;
 }) {
+  const Heading = hero ? 'h1' : 'h2';
+
   return (
     <GlassCard tint={tint}>
       <div className="relative z-10 p-5 sm:p-7 md:p-8">
         {icon || title ? (
           <div className="text-center mb-6">
             {icon ? (
-              <div className="text-4xl mb-2 leading-none" aria-hidden="true">
+              <div
+                className={`${hero ? 'text-4xl sm:text-5xl mb-3' : 'text-4xl mb-2'} leading-none`}
+                aria-hidden="true"
+              >
                 {icon}
               </div>
             ) : null}
             {title ? (
-              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+              <Heading
+                className={
+                  hero
+                    ? 'section-title title-gradient tracking-tight'
+                    : 'text-2xl sm:text-3xl font-extrabold tracking-tight'
+                }
+              >
                 {title}
-              </h2>
+              </Heading>
             ) : null}
           </div>
         ) : null}

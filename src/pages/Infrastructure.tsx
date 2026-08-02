@@ -1,19 +1,15 @@
 import { Link } from 'react-router-dom';
-import { Page, PageHero, Section, Block } from '../components/Section';
+import { Page, Section, Block } from '../components/Section';
 
 /** Infrastructure page draft [/infrastructure] */
 export default function Infrastructure() {
   return (
     <Page>
-      <PageHero
+      <Section
+        hero
+        tint="teal"
         icon="🤝"
         title="Human Capacity Development Infrastructure"
-        tint="emerald"
-      />
-
-      <Section
-        tint="teal"
-        icon="📐"
         actions={
           <Link to="/about" className="btn-outline text-sm">
             About us

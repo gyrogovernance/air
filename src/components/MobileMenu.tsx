@@ -3,12 +3,7 @@ import { createPortal } from 'react-dom';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import GlassCard from './GlassCard';
-
-type NavItem = {
-  to: string;
-  label: string;
-  emoji: string;
-};
+import type { NavItem } from '../lib/nav';
 
 type MobileMenuProps = {
   links: NavItem[];
@@ -44,6 +39,29 @@ export default function MobileMenu({ links }: MobileMenuProps) {
 
   const closeMenu = () => setIsOpen(false);
 
+  const renderLink = (link: NavItem, nested = false) => (
+    <NavLink
+      key={link.to}
+      to={link.to}
+      end={link.to === '/'}
+      onClick={closeMenu}
+      className={({ isActive }) =>
+        `px-6 py-3 text-base font-bold transition-all duration-200 ${
+          nested ? 'pl-12 text-[0.95rem]' : ''
+        } ${
+          isActive
+            ? 'text-emerald-700 dark:text-emerald-400 bg-emerald-500/10'
+            : 'text-gray-800 dark:text-gray-100 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-500/10'
+        }`
+      }
+    >
+      <div className="flex items-center">
+        <span className={`${nested ? 'mr-2.5 text-lg' : 'mr-3 text-xl'}`}>{link.emoji}</span>
+        <span>{link.label}</span>
+      </div>
+    </NavLink>
+  );
+
   const menuContent = (
     <>
       {isOpen ? (
@@ -62,24 +80,10 @@ export default function MobileMenu({ links }: MobileMenuProps) {
         <GlassCard className="p-1 w-full" translucent>
           <nav className="flex flex-col py-4" role="navigation" aria-label="Mobile navigation">
             {links.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                end={link.to === '/'}
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `px-6 py-3 text-base font-bold transition-all duration-200 ${
-                    isActive
-                      ? 'text-emerald-700 dark:text-emerald-400 bg-emerald-500/10'
-                      : 'text-gray-800 dark:text-gray-100 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-500/10'
-                  }`
-                }
-              >
-                <div className="flex items-center">
-                  <span className="mr-3 text-xl">{link.emoji}</span>
-                  <span>{link.label}</span>
-                </div>
-              </NavLink>
+              <div key={link.to}>
+                {renderLink(link)}
+                {link.children?.map((child) => renderLink(child, true))}
+              </div>
             ))}
 
             <div className="my-2 mx-6 border-t border-black/10 dark:border-white/15" />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Page, PageHero, Section, Block } from '../components/Section';
+import PrototypePill from '../components/PrototypePill';
 
 interface FormPageProps {
   type: 'craft' | 'fellowship' | 'fund';
@@ -264,7 +265,8 @@ const FormPage: React.FC<FormPageProps> = ({ type }) => {
   return (
     <Page>
       <PageHero
-        icon={type === 'craft' ? '🛠️' : type === 'fellowship' ? '🎫' : '💚'}
+        badge={(type === 'craft' || type === 'fellowship') ? <PrototypePill detail /> : undefined}
+        icon={type === 'craft' ? '🛩️' : type === 'fellowship' ? '🎫' : '💚'}
         title={getTitle()}
         subtitle={getSubtitle()}
         tint={type === 'fund' ? 'purple' : 'emerald'}

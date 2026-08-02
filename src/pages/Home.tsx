@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Strands from '../components/Strands';
+import PrototypePill from '../components/PrototypePill';
 import { Page, PageHero, Section, Block } from '../components/Section';
 
 /**
@@ -13,6 +14,7 @@ export default function Home() {
     <Page>
       <PageHero
         tint="emerald"
+        badge={<PrototypePill />}
         icon="🍃"
         title="AIR"
         belowTitle={
@@ -90,7 +92,7 @@ export default function Home() {
 
           <Block>
             <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
-              <span aria-hidden="true">🛠️</span> What do we do to mitigate such risks?
+              <span aria-hidden="true"></span> What do we do to mitigate such risks?
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">
               We support independent AI safety researchers and engineers through:

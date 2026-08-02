@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
-import { Page, PageHero, Section, Block } from '../components/Section';
+import { Page, Section, Block } from '../components/Section';
 
 /** Superintelligence page draft [/superintelligence] */
 export default function Superintelligence() {
   return (
     <Page>
-      <PageHero icon="🌟" title="Collective Superintelligence" tint="emerald" />
-
       <Section
+        hero
         tint="teal"
-        icon="🧠"
+        icon="✨"
+        title="Collective Superintelligence"
         actions={
           <a
             href="https://github.com/gyrogovernance/superintelligence"

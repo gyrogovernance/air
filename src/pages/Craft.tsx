@@ -41,7 +41,7 @@ export default function Craft() {
   return (
     <Page>
       <PageHero
-        icon="🛠️"
+        icon="🛩️"
         title="AIR-Craft"
         subtitle="Skilled work in AI safety and governance with datasets, reports, and tools by our Fellows and Lab."
         tint="emerald"

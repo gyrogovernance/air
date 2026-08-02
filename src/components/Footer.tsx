@@ -17,7 +17,16 @@ const Footer: React.FC = () => {
               Offices of Community Safety, and AI Labs.
             </p>
             <p className="mt-4 text-xs text-gray-500">
-              By Gyro Governance Lab • 2026 • CC BY-SA 4.0
+              By{' '}
+              <a
+                href="http://gyrogovernance.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-300 transition-colors"
+              >
+                Gyro Governance Lab
+              </a>
+              {' '}• 2026 • CC BY-SA 4.0
             </p>
           </div>
 
@@ -45,15 +54,6 @@ const Footer: React.FC = () => {
             <div className="mt-6 text-xs">
               <p>Aligned on Uniform Power Distribution</p>
             </div>
-          </div>
-        </div>
-
-        <div className="mt-10 pt-6 border-t border-gray-800 text-xs flex flex-col md:flex-row items-center justify-between gap-3">
-          <div>
-            All Artificial categories of Authority and Agency are Indirect, constitutively dependent on Human Intelligence.
-          </div>
-          <div className="text-gray-500">
-            © {new Date().getFullYear()} Gyro Governance Lab
           </div>
         </div>
       </div>

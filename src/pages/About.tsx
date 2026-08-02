@@ -1,17 +1,16 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { Page, PageHero, Section, Block } from '../components/Section';
+import { Page, Section, Block } from '../components/Section';
 
 /** About page draft [/about] */
 export default function About() {
   return (
     <Page>
-      <PageHero icon="ℹ️" title="About" tint="emerald" />
-
       <Section
+        hero
         tint="teal"
-        icon="🗺️"
-        title="Our Approach"
+        icon="ℹ️"
+        title="About"
         actions={
           <Link to="/infrastructure" className="btn-primary inline-flex">
             Alignment infrastructure <ArrowRight className="ml-1.5" size={18} />

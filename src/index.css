@@ -162,6 +162,7 @@ body {
 }
 
 .glass-nav {
+  overflow: visible;
   background: var(--glass-nav-bg);
   border-radius: 2rem;
   border: 1.5px solid var(--glass-nav-border);
@@ -298,6 +299,59 @@ body {
 .dark .nav-link:hover,
 .dark .nav-link.active {
   color: #34d399;
+}
+
+.nav-dropdown-panel {
+  position: absolute;
+  top: calc(100% - 0.15rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(0.25rem);
+  min-width: 11.5rem;
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  border-radius: 1rem;
+  /* Opaque fallback — child backdrop-filter is unreliable inside a filtered .glass-nav */
+  background: var(--glass-nav-fallback);
+  border: 1.5px solid var(--glass-nav-border);
+  box-shadow: var(--glass-nav-shadow);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+  z-index: 1030;
+}
+
+.nav-dropdown:hover .nav-dropdown-panel,
+.nav-dropdown:focus-within .nav-dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-link {
+  display: block;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.7rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.nav-dropdown-link:hover,
+.nav-dropdown-link.active {
+  color: #059669;
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.dark .nav-dropdown-link:hover,
+.dark .nav-dropdown-link.active {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.12);
 }
 
 .section-title {

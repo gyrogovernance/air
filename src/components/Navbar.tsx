@@ -1,15 +1,52 @@
-import { Link, NavLink } from 'react-router-dom';
-import { Leaf } from 'lucide-react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { ChevronDown, Leaf } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import MobileMenu from './MobileMenu';
+import { isNavItemActive, navLinks, type NavItem } from '../lib/nav';
 
-const navLinks = [
-  { to: '/', label: 'Home', emoji: '🏠' },
-  { to: '/about', label: 'About', emoji: 'ℹ️' },
-  { to: '/infrastructure', label: 'Infrastructure', emoji: '🧭' },
-  { to: '/craft', label: 'Craft', emoji: '🛠️' },
-  { to: '/superintelligence', label: 'Superintelligence', emoji: '✨' },
-];
+function DesktopNavItem({ item }: { item: NavItem }) {
+  const location = useLocation();
+  const hasChildren = Boolean(item.children?.length);
+  const active = isNavItemActive(item, location.pathname);
+
+  if (!hasChildren) {
+    return (
+      <NavLink
+        to={item.to}
+        end={item.to === '/'}
+        className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+      >
+        {item.label}
+      </NavLink>
+    );
+  }
+
+  return (
+    <div className="nav-dropdown relative">
+      <NavLink
+        to={item.to}
+        className={`nav-link inline-flex items-center gap-1 ${active ? 'active' : ''}`}
+        aria-haspopup="menu"
+      >
+        {item.label}
+        <ChevronDown className="w-3.5 h-3.5 opacity-70" aria-hidden="true" />
+      </NavLink>
+
+      <div className="nav-dropdown-panel" role="menu" aria-label={`${item.label} submenu`}>
+        {item.children!.map((child) => (
+          <NavLink
+            key={child.to}
+            to={child.to}
+            role="menuitem"
+            className={({ isActive }) => `nav-dropdown-link ${isActive ? 'active' : ''}`}
+          >
+            {child.label}
+          </NavLink>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Navbar() {
   return (
@@ -33,14 +70,7 @@ export default function Navbar() {
             <div className="flex items-center gap-3 sm:gap-5">
               <nav className="hidden md:flex items-center gap-1" role="navigation" aria-label="Main navigation">
                 {navLinks.map((link) => (
-                  <NavLink
-                    key={link.to}
-                    to={link.to}
-                    end={link.to === '/'}
-                    className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-                  >
-                    {link.label}
-                  </NavLink>
+                  <DesktopNavItem key={link.to} item={link} />
                 ))}
               </nav>
 
