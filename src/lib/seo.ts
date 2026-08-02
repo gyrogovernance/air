@@ -1,3 +1,5 @@
+import { BUILD_AIR_CRAFT_SEO } from './airCraft';
+
 /** Canonical site origin. Override with VITE_SITE_URL when the production domain is final. */
 export const SITE_URL = (
   (import.meta.env.VITE_SITE_URL as string | undefined) || 'https://air.gyrogovernance.com'
@@ -75,18 +77,8 @@ const pages: Record<string, PageSeo> = {
   '/craft': {
     path: '/craft',
     title: 'AIR-Craft | Datasets, Reports, and Tools',
-    description:
-      'AIR-Craft is skilled work in AI safety and governance with datasets, reports, and tools across Economy, Employment, Education, and Ecology. Moments Economy, AI Inspector, GyroGem, and GGG.',
-    keywords: [
-      'AIR-Craft',
-      'AIR Craft',
-      'AI safety tools',
-      'AI safety datasets',
-      'Moments Economy',
-      'AI Inspector',
-      'GyroGem',
-      'post-AGI governance',
-    ],
+    description: BUILD_AIR_CRAFT_SEO.description,
+    keywords: [...BUILD_AIR_CRAFT_SEO.keywords, 'post-AGI governance'],
   },
   '/superintelligence': {
     path: '/superintelligence',

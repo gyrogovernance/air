@@ -76,7 +76,7 @@ Legacy redirects:
 ### `/craft` — AIR-Craft
 
 - **Hero (🛩️):** “Skilled work in AI safety and governance with datasets, reports, and tools by our Fellows and Lab.”
-- **Projects (🗂️):** Live list from [`AIR-Craft.md`](https://github.com/gyrogovernance/air-craft/blob/main/AIR-Craft.md) in [gyrogovernance/air-craft](https://github.com/gyrogovernance/air-craft) (`raw.githubusercontent.com`; override with `VITE_AIR_CRAFT_MD_URL`). Parsed into domain cards; site keeps a matching fallback if fetch fails. Guides stay in that repo’s README / planned `docs/`.
+- **Projects (🗂️):** Dual source — (1) **build snapshot** from [`AIR-Craft.md`](https://github.com/gyrogovernance/air-craft/blob/main/AIR-Craft.md) via `scripts/sync-air-craft.mjs` → `src/data/airCraft.generated.json` (first paint, SEO meta, daily CI rebuild); (2) **live fetch** of the same file after mount for same-day updates. Override URL with `VITE_AIR_CRAFT_MD_URL` / `AIR_CRAFT_MD_URL`. Guides stay in that repo’s README / planned `docs/`.
 
 | Domain | Project | One-liner | Outbound |
 |--------|---------|-----------|----------|

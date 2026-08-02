@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Page, PageHero, Section, Block } from '../components/Section';
 import {
-  FALLBACK_AIR_CRAFT_PROJECTS,
+  BUILD_AIR_CRAFT_PROJECTS,
   fetchAirCraftProjects,
   type AirCraftProject,
 } from '../lib/airCraft';
 
 /** Craft page draft [/craft] (formerly /index) */
 export default function Craft() {
-  const [projects, setProjects] = useState<AirCraftProject[]>(FALLBACK_AIR_CRAFT_PROJECTS);
+  // Build snapshot first (SEO / no-JS crawlers that execute the bundle); live fetch may refresh.
+  const [projects, setProjects] = useState<AirCraftProject[]>(BUILD_AIR_CRAFT_PROJECTS);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -21,7 +22,7 @@ export default function Craft() {
       .catch((error: unknown) => {
         if (controller.signal.aborted) return;
         console.error(error);
-        setProjects(FALLBACK_AIR_CRAFT_PROJECTS);
+        setProjects(BUILD_AIR_CRAFT_PROJECTS);
       });
 
     return () => controller.abort();

@@ -8,8 +8,9 @@ Overview of the public marketing site (`air-website`). This is a Vite SPA, not t
 
 ```bash
 bun install              # preferred; npm install also works
+bun run sync:air-craft   # refresh Craft list from GitHub (also runs in build)
 bun run dev              # Vite dev server
-bun run build            # tsc -b && vite build → dist/
+bun run build            # sync AIR-Craft.md → tsc → vite → SPA 404 fallback
 bun run preview          # preview production build
 bun run lint             # oxlint
 ```
@@ -32,7 +33,7 @@ Set `VITE_FORMEASY_URL` and optionally `VITE_SITE_URL` in `.env` (see `.env.exam
 | Icons | Lucide React | Nav, theme, CTAs |
 | Lint | Oxlint | Flat `.oxlintrc.json` |
 | Forms | FormEasy via Google Apps Script | `VITE_FORMEASY_URL` POST from `FormPage` |
-| Craft list | Fetch `AIR-Craft.md` from [gyrogovernance/air-craft](https://github.com/gyrogovernance/air-craft) | Parsed in `src/lib/airCraft.ts`; optional `VITE_AIR_CRAFT_MD_URL` |
+| Craft list | Build sync + live fetch of `AIR-Craft.md` from [gyrogovernance/air-craft](https://github.com/gyrogovernance/air-craft) | `scripts/sync-air-craft.mjs` → `src/data/airCraft.generated.json` (SEO fallback); runtime refresh in `Craft`; optional `VITE_AIR_CRAFT_MD_URL` |
 
 **Not used here (by design):** Next.js App Router, markdown article CMS, RSS, docs filesystem routes, Recharts, Google Analytics (yet).
 
@@ -107,6 +108,7 @@ SPA deep links need a host rewrite to `index.html` (`vercel.json` / `_redirects`
 | Crawl rules + AI bots | `public/robots.txt` |
 | URL list | `public/sitemap.xml` |
 | Canonical base | `VITE_SITE_URL` (default `https://air.gyrogovernance.com`, and change when the production domain is final) |
+| Craft project list + meta | Built into `airCraft.generated.json` on each deploy; `/craft` description/keywords from that snapshot |
 
 **Scope note:** This site has no article corpus. SEO is page-level (Home, About, Infrastructure, Craft, Superintelligence) plus internal links to Gyro Governance research (THM, GGG). Future options: prerender/SSG for richer OG on non-home routes, glossary, Search Console.
 
@@ -118,7 +120,9 @@ Keyword themes (natural use, not stuffing): alignment infrastructure, AI safety,
 
 Designed as a static Vite export (`dist/`):
 
-- Vercel / Netlify / Cloudflare Pages / any static host
+- GitHub Pages via `.github/workflows/deploy-pages.yml` — on push to `main`, **daily cron (`06:00 UTC`)**, and `workflow_dispatch`
+- Each build runs `sync-air-craft` so the Craft list + `/craft` meta are baked from the latest `AIR-Craft.md` (falls back to the previous generated file or seed if GitHub is unreachable)
+- Vercel / Netlify / Cloudflare Pages / any static host also work
 - Client-side routing: rewrite all paths → `index.html` (see `vercel.json`, `public/_redirects`)
 
 ---

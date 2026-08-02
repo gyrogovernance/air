@@ -1,0 +1,52 @@
+{
+  "fetchedAt": "2026-08-02T18:09:51.961Z",
+  "source": "https://raw.githubusercontent.com/gyrogovernance/air-craft/main/AIR-Craft.md",
+  "sourceStatus": "live",
+  "seo": {
+    "description": "AIR-Craft is skilled work in AI safety and governance with datasets, reports, and tools across Economy, Employment, Education, Ecology. Moments Economy, AI Inspector Browser Extension, GyroGem: AI Safety Agent, Gyroscopic Global Governance (GGG).",
+    "keywords": [
+      "AIR-Craft",
+      "AIR Craft",
+      "AI safety tools",
+      "AI safety datasets",
+      "Moments Economy",
+      "AI Inspector Browser Extension",
+      "GyroGem: AI Safety Agent",
+      "Gyroscopic Global Governance (GGG)"
+    ]
+  },
+  "projects": [
+    {
+      "domain": "Economy",
+      "emoji": "💰",
+      "title": "Moments Economy",
+      "description": "Mitigating Risks of Transformative AI (TAI)",
+      "linkText": "Read the Whitepaper",
+      "linkUrl": "https://github.com/gyrogovernance/superintelligence/blob/main/docs/programs/AIR_Moments_Economy_Whitepaper.md"
+    },
+    {
+      "domain": "Employment",
+      "emoji": "🕵️",
+      "title": "AI Inspector Browser Extension",
+      "description": "Transform AI outputs for Evaluation, Interpretability, Governance.",
+      "linkText": "Add to Chrome",
+      "linkUrl": "https://chromewebstore.google.com/detail/ai-inspector/hcblmheihnlngnogobgclhfahjljnbok?utm_source=item-share-cb"
+    },
+    {
+      "domain": "Education",
+      "emoji": "🎓",
+      "title": "GyroGem: AI Safety Agent",
+      "description": "Explaining AI and Mitigating Risks of technological illiteracy",
+      "linkText": "Chat on Google",
+      "linkUrl": "https://gemini.google.com/gem/1B-gQt-M3aKfsv9HDp_8gTQHG89bCfqlO?usp=sharing"
+    },
+    {
+      "domain": "Ecology",
+      "emoji": "🌍",
+      "title": "Gyroscopic Global Governance (GGG)",
+      "description": "A Post-AGI Multi-domain Governance Sandbox",
+      "linkText": "Read More",
+      "linkUrl": "https://gyrogovernance.com/articles/ggg-simulator-results/"
+    }
+  ]
+}

@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    # Daily rebuild so AIR-Craft.md is baked into the SEO fallback bundle.
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 permissions:
