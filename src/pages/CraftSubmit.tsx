@@ -6,6 +6,8 @@ const SUBMIT_URL =
   'https://github.com/gyrogovernance/air-craft/issues/new?template=submit-to-air-craft.yml';
 const REVIEW_URL =
   'https://github.com/gyrogovernance/air-craft/issues/new?template=review-a-submission.yml';
+const INTRO_URL =
+  'https://github.com/gyrogovernance/air-craft/discussions/new?category=introductions';
 const AGREEMENT_URL =
   'https://github.com/gyrogovernance/air-craft/blob/main/FELLOW_AGREEMENT.md';
 
@@ -17,25 +19,31 @@ export default function CraftSubmit() {
         badge={<PrototypePill detail />}
         icon="🛩️"
         title="Submit Your Project to AIR-Craft"
-        subtitle="Public listing on air.gyrogovernance.com/craft via a GitHub Issue Form. Real name and typed signature with date are required."
+        subtitle="List public work on air.gyrogovernance.com/craft. Issues only — Submit and Review. Include a link to your Fellowship introduction."
         tint="emerald"
       />
 
       <Section tint="teal" icon="📤" title="How it works">
         <Block className="space-y-4">
           <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-200 leading-relaxed">
-            <li>Register by introducing yourself in the Fellowship Discussions (open enrollment).</li>
+            <li>
+              If you have not already,{' '}
+              <a href={INTRO_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-700 dark:text-emerald-400">
+                post your introduction ↗
+              </a>{' '}
+              (open enrollment — you are a Fellow once you post).
+            </li>
             <li>Work and iterate through Self-Audit on your own terms.</li>
             <li>
-              Submit with the AIR-Craft Issue Form. Agree to the{' '}
+              Open the Submit form. Use your real public name, typed signature and date, and link your introduction. Agree to the{' '}
               <a href={AGREEMENT_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-700 dark:text-emerald-400">
                 Fellow Agreement ↗
               </a>
-              {' '}when you type your signature and date.
+              .
             </li>
           </ol>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-            Accepted submissions are listed from open Issues labeled <code className="text-sm">submission</code>. Peer Fellows may review using the review form.
+            Open Issues labeled <code className="text-sm">submission</code> appear on the Craft list. Closing an issue withdraws it. Peer Fellows may review with the review form.
           </p>
         </Block>
 

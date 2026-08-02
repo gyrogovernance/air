@@ -111,23 +111,24 @@ Craft and Fellowship no longer use FormEasy. Fund still does.
 
 #### `/craft/form` — `CraftSubmit`
 
-Static instructions. Links:
+Prototype detail pill. Static instructions. Links:
 
 - Primary: [Submit to AIR-Craft](https://github.com/gyrogovernance/air-craft/issues/new?template=submit-to-air-craft.yml)
 - Secondary: [Review a submission](https://github.com/gyrogovernance/air-craft/issues/new?template=review-a-submission.yml)
+- Prerequisite: [Post your introduction](https://github.com/gyrogovernance/air-craft/discussions/new?category=introductions)
 - Agreement: [FELLOW_AGREEMENT.md](https://github.com/gyrogovernance/air-craft/blob/main/FELLOW_AGREEMENT.md)
 
-Required on the Issue Form: public name, typed signature name, signature date (YYYY-MM-DD), GitHub profile URL, route, artifact type, title, summary, primary link, THM self-audit, peer-feedback preference. No “we will contact you” follow-up copy.
+Issue Form requires: public name, typed signature + date, GitHub profile, **link to Fellowship introduction**, route, artifact type, title, summary, primary link, THM self-audit, peer-feedback preference. Closing a submission Issue withdraws it from the public list. No “we will contact you” follow-up copy.
 
 #### `/superintelligence/form` — `FellowshipJoin`
 
-Static instructions. Open enrollment. Copy: “Your introduction post on GitHub is your membership record.”
+Prototype detail pill. Static instructions. Open enrollment — **not an admissions process**. “You are a Fellow once you post your introduction.”
 
 - [Create GitHub account](https://github.com/join)
-- [AIR Fellow Agreement](https://github.com/gyrogovernance/air-craft/blob/main/FELLOW_AGREEMENT.md)
-- Primary: [Post your introduction](https://github.com/gyrogovernance/air-craft/discussions/new?category=introductions)
+- Primary CTA: **Post your introduction on GitHub** → [Introductions](https://github.com/gyrogovernance/air-craft/discussions/new?category=introductions)
+- Agreement linked in copy; optional [Assignments](https://github.com/gyrogovernance/air-craft/discussions/categories/assignments)
 
-Agreement highlights on site: GitHub required; real public name; join now, claim assignments later (no day-one production demand). No follow-up contact copy.
+No follow-up contact copy. No “Submit application” language.
 
 #### `/superintelligence/fund` — `FormPage` (FormEasy)
 

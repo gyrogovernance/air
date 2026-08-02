@@ -103,7 +103,7 @@ const pages: Record<string, PageSeo> = {
     path: '/superintelligence/form',
     title: 'Join the Fellowship | AIR',
     description:
-      'Join the AIR Fellowship by posting an introduction on GitHub Discussions. Open enrollment — no selective admissions. GitHub account required.',
+      'Join the AIR Fellowship by posting an introduction on GitHub Discussions. Open enrollment — you are a Fellow once you post. Not an admissions process.',
   },
   '/superintelligence/fund': {
     path: '/superintelligence/fund',
