@@ -1,18 +1,25 @@
 {
-  "fetchedAt": "2026-08-02T18:09:51.961Z",
+  "fetchedAt": "2026-08-02T21:29:35.027Z",
   "source": "https://raw.githubusercontent.com/gyrogovernance/air-craft/main/AIR-Craft.md",
   "sourceStatus": "live",
   "seo": {
-    "description": "AIR-Craft is skilled work in AI safety and governance with datasets, reports, and tools across Economy, Employment, Education, Ecology. Moments Economy, AI Inspector Browser Extension, GyroGem: AI Safety Agent, Gyroscopic Global Governance (GGG).",
+    "description": "AIR-Craft is skilled work in AI safety and governance with datasets, reports, and tools across Economy, Employment, Education, Ecology. Moments Economy, Holonomic QVM: hQVM Kernel, AI Inspector Browser Extension, Alignment Infrastructure Routes (AIR), Gyroscopic ASI Runtime, Gyroscope Protocol, GyroGem: AI Safety Agent, The Human Mark (THM), GyroDiagnostics, Gyroscopic Global Governance (GGG), Computational Climate Control.",
     "keywords": [
       "AIR-Craft",
       "AIR Craft",
       "AI safety tools",
       "AI safety datasets",
       "Moments Economy",
+      "Holonomic QVM: hQVM Kernel",
       "AI Inspector Browser Extension",
+      "Alignment Infrastructure Routes (AIR)",
+      "Gyroscopic ASI Runtime",
+      "Gyroscope Protocol",
       "GyroGem: AI Safety Agent",
-      "Gyroscopic Global Governance (GGG)"
+      "The Human Mark (THM)",
+      "GyroDiagnostics",
+      "Gyroscopic Global Governance (GGG)",
+      "Computational Climate Control"
     ]
   },
   "projects": [
@@ -20,9 +27,17 @@
       "domain": "Economy",
       "emoji": "💰",
       "title": "Moments Economy",
-      "description": "Mitigating Risks of Transformative AI (TAI)",
+      "description": "Attentiveness-based monetary system for Post-AGI Transformative AI Risks Mitigation",
       "linkText": "Read the Whitepaper",
       "linkUrl": "https://github.com/gyrogovernance/superintelligence/blob/main/docs/programs/AIR_Moments_Economy_Whitepaper.md"
+    },
+    {
+      "domain": "Economy",
+      "emoji": "⚛️",
+      "title": "Holonomic QVM: hQVM Kernel",
+      "description": "Holonomic quantum structure on standard hardware for verifiable coordination and audit",
+      "linkText": "View on GitHub",
+      "linkUrl": "https://github.com/gyrogovernance/superintelligence"
     },
     {
       "domain": "Employment",
@@ -33,6 +48,30 @@
       "linkUrl": "https://chromewebstore.google.com/detail/ai-inspector/hcblmheihnlngnogobgclhfahjljnbok?utm_source=item-share-cb"
     },
     {
+      "domain": "Employment",
+      "emoji": "🍃",
+      "title": "Alignment Infrastructure Routes (AIR)",
+      "description": "AI Safety Capacity-Building Stack for Human-AI Coordination and Governance",
+      "linkText": "Read the Brief",
+      "linkUrl": "https://github.com/gyrogovernance/superintelligence/blob/main/docs/programs/AIR_Brief.md"
+    },
+    {
+      "domain": "Employment",
+      "emoji": "🤖",
+      "title": "Gyroscopic ASI Runtime",
+      "description": "Multicellular quantum execution layer for AI inference and coordination",
+      "linkText": "Read the Spec",
+      "linkUrl": "https://github.com/gyrogovernance/superintelligence/blob/main/docs/specs/Gyroscopic_ASI_Runtime_Specs.md"
+    },
+    {
+      "domain": "Employment",
+      "emoji": "⚙️",
+      "title": "Gyroscope Protocol",
+      "description": "Making AI 30-50% smarter and safer by adding structured reasoning to each response",
+      "linkText": "View on GitHub",
+      "linkUrl": "https://github.com/gyrogovernance/tools"
+    },
+    {
       "domain": "Education",
       "emoji": "🎓",
       "title": "GyroGem: AI Safety Agent",
@@ -41,12 +80,36 @@
       "linkUrl": "https://gemini.google.com/gem/1B-gQt-M3aKfsv9HDp_8gTQHG89bCfqlO?usp=sharing"
     },
     {
+      "domain": "Education",
+      "emoji": "✋",
+      "title": "The Human Mark (THM)",
+      "description": "Epistemic Taxonomy for Jailbreaks, Deceptive Alignment, and Existential Risk",
+      "linkText": "View on GitHub",
+      "linkUrl": "https://github.com/gyrogovernance/tools"
+    },
+    {
+      "domain": "Education",
+      "emoji": "🌟",
+      "title": "GyroDiagnostics",
+      "description": "Physics grounded evaluation and pathology detection for AI Safety and Alignment",
+      "linkText": "View on GitHub",
+      "linkUrl": "https://github.com/gyrogovernance/diagnostics"
+    },
+    {
       "domain": "Ecology",
       "emoji": "🌍",
       "title": "Gyroscopic Global Governance (GGG)",
       "description": "A Post-AGI Multi-domain Governance Sandbox",
       "linkText": "Read More",
       "linkUrl": "https://gyrogovernance.com/articles/ggg-simulator-results/"
+    },
+    {
+      "domain": "Ecology",
+      "emoji": "🌡️",
+      "title": "Computational Climate Control",
+      "description": "Runtime control layer for AI execution stability and hidden inefficiency reduction",
+      "linkText": "Read the Brief",
+      "linkUrl": "https://github.com/gyrogovernance/superintelligence/blob/main/docs/programs/Computational_Climate_Control_Brief.md"
     }
   ]
 }

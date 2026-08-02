@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import HumanMarkDropdown from '../components/HumanMarkDropdown';
 import { Page, Section, Block } from '../components/Section';
 
 /** About page draft [/about] */
@@ -11,11 +12,6 @@ export default function About() {
         tint="teal"
         icon="ℹ️"
         title="About"
-        actions={
-          <Link to="/infrastructure" className="btn-primary inline-flex">
-            Alignment infrastructure <ArrowRight className="ml-1.5" size={18} />
-          </Link>
-        }
       >
         <Block>
           <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
@@ -54,14 +50,9 @@ export default function About() {
         icon="🤝"
         title="Our Common Consensus"
         actions={
-          <a
-            href="https://gyrogovernance.com/#thm"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline text-sm"
-          >
-            ✋ The Human Mark ↗
-          </a>
+          <Link to="/infrastructure" className="btn-primary text-sm inline-flex">
+            Alignment infrastructure <ArrowRight className="ml-1.5" size={16} />
+          </Link>
         }
       >
         <Block className="space-y-4">
@@ -78,6 +69,8 @@ export default function About() {
             Safety failures occur when this distinction is violated. The framework provides four capacities and their corresponding displacements covering all such violations.
           </p>
         </Block>
+
+        <HumanMarkDropdown />
       </Section>
     </Page>
   );

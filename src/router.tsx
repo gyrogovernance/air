@@ -3,6 +3,7 @@ import RootLayout from './components/RootLayout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Infrastructure from './pages/Infrastructure';
+import Protocols from './pages/Protocols';
 import Craft from './pages/Craft';
 import Superintelligence from './pages/Superintelligence';
 import Privacy from './pages/Privacy';
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'about', element: <About /> },
       { path: 'infrastructure', element: <Infrastructure /> },
+      { path: 'protocols', element: <Protocols /> },
       { path: 'craft', element: <Craft /> },
       { path: 'craft/form', element: <CraftSubmit /> },
       { path: 'superintelligence', element: <Superintelligence /> },

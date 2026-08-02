@@ -10,6 +10,19 @@ export type AirCraftProject = {
   linkUrl: string;
 };
 
+export type AirCraftDomainGroup = {
+  domain: string;
+  projects: AirCraftProject[];
+};
+
+/** Unified Scope Routes order; unknown domains append alphabetically after these. */
+export const AIR_CRAFT_DOMAIN_ORDER = [
+  'Economy',
+  'Employment',
+  'Education',
+  'Ecology',
+] as const;
+
 const DEFAULT_URL =
   'https://raw.githubusercontent.com/gyrogovernance/air-craft/main/AIR-Craft.md';
 
@@ -22,6 +35,52 @@ const REQUIRED_FIELDS = ['emoji', 'title', 'description', 'linkText', 'linkUrl']
 export const BUILD_AIR_CRAFT_PROJECTS: AirCraftProject[] = generated.projects;
 
 export const BUILD_AIR_CRAFT_SEO = generated.seo;
+
+/**
+ * Group projects by domain in Unified Scope order.
+ * Domains not in AIR_CRAFT_DOMAIN_ORDER follow alphabetically.
+ */
+export function groupAirCraftProjects(projects: AirCraftProject[]): AirCraftDomainGroup[] {
+  const byDomain = new Map<string, AirCraftProject[]>();
+
+  for (const project of projects) {
+    const list = byDomain.get(project.domain);
+    if (list) list.push(project);
+    else byDomain.set(project.domain, [project]);
+  }
+
+  const known = new Set<string>(AIR_CRAFT_DOMAIN_ORDER);
+  const ordered: AirCraftDomainGroup[] = [];
+
+  for (const domain of AIR_CRAFT_DOMAIN_ORDER) {
+    const group = byDomain.get(domain);
+    if (group?.length) ordered.push({ domain, projects: group });
+  }
+
+  const extras = [...byDomain.keys()]
+    .filter((domain) => !known.has(domain))
+    .sort((a, b) => a.localeCompare(b));
+
+  for (const domain of extras) {
+    ordered.push({ domain, projects: byDomain.get(domain)! });
+  }
+
+  return ordered;
+}
+
+/** Case-insensitive title/description match; empty query returns all. */
+export function filterAirCraftProjects(
+  projects: AirCraftProject[],
+  query: string,
+): AirCraftProject[] {
+  const needle = query.trim().toLowerCase();
+  if (!needle) return projects;
+
+  return projects.filter((project) => {
+    const haystack = `${project.title} ${project.description} ${project.domain}`.toLowerCase();
+    return haystack.includes(needle);
+  });
+}
 
 /**
  * Parse AIR-Craft.md: each `### Domain` block with bullet fields

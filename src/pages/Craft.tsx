@@ -1,16 +1,37 @@
-import { useEffect, useState } from 'react';
+import { startTransition, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Page, PageHero, Section, Block } from '../components/Section';
 import {
+  AIR_CRAFT_DOMAIN_ORDER,
   BUILD_AIR_CRAFT_PROJECTS,
   fetchAirCraftProjects,
+  filterAirCraftProjects,
+  groupAirCraftProjects,
   type AirCraftProject,
 } from '../lib/airCraft';
+
+type DomainFilter = 'All' | string;
+
+function domainFilters(projects: AirCraftProject[]): DomainFilter[] {
+  const present = new Set(projects.map((p) => p.domain));
+  const known = AIR_CRAFT_DOMAIN_ORDER.filter((d) => present.has(d));
+  const extras = [...present]
+    .filter((d) => !(AIR_CRAFT_DOMAIN_ORDER as readonly string[]).includes(d))
+    .sort((a, b) => a.localeCompare(b));
+  return ['All', ...known, ...extras];
+}
+
+function countInDomain(projects: AirCraftProject[], domain: DomainFilter): number {
+  if (domain === 'All') return projects.length;
+  return projects.filter((p) => p.domain === domain).length;
+}
 
 /** Craft page draft [/craft] (formerly /index) */
 export default function Craft() {
   // Build snapshot first (SEO / no-JS crawlers that execute the bundle); live fetch may refresh.
   const [projects, setProjects] = useState<AirCraftProject[]>(BUILD_AIR_CRAFT_PROJECTS);
+  const [domain, setDomain] = useState<DomainFilter>('All');
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     const controller = new AbortController();
@@ -28,6 +49,12 @@ export default function Craft() {
     return () => controller.abort();
   }, []);
 
+  const searched = filterAirCraftProjects(projects, query);
+  const visible =
+    domain === 'All' ? searched : searched.filter((p) => p.domain === domain);
+  const groups = groupAirCraftProjects(visible);
+  const filters = domainFilters(projects);
+
   return (
     <Page>
       <PageHero
@@ -37,33 +64,99 @@ export default function Craft() {
         tint="emerald"
       />
 
-      <Section tint="teal" icon="🗂️">
-        <div className="space-y-4">
-          {projects.map((project) => (
-            <Block key={`${project.domain}-${project.title}`}>
-              <div className="mb-3 flex items-center gap-2">
-                <span className="text-xl" aria-hidden="true">
-                  {project.emoji}
-                </span>
-                <span className="text-xs uppercase font-bold tracking-[1px] px-2.5 py-0.5 rounded-full border border-emerald-400/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
-                  {project.domain}
-                </span>
-              </div>
-              <h3 className="text-xl font-bold mb-1">{project.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">
-                {project.description}
-              </p>
-              <a
-                href={project.linkUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-bold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400"
+      <Section tint="teal" icon="🗂️" title="Projects">
+        <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter by route">
+          {filters.map((name) => {
+            const active = domain === name;
+            const count = countInDomain(projects, name);
+            return (
+              <button
+                key={name}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => startTransition(() => setDomain(name))}
+                className={`rounded-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors ${
+                  active
+                    ? 'bg-emerald-600 text-white dark:bg-emerald-500'
+                    : 'bg-emerald-500/10 text-emerald-800 hover:bg-emerald-500/20 dark:text-emerald-200'
+                }`}
               >
-                {project.linkText} <span className="ml-1">↗</span>
-              </a>
-            </Block>
-          ))}
+                {name}
+                <span className={`ml-1.5 tabular-nums ${active ? 'opacity-80' : 'opacity-60'}`}>
+                  {count}
+                </span>
+              </button>
+            );
+          })}
         </div>
+
+        <label className="block">
+          <span className="sr-only">Search projects</span>
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => startTransition(() => setQuery(e.target.value))}
+            placeholder="Search title or description…"
+            className="w-full rounded-xl border border-emerald-400/30 bg-white/50 px-3 py-2 text-sm text-gray-800 placeholder:text-gray-500 outline-none focus:border-emerald-500/60 dark:bg-black/20 dark:text-gray-100 dark:placeholder:text-gray-400"
+          />
+        </label>
+
+        <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">
+          {visible.length} of {projects.length}
+        </p>
+
+        {groups.length === 0 ? (
+          <p className="py-6 text-center text-sm text-gray-500 dark:text-gray-400">
+            No projects match this filter.
+          </p>
+        ) : (
+          <div className="space-y-6">
+            {groups.map((group) => (
+              <section key={group.domain} aria-labelledby={`craft-${group.domain}`}>
+                <h3
+                  id={`craft-${group.domain}`}
+                  className="mb-2 flex items-center gap-2 border-b border-emerald-400/25 pb-1.5 text-sm font-extrabold uppercase tracking-[1px] text-emerald-800 dark:text-emerald-300"
+                >
+                  {group.domain}
+                  <span className="font-semibold tabular-nums opacity-60">
+                    {group.projects.length}
+                  </span>
+                </h3>
+
+                <ul className="divide-y divide-emerald-400/15">
+                  {group.projects.map((project) => (
+                    <li key={`${project.domain}-${project.title}`}>
+                      <a
+                        href={project.linkUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-start gap-3 py-2.5 transition-colors hover:bg-emerald-500/5 -mx-1 px-1 rounded-lg"
+                      >
+                        <span className="mt-0.5 text-lg leading-none shrink-0" aria-hidden="true">
+                          {project.emoji}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="flex items-start gap-2">
+                            <span className="min-w-0 flex-1 font-bold leading-snug text-gray-900 dark:text-gray-50 group-hover:text-emerald-800 dark:group-hover:text-emerald-300">
+                              {project.title}
+                            </span>
+                            <span className="shrink-0 pt-0.5 text-xs font-bold text-emerald-700 dark:text-emerald-400">
+                              <span className="hidden sm:inline">{project.linkText} </span>↗
+                            </span>
+                          </span>
+                          <span className="mt-0.5 block text-sm leading-snug text-gray-600 dark:text-gray-300 line-clamp-2">
+                            {project.description}
+                          </span>
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        )}
       </Section>
 
       <Section

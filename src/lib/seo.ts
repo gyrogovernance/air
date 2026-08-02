@@ -74,6 +74,22 @@ const pages: Record<string, PageSeo> = {
       'Gyroscopic Global Governance',
     ],
   },
+  '/protocols': {
+    path: '/protocols',
+    title: 'Protocols | AIR',
+    description:
+      'Shared alignment protocols (CGM, The Human Mark, Gyroscope, GGG) and tools by Gyro Governance Lab that Fellows can use in AIR-Craft work.',
+    keywords: [
+      'AI safety protocols',
+      'The Human Mark',
+      'Gyroscope Protocol',
+      'Common Governance Model',
+      'Gyroscopic Global Governance',
+      'AI Inspector',
+      'GyroDiagnostics',
+      'AI governance tools',
+    ],
+  },
   '/craft': {
     path: '/craft',
     title: 'AIR-Craft | Datasets, Reports, and Tools',
