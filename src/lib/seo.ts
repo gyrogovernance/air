@@ -7,7 +7,7 @@ export const SITE_NAME = 'AIR';
 export const SITE_TAGLINE = 'Alignment Infrastructure Routes';
 
 export const DEFAULT_DESCRIPTION =
-  'AIR is Alignment Infrastructure Routes for Independent Researchers and Engineers, Offices of Community Safety, and AI Labs. AI-Empowered Human Capacity Development for Alignment on Uniform Power Distribution.';
+  'AIR: AI-Empowered Human Capacity Development for Alignment on Uniform Power Distribution.';
 
 /** Shared keyword pool for meta tags (AIR-focused, not article CMS). */
 export const SITE_KEYWORDS = [

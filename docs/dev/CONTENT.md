@@ -2,7 +2,7 @@
 
 Model-facing outline of the public site at [air.gyrogovernance.com](https://air.gyrogovernance.com). Source of truth for routes and copy is `src/pages/*`, `src/lib/nav.ts`, `src/router.tsx`, and `src/components/Footer.tsx`. Operator: **Gyro Governance Lab** ([gyrogovernance.com](http://gyrogovernance.com/)). License note on site: CC BY-SA 4.0.
 
-**AIR** = Alignment Infrastructure Routes for Independent Researchers and Engineers, Offices of Community Safety, and AI Labs. Framework for Alignment on Uniform Power Distribution through AI-Empowered Human Capacity Development.
+**AIR** = Alignment Infrastructure Routes for Independent Researchers, Engineers, Offices of Community Safety, and AI Labs. Framework for Alignment on Uniform Power Distribution through AI-Empowered Human Capacity Development.
 
 ---
 
@@ -76,7 +76,7 @@ Legacy redirects:
 ### `/craft` — AIR-Craft
 
 - **Hero (🛩️):** “Skilled work in AI safety and governance with datasets, reports, and tools by our Fellows and Lab.”
-- **Projects (🗂️):**
+- **Projects (🗂️):** Live list from [`AIR-Craft.md`](https://github.com/gyrogovernance/air-craft/blob/main/AIR-Craft.md) in [gyrogovernance/air-craft](https://github.com/gyrogovernance/air-craft) (`raw.githubusercontent.com`; override with `VITE_AIR_CRAFT_MD_URL`). Parsed into domain cards; site keeps a matching fallback if fetch fails. Guides stay in that repo’s README / planned `docs/`.
 
 | Domain | Project | One-liner | Outbound |
 |--------|---------|-----------|----------|
@@ -118,6 +118,7 @@ Legal pages for the AIR site operated by Gyro Governance Lab (effective / last u
 - [gyrogovernance.com/#ggg](https://gyrogovernance.com/#ggg) — Gyroscopic Global Governance
 - [github.com/gyrogovernance/superintelligence](https://github.com/gyrogovernance/superintelligence) — Superintelligence / Moments Economy docs
 - [github.com/gyrogovernance/tools](https://github.com/gyrogovernance/tools) — THM-related tools
+- [github.com/gyrogovernance/air-craft](https://github.com/gyrogovernance/air-craft) — AIR-Craft list (`AIR-Craft.md`) and guides
 
 ---
 

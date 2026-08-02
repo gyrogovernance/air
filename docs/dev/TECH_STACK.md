@@ -32,6 +32,7 @@ Set `VITE_FORMEASY_URL` and optionally `VITE_SITE_URL` in `.env` (see `.env.exam
 | Icons | Lucide React | Nav, theme, CTAs |
 | Lint | Oxlint | Flat `.oxlintrc.json` |
 | Forms | FormEasy via Google Apps Script | `VITE_FORMEASY_URL` POST from `FormPage` |
+| Craft list | Fetch `AIR-Craft.md` from [gyrogovernance/air-craft](https://github.com/gyrogovernance/air-craft) | Parsed in `src/lib/airCraft.ts`; optional `VITE_AIR_CRAFT_MD_URL` |
 
 **Not used here (by design):** Next.js App Router, markdown article CMS, RSS, docs filesystem routes, Recharts, Google Analytics (yet).
 

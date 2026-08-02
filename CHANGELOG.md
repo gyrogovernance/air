@@ -9,4 +9,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- First public release of the AIR website: Alignment Infrastructure Routes for Independent Researchers and Engineers, Offices of Community Safety, and AI Labs. Presents the framework for Alignment on Uniform Power Distribution through AI-Empowered Human Capacity Development, with paths into the Collective Superintelligence Fellowship, Human Capacity Development Infrastructure, and AIR-Craft.
+- First public release of the AIR website: Alignment Infrastructure Routes for Independent Researchers, Engineers, Offices of Community Safety, and AI Labs. Presents the framework for Alignment on Uniform Power Distribution through AI-Empowered Human Capacity Development, with paths into the Collective Superintelligence Fellowship, Human Capacity Development Infrastructure, and AIR-Craft.

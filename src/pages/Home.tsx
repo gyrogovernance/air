@@ -20,7 +20,7 @@ export default function Home() {
         belowTitle={
           <Block className="text-center">
             <p className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100 leading-relaxed">
-              Alignment Infrastructure Routes for Independent Researchers and Engineers, Offices of Community Safety, and AI Labs.
+              Alignment Infrastructure Routes for Independent Researchers, Engineers, Offices of Community Safety, and AI Labs.
             </p>
           </Block>
         }
@@ -62,10 +62,10 @@ export default function Home() {
         actions={
           <>
             <Link to="/infrastructure" className="btn-outline text-sm">
-              AI safety methodology
+              Alignment Infrastructure
             </Link>
             <Link to="/craft" className="btn-outline text-sm">
-              AIR-Craft interventions
+              AI Safety Interventions
             </Link>
           </>
         }
@@ -73,14 +73,14 @@ export default function Home() {
         <Block>
           <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
             People believe that power concentration from autonomy, whether in humans or machines,
-            is the root behind high risks to personal, social, and environmental safety, with catastrophic AI risks and failures of AI governance among them.
+            is the root behind high risks to personal, social, and environmental safety.
           </p>
         </Block>
 
         <div className="grid md:grid-cols-2 gap-4">
           <Block>
             <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
-              <span aria-hidden="true">🔎</span> When does power really concentrate?
+              <span aria-hidden="true"></span> When does power really concentrate?
             </h3>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               Power concentrates only when governance responsibilities are displaced by misattributing&nbsp;
@@ -94,17 +94,9 @@ export default function Home() {
             <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
               <span aria-hidden="true"></span> What do we do to mitigate such risks?
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">
-              We support independent AI safety researchers and engineers through:
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              We provide protocols as shared infrastructure to help you research and build solutions to today’s most urgent crises in the age of Transformative AI, and we welcome anyone who wants to contribute, without credential or hiring gatekeeping.
             </p>
-            <ul className="bullet-list space-y-3 text-sm text-gray-600 dark:text-gray-300">
-              <li>
-                <strong className="text-gray-900 dark:text-white">Uniform Power Distribution Guides:</strong> Protocols as Infrastructure for shared coordination. The framework establishes four capacities for alignment and their corresponding displacements.
-              </li>
-              <li>
-                <strong className="text-gray-900 dark:text-white">Unified Scope Routes:</strong> AI-Empowered Economy, Employment, Education, and Ecology for the alleviation of poverty, unemployment, misinformation, and ecological degeneration.
-              </li>
-            </ul>
           </Block>
         </div>
       </Section>

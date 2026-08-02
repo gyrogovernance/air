@@ -1,43 +1,32 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Page, PageHero, Section, Block } from '../components/Section';
-
-const projects = [
-  {
-    domain: 'Economy',
-    emoji: '💰',
-    title: 'Moments Economy',
-    description: 'Mitigating Risks of Transformative AI (TAI)',
-    linkText: 'Read the Whitepaper',
-    linkUrl: 'https://github.com/gyrogovernance/superintelligence/blob/main/docs/programs/AIR_Moments_Economy_Whitepaper.md',
-  },
-  {
-    domain: 'Employment',
-    emoji: '🕵️',
-    title: 'AI Inspector Browser Extension',
-    description: 'Transform AI outputs for Evaluation, Interpretability, Governance.',
-    linkText: 'Add to Chrome',
-    linkUrl: 'https://chromewebstore.google.com/detail/ai-inspector/hcblmheihnlngnogobgclhfahjljnbok?utm_source=item-share-cb',
-  },
-  {
-    domain: 'Education',
-    emoji: '🎓',
-    title: 'GyroGem: AI Safety Agent',
-    description: 'Explaining AI and Mitigating Risks of technological illiteracy',
-    linkText: 'Chat on Google',
-    linkUrl: 'https://gemini.google.com/gem/1B-gQt-M3aKfsv9HDp_8gTQHG89bCfqlO?usp=sharing',
-  },
-  {
-    domain: 'Ecology',
-    emoji: '🌍',
-    title: 'Gyroscopic Global Governance (GGG)',
-    description: 'A Post-AGI Multi-domain Governance Sandbox',
-    linkText: 'Read More',
-    linkUrl: 'https://gyrogovernance.com/articles/ggg-simulator-results/',
-  },
-] as const;
+import {
+  FALLBACK_AIR_CRAFT_PROJECTS,
+  fetchAirCraftProjects,
+  type AirCraftProject,
+} from '../lib/airCraft';
 
 /** Craft page draft [/craft] (formerly /index) */
 export default function Craft() {
+  const [projects, setProjects] = useState<AirCraftProject[]>(FALLBACK_AIR_CRAFT_PROJECTS);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    fetchAirCraftProjects(controller.signal)
+      .then((live) => {
+        setProjects(live);
+      })
+      .catch((error: unknown) => {
+        if (controller.signal.aborted) return;
+        console.error(error);
+        setProjects(FALLBACK_AIR_CRAFT_PROJECTS);
+      });
+
+    return () => controller.abort();
+  }, []);
+
   return (
     <Page>
       <PageHero
@@ -50,15 +39,19 @@ export default function Craft() {
       <Section tint="teal" icon="🗂️">
         <div className="space-y-4">
           {projects.map((project) => (
-            <Block key={project.domain}>
+            <Block key={`${project.domain}-${project.title}`}>
               <div className="mb-3 flex items-center gap-2">
-                <span className="text-xl" aria-hidden="true">{project.emoji}</span>
+                <span className="text-xl" aria-hidden="true">
+                  {project.emoji}
+                </span>
                 <span className="text-xs uppercase font-bold tracking-[1px] px-2.5 py-0.5 rounded-full border border-emerald-400/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
                   {project.domain}
                 </span>
               </div>
               <h3 className="text-xl font-bold mb-1">{project.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">{project.description}</p>
+              <p className="text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">
+                {project.description}
+              </p>
               <a
                 href={project.linkUrl}
                 target="_blank"
