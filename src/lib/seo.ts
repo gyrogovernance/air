@@ -96,12 +96,14 @@ const pages: Record<string, PageSeo> = {
   '/craft/form': {
     path: '/craft/form',
     title: 'Submit a Project | AIR-Craft',
-    description: 'Register, self-audit, and submit your AI safety or governance project to AIR-Craft.',
+    description:
+      'Submit a dataset, report, eval, or tool to AIR-Craft via GitHub Issue Form. Real name and typed signature required. Listed on air.gyrogovernance.com/craft.',
   },
   '/superintelligence/form': {
     path: '/superintelligence/form',
     title: 'Join the Fellowship | AIR',
-    description: 'Apply to the Collective Superintelligence Fellowship for AI safety portfolio and career development.',
+    description:
+      'Join the AIR Fellowship by posting an introduction on GitHub Discussions. Open enrollment — no selective admissions. GitHub account required.',
   },
   '/superintelligence/fund': {
     path: '/superintelligence/fund',

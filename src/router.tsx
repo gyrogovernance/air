@@ -8,6 +8,8 @@ import Superintelligence from './pages/Superintelligence';
 import Privacy from './pages/Privacy';
 import Cookies from './pages/Cookies';
 import FormPage from './pages/FormPage';
+import CraftSubmit from './pages/CraftSubmit';
+import FellowshipJoin from './pages/FellowshipJoin';
 
 export const router = createBrowserRouter([
   {
@@ -18,10 +20,10 @@ export const router = createBrowserRouter([
       { path: 'about', element: <About /> },
       { path: 'infrastructure', element: <Infrastructure /> },
       { path: 'craft', element: <Craft /> },
-      { path: 'craft/form', element: <FormPage type="craft" /> },
+      { path: 'craft/form', element: <CraftSubmit /> },
       { path: 'superintelligence', element: <Superintelligence /> },
-      { path: 'superintelligence/form', element: <FormPage type="fellowship" /> },
-      { path: 'superintelligence/fund', element: <FormPage type="fund" /> },
+      { path: 'superintelligence/form', element: <FellowshipJoin /> },
+      { path: 'superintelligence/fund', element: <FormPage /> },
       { path: 'privacy', element: <Privacy /> },
       { path: 'cookies', element: <Cookies /> },
       /* Legacy Index → Craft */
