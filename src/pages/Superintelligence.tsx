@@ -12,7 +12,7 @@ export default function Superintelligence() {
         title="Collective Superintelligence"
         actions={
           <a
-            href="https://github.com/gyrogovernance/superintelligence"
+            href="/protocols"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary"
@@ -69,7 +69,7 @@ export default function Superintelligence() {
         <Block>
           <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
             For every hire a lab makes, 100 to 1000 people are left out. The Collective Superintelligence Fund
-            aims to support all those who join our Fellowship program.
+            aims to support all those who join our Fellowship program without barriers and discriminative policies.
           </p>
         </Block>
       </Section>

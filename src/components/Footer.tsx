@@ -16,6 +16,9 @@ const Footer: React.FC = () => {
               Alignment Infrastructure Routes for Independent Researchers and Engineers, 
               Offices of Community Safety, and AI Labs.
             </p>
+            <p className="mt-2 text-xs text-gray-500 max-w-xs">
+              Aligned on Uniform Power Distribution
+            </p>
             <p className="mt-4 text-xs text-gray-500">
               By{' '}
               <a
@@ -49,10 +52,6 @@ const Footer: React.FC = () => {
               <a href="https://gyrogovernance.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 transition-colors">
                 Gyro Governance Lab
               </a>
-            </div>
-
-            <div className="mt-6 text-xs">
-              <p>Aligned on Uniform Power Distribution</p>
             </div>
           </div>
         </div>
