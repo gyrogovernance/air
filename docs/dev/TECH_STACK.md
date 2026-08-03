@@ -37,7 +37,7 @@ Env (see `.env.example`):
 | Language | TypeScript ~6 | App/node project refs via `tsc -b`; relative imports; JSON import of Craft snapshot (`resolveJsonModule`) |
 | Styling | Tailwind CSS 3.4 + PostCSS + Autoprefixer | Tokens and glass utilities in `src/index.css` |
 | Motion / WebGL | Framer Motion, OGL (`Strands`) | Hero strands on Home |
-| Icons | Lucide React | Nav, theme, CTAs |
+| Icons | Lucide React + `AirLogo` | Lucide for nav/theme/CTAs; brand mark from `public/icons.svg` / `air_logo.svg` |
 | Lint | Oxlint | Flat `.oxlintrc.json` (react / typescript / oxc plugins) |
 | Forms | FormEasy (Fund only) | `VITE_FORMEASY_URL` POST from `/superintelligence/fund`. Craft + Fellowship use GitHub Issue Forms / Discussions in [air-craft](https://github.com/gyrogovernance/air-craft) |
 | Craft list | Build sync + live fetch of `AIR-Craft.md` | [gyrogovernance/air-craft](https://github.com/gyrogovernance/air-craft); rebuilt there from seed + `submission` issues; see Scripts |
@@ -77,7 +77,10 @@ air/
 ├── public/
 │   ├── robots.txt
 │   ├── sitemap.xml            # Static URL list (forms omitted)
-│   ├── favicon.svg, icons.svg
+│   ├── favicon.svg            # Browser tab icon
+│   ├── icons.svg              # UI mark (nav, footer via AirLogo)
+│   ├── air_logo.svg           # Brand mark (hero)
+│   ├── air_logo.png           # OG / Twitter / apple-touch-icon
 │   ├── _redirects             # Netlify SPA fallback
 │   └── CNAME
 ├── src/
@@ -95,6 +98,7 @@ air/
 │   │   ├── Seo.tsx            # Route-aware document head
 │   │   ├── StructuredData.tsx # Organization / WebSite schema
 │   │   ├── Navbar.tsx / MobileMenu.tsx / Footer.tsx
+│   │   ├── AirLogo.tsx            # Official mark from public/
 │   │   ├── GlassCard.tsx / Section.tsx
 │   │   ├── PrototypePill.tsx
 │   │   ├── ThemeToggle.tsx
@@ -138,7 +142,7 @@ SPA deep-link strategies:
 - **Font:** Nunito (Google Fonts), CSS var `--font-nunito`
 - **Theme:** Class-based `dark` on `<html>`; light / dark / system toggle; preference in `localStorage`
 - **Glass:** Custom cards and floating nav (aligned with Gyro Governance visual language, implemented in-repo rather than Next liquid-glass modules)
-- **Palette:** Classic CSS vars (`--classic-blue`, emerald CTAs, blob gradients)
+- **Palette:** Classic CSS vars (`--classic-blue`), blue CTA / title gradients (`#0088ff` → `#73deff`), blue blob field
 - **Status:** `PrototypePill` on Home and on craft/fellowship forms
 
 ---

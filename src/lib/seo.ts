@@ -8,6 +8,9 @@ export const SITE_URL = (
 export const SITE_NAME = 'AIR';
 export const SITE_TAGLINE = 'Alignment Infrastructure Routes';
 
+/** Raster logo for Open Graph / Twitter / apple-touch-icon (`public/air_logo.png`). */
+export const SITE_OG_IMAGE = '/air_logo.png';
+
 export const DEFAULT_DESCRIPTION =
   'AIR: AI-Empowered Human Capacity Development for Alignment on Uniform Power Distribution.';
 

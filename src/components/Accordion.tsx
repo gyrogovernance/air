@@ -39,7 +39,7 @@ export default function Accordion({
   return (
     <div
       id={id}
-      className="rounded-xl border border-emerald-400/20 bg-white/40 dark:bg-black/20 scroll-mt-28"
+      className="rounded-xl border border-blue-400/20 bg-white/40 dark:bg-black/20 scroll-mt-28"
     >
       <button
         type="button"
@@ -60,7 +60,7 @@ export default function Accordion({
         </span>
         <span
           aria-hidden="true"
-          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-700 transition-transform dark:bg-emerald-400/10 dark:text-emerald-400 ${
+          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-700 transition-transform dark:bg-blue-400/10 dark:text-blue-400 ${
             open ? 'rotate-180' : ''
           }`}
         >
@@ -71,7 +71,7 @@ export default function Accordion({
       {open ? (
         <div
           id={panelId}
-          className="border-t border-emerald-400/15 px-4 pb-4 pt-3 sm:px-5 sm:pb-5"
+          className="border-t border-blue-400/15 px-4 pb-4 pt-3 sm:px-5 sm:pb-5"
         >
           {children}
         </div>

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { absoluteUrl, getPageSeo, SITE_NAME, SITE_KEYWORDS } from '../lib/seo';
+import { absoluteUrl, getPageSeo, SITE_NAME, SITE_KEYWORDS, SITE_OG_IMAGE } from '../lib/seo';
 
 function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
@@ -30,6 +30,7 @@ export default function Seo() {
     const page = getPageSeo(pathname);
     const url = absoluteUrl(page.path);
     const keywords = (page.keywords ?? SITE_KEYWORDS).join(', ');
+    const image = absoluteUrl(SITE_OG_IMAGE);
 
     document.title = page.title;
 
@@ -43,10 +44,12 @@ export default function Seo() {
     upsertMeta('property', 'og:description', page.description);
     upsertMeta('property', 'og:url', url);
     upsertMeta('property', 'og:locale', 'en_US');
+    upsertMeta('property', 'og:image', image);
 
     upsertMeta('name', 'twitter:card', 'summary_large_image');
     upsertMeta('name', 'twitter:title', page.title);
     upsertMeta('name', 'twitter:description', page.description);
+    upsertMeta('name', 'twitter:image', image);
 
     upsertLink('canonical', url);
   }, [pathname]);

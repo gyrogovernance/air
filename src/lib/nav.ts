@@ -13,7 +13,7 @@ export const navLinks: NavItem[] = [
     label: 'Infrastructure',
     emoji: '🧭',
     children: [
-      { to: '/protocols', label: 'Protocols', emoji: '📜' },
+      { to: '/protocols', label: 'Protocols', emoji: '📃' },
       { to: '/craft', label: 'Craft', emoji: '🛩️' },
       { to: '/superintelligence', label: 'Superintelligence', emoji: '✨' },
     ],

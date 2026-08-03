@@ -7,7 +7,7 @@ export default function Superintelligence() {
     <Page>
       <Section
         hero
-        tint="teal"
+        tint="blue"
         icon="✨"
         title="Collective Superintelligence"
         actions={
@@ -58,7 +58,7 @@ export default function Superintelligence() {
 
       <Section
         tint="purple"
-        icon="💚"
+        icon="❤️"
         title="Invest in Humanity"
         actions={
           <Link to="/superintelligence/fund" className="btn-primary">

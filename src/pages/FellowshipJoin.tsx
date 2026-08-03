@@ -24,7 +24,7 @@ export default function FellowshipJoin() {
           </div>
         }
         subtitle="Open enrollment, without admissions."
-        tint="emerald"
+        tint="blue"
       />
 
       <Section tint="cyan" icon="🛤️" title="Three steps">
@@ -32,7 +32,7 @@ export default function FellowshipJoin() {
           <ol className="space-y-6">
             <li>
               <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-50 tracking-tight">
-                <span className="text-emerald-700 dark:text-emerald-400 tabular-nums mr-2">1.</span>
+                <span className="text-blue-700 dark:text-blue-400 tabular-nums mr-2">1.</span>
                 Create a GitHub account
               </p>
               <p className="mt-1.5 pl-6 text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -41,7 +41,7 @@ export default function FellowshipJoin() {
             </li>
             <li>
               <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-50 tracking-tight">
-                <span className="text-emerald-700 dark:text-emerald-400 tabular-nums mr-2">2.</span>
+                <span className="text-blue-700 dark:text-blue-400 tabular-nums mr-2">2.</span>
                 Read the Fellow Agreement
               </p>
               <p className="mt-1.5 pl-6 text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -49,7 +49,7 @@ export default function FellowshipJoin() {
                   href={AGREEMENT_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-emerald-700 dark:text-emerald-400"
+                  className="font-semibold text-blue-700 dark:text-blue-400"
                 >
                   AIR Fellow Agreement ↗
                 </a>
@@ -57,7 +57,7 @@ export default function FellowshipJoin() {
             </li>
             <li>
               <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-50 tracking-tight">
-                <span className="text-emerald-700 dark:text-emerald-400 tabular-nums mr-2">3.</span>
+                <span className="text-blue-700 dark:text-blue-400 tabular-nums mr-2">3.</span>
                 Post your introduction
               </p>
               <p className="mt-1.5 pl-6 text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -66,7 +66,7 @@ export default function FellowshipJoin() {
                   href={ASSIGNMENTS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-emerald-700 dark:text-emerald-400"
+                  className="font-semibold text-blue-700 dark:text-blue-400"
                 >
                   assignments ↗
                 </a>{' '}
@@ -86,11 +86,11 @@ export default function FellowshipJoin() {
         </div>
       </Section>
 
-      <Section tint="teal">
+      <Section tint="blue">
         <Block>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-center">
             Prefer to browse first?{' '}
-            <Link to="/superintelligence" className="font-semibold text-emerald-700 dark:text-emerald-400">
+            <Link to="/superintelligence" className="font-semibold text-blue-700 dark:text-blue-400">
               Back to Collective Superintelligence
             </Link>
           </p>

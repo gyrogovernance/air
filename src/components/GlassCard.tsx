@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react';
 
-type GlassTint = 'emerald' | 'green' | 'teal' | 'cyan' | 'blue' | 'purple' | 'orange' | 'none';
+type GlassTint = 'blue' | 'green' | 'teal' | 'cyan' | 'purple' | 'orange' | 'none';
 
 type GlassCardProps = {
   children: ReactNode;

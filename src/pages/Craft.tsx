@@ -61,10 +61,10 @@ export default function Craft() {
         icon="🛩️"
         title="AIR-Craft"
         subtitle="Skilled work in AI safety and governance with datasets, reports, and tools by our Fellows and Lab."
-        tint="emerald"
+        tint="blue"
       />
 
-      <Section tint="teal" icon="🗂️" title="Projects">
+      <Section tint="blue" icon="🗂️" title="Projects">
         <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter by route">
           {filters.map((name) => {
             const active = domain === name;
@@ -78,8 +78,8 @@ export default function Craft() {
                 onClick={() => startTransition(() => setDomain(name))}
                 className={`rounded-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors ${
                   active
-                    ? 'bg-emerald-600 text-white dark:bg-emerald-500'
-                    : 'bg-emerald-500/10 text-emerald-800 hover:bg-emerald-500/20 dark:text-emerald-200'
+                    ? 'bg-blue-600 text-white dark:bg-blue-500'
+                    : 'bg-blue-500/10 text-blue-800 hover:bg-blue-500/20 dark:text-blue-200'
                 }`}
               >
                 {name}
@@ -98,7 +98,7 @@ export default function Craft() {
             value={query}
             onChange={(e) => startTransition(() => setQuery(e.target.value))}
             placeholder="Search title or description…"
-            className="w-full rounded-xl border border-emerald-400/30 bg-white/50 px-3 py-2 text-sm text-gray-800 placeholder:text-gray-500 outline-none focus:border-emerald-500/60 dark:bg-black/20 dark:text-gray-100 dark:placeholder:text-gray-400"
+            className="w-full rounded-xl border border-blue-400/30 bg-white/50 px-3 py-2 text-sm text-gray-800 placeholder:text-gray-500 outline-none focus:border-blue-500/60 dark:bg-black/20 dark:text-gray-100 dark:placeholder:text-gray-400"
           />
         </label>
 
@@ -116,7 +116,7 @@ export default function Craft() {
               <section key={group.domain} aria-labelledby={`craft-${group.domain}`}>
                 <h3
                   id={`craft-${group.domain}`}
-                  className="mb-2 flex items-center gap-2 border-b border-emerald-400/25 pb-1.5 text-sm font-extrabold uppercase tracking-[1px] text-emerald-800 dark:text-emerald-300"
+                  className="mb-2 flex items-center gap-2 border-b border-blue-400/25 pb-1.5 text-sm font-extrabold uppercase tracking-[1px] text-blue-800 dark:text-blue-300"
                 >
                   {group.domain}
                   <span className="font-semibold tabular-nums opacity-60">
@@ -124,24 +124,24 @@ export default function Craft() {
                   </span>
                 </h3>
 
-                <ul className="divide-y divide-emerald-400/15">
+                <ul className="divide-y divide-blue-400/15">
                   {group.projects.map((project) => (
                     <li key={`${project.domain}-${project.title}`}>
                       <a
                         href={project.linkUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-start gap-3 py-2.5 transition-colors hover:bg-emerald-500/5 -mx-1 px-1 rounded-lg"
+                        className="group flex items-start gap-3 py-2.5 transition-colors hover:bg-blue-500/5 -mx-1 px-1 rounded-lg"
                       >
                         <span className="mt-0.5 text-lg leading-none shrink-0" aria-hidden="true">
                           {project.emoji}
                         </span>
                         <span className="min-w-0 flex-1">
                           <span className="flex items-start gap-2">
-                            <span className="min-w-0 flex-1 font-bold leading-snug text-gray-900 dark:text-gray-50 group-hover:text-emerald-800 dark:group-hover:text-emerald-300">
+                            <span className="min-w-0 flex-1 font-bold leading-snug text-gray-900 dark:text-gray-50 group-hover:text-blue-800 dark:group-hover:text-blue-300">
                               {project.title}
                             </span>
-                            <span className="shrink-0 pt-0.5 text-xs font-bold text-emerald-700 dark:text-emerald-400">
+                            <span className="shrink-0 pt-0.5 text-xs font-bold text-blue-700 dark:text-blue-400">
                               <span className="hidden sm:inline">{project.linkText} </span>↗
                             </span>
                           </span>

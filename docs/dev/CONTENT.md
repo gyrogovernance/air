@@ -58,8 +58,8 @@ Legacy redirects:
 
 ### `/`  -  Home
 
-- **Hero (AIR 🍃):** Prototype badge; audience line “Alignment Infrastructure Routes for Independent Researchers, Engineers, Offices of Community Safety, and AI Labs.”; delivery subtitle; CTAs **About us** → `/about`, **Join us** → `/superintelligence`. WebGL `Strands` backdrop.
-- **Power Concentration Risks (⚖️):**
+- **Hero (AIR + air_logo.svg):** Prototype badge; audience line “Alignment Infrastructure Routes for Independent Researchers, Engineers, Offices of Community Safety, and AI Labs.”; delivery subtitle; CTAs **About us** → `/about`, **Join us** → `/superintelligence`. WebGL `Strands` backdrop. Brand mark from `public/air_logo.svg` (not leaf emoji).
+- **Power Concentration Risks (⚡):**
   - Lead: people believe power concentration from autonomy (humans or machines) is the root behind high risks to personal, social, and environmental safety.
   - **When does power really concentrate?** Power concentrates only when governance responsibilities are displaced by misattributing Authority and Agency as unique identities of someone or something, instead of recognizing them as capacities that operate across people and machines and originate in human ancestry.
   - **What do we do to mitigate such risks?** We provide protocols as shared infrastructure to help you research and build solutions to today’s most urgent crises in the age of Transformative AI, and we welcome anyone who wants to contribute, without credential or hiring gatekeeping.
@@ -69,7 +69,7 @@ Legacy redirects:
 
 - **About (ℹ️, page H1):** “AIR is a framework for Alignment on Uniform Power Distribution through AI-Empowered Human Capacity Development. This Alignment operates over a Unified Scope for AI safety and governance, enabling us to collectively address the interconnected crises of poverty, unemployment, misinformation, and ecological degeneration.”
 - **How we work (🔄):** Working-principle quote; “We provide Guides to help you coordinate in any topic you choose, aligning all contributions with Four Routes for effective operationalization of your AI safety and governance interventions.” CTA **Collective Superintelligence Fellowship** → `/superintelligence`.
-- **Our Common Consensus (🤝):** Consensus line; AI as pattern-matching / Indirect Authority and Agency; enhanced capability is more sophisticated transformation, not a change of class (Direct/Indirect); capacity vs identity; safety failures when the distinction is violated; four capacities and corresponding displacements. Dropdown accordion with full Mark text from `docs/the_human_mark/THM.md`. CTA **Alignment infrastructure** (primary/gradient) → `/infrastructure`.
+- **Our Common Consensus (✋):** Consensus line; AI as pattern-matching / Indirect Authority and Agency; enhanced capability is more sophisticated transformation, not a change of class (Direct/Indirect); capacity vs identity; safety failures when the distinction is violated; four capacities and corresponding displacements. Dropdown accordion with full Mark text from `docs/the_human_mark/THM.md`. CTA **Alignment infrastructure** (primary/gradient) → `/infrastructure`.
 
 ### `/infrastructure`  -  Human Capacity Development Infrastructure
 
@@ -77,11 +77,11 @@ Section order matches live page:
 
 1. **Hero (🤝):** Uniform Power Distribution Guides (protocols as infrastructure; four capacities and displacements) + Unified Scope Routes (AI-Empowered Economy, Employment, Education, Ecology). CTA **About us** → `/about`.
 2. **Collective Superintelligence blurb (✨):** “Collective Superintelligence is central to our research at Gyro Governance Lab. Rather than another AI model, it is the infrastructure that helps humans get better together through technology.” CTA **Superintelligence** → `/superintelligence`.
-3. **Protocols (📜):** Two inner blocks. (1) GGG whitepaper + four protocols (CGM / Gyroscope / THM / GGG). (2) Protocols as shared methods; tools to apply them, with docs and templates. CTA **Gear up** → `/protocols`.
+3. **Protocols (📃):** Two inner blocks. (1) GGG whitepaper + four protocols (CGM / Gyroscope / THM / GGG). (2) Protocols as shared methods; tools to apply them, with docs and templates. CTA **Gear up** → `/protocols`.
 
 ### `/protocols`  -  Protocols
 
-- **Hero (📜):** “Shared methods for alignment work, with tools and templates you can use.” Clarifies Protocols (methods) vs Tools by Gyro Governance Lab (usable) vs AIR-Craft (produced work). Note: published alignment work is expected to include THM-consistent framing and a short THM self-audit.
+- **Hero (📃):** “Shared methods for alignment work, with tools and templates you can use.” Clarifies Protocols (methods) vs Tools by Gyro Governance Lab (usable) vs AIR-Craft (produced work). Note: published alignment work is expected to include THM-consistent framing and a short THM self-audit.
 - **Four protocols (accordions, tabs inside):** CGM, THM (default open), Gyroscope, GGG. Tip pill explains row toggles and inner tabs. Tab slots: What it is · What it is for · In practice · Tools · Docs. Doc links primarily to [air-craft `docs/`](https://github.com/gyrogovernance/air-craft/tree/main/docs); CGM docs on [science](https://github.com/gyrogovernance/science); Behaviour Lab source repo remains [gyrogovernance/tools](https://github.com/gyrogovernance/tools). Deep links: `#cgm`, `#thm`, `#gyroscope`, `#ggg`.
 - **Tools by Gyro Governance Lab (one accordion per tool):** AI Inspector, GyroGem, GyroDiagnostics, Gyroscope Quick Start and chat guides. Each: short bullet list of what you can do, supports line, primary actions. Deep links: `#ai-inspector`, `#gyrogem`, `#gyrodiagnostics`, `#gyroscope-guides`. THM NotebookLM lives under the THM Tools tab; GGG paper/simulator under the GGG Tools tab.
 - **Next steps:** Browse AIR-Craft · Join Fellowship.
@@ -98,7 +98,7 @@ Section order matches live page:
 |--------|-------|-------|-------------|------|
 | Economy | 💰 | Moments Economy | Mitigating Risks of Transformative AI (TAI) | [Read the Whitepaper](https://github.com/gyrogovernance/superintelligence/blob/main/docs/programs/AIR_Moments_Economy_Whitepaper.md) |
 | Employment | 🕵️ | AI Inspector Browser Extension | Transform AI outputs for Evaluation, Interpretability, Governance. | [Add to Chrome](https://chromewebstore.google.com/detail/ai-inspector/hcblmheihnlngnogobgclhfahjljnbok?utm_source=item-share-cb) |
-| Education | 🎓 | GyroGem: AI Safety Agent | Explaining AI and Mitigating Risks of technological illiteracy | [Chat on Google](https://gemini.google.com/gem/1B-gQt-M3aKfsv9HDp_8gTQHG89bCfqlO?usp=sharing) |
+| Education | 💎 | GyroGem: AI Safety Agent | Explaining AI and Mitigating Risks of technological illiteracy | [Chat on Google](https://gemini.google.com/gem/1B-gQt-M3aKfsv9HDp_8gTQHG89bCfqlO?usp=sharing) |
 | Ecology | 🌍 | Gyroscopic Global Governance (GGG) | A Post-AGI Multi-domain Governance Sandbox | [Read More](https://gyrogovernance.com/articles/ggg-simulator-results/) |
 
 - **Submit your Project (📤):** Process: (1) Register via Fellowship introduction on GitHub Discussions; (2) Work and Iterate through Self-Audit on your own terms; (3) Submit to AIR-Craft via GitHub Issue Form. CTA **Join** → `/craft/form`.
@@ -107,7 +107,7 @@ Section order matches live page:
 
 - **Hero (✨):** “We redefine superintelligence as the seamless cooperation between humans and machines in the era of Transformative AI (TAI) and Artificial General Intelligence (AGI) (see Bostrom, Superintelligence, 2014; Korompilias, Gyroscopic Global Governance, 2025).” CTA **Learn more** → [github.com/gyrogovernance/superintelligence](https://github.com/gyrogovernance/superintelligence).
 - **Our Fellowship (👥):** “Built for misfits, generalists, autodidacts, and marginalized individuals who want to contribute to independent AI safety research and governance now.” **Who is eligible?** “We support the 99% of AI safety candidates who wish to build their portfolio and career in alignment and AGI safety, but existing labs often do not have the capacity to integrate.” Open enrollment  -  no selective admissions. CTA **Join** → `/superintelligence/form`.
-- **Invest in Humanity (💚):** “For every hire a lab makes, 100 to 1000 people are left out. The Collective Superintelligence Fund aims to support all those who join our Fellowship program.” CTA **Support interest** → `/superintelligence/fund`.
+- **Invest in Humanity (❤️):** “For every hire a lab makes, 100 to 1000 people are left out. The Collective Superintelligence Fund aims to support all those who join our Fellowship program.” CTA **Support interest** → `/superintelligence/fund`.
 
 ### Join / submit / fund entry points
 

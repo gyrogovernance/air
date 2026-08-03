@@ -20,15 +20,15 @@ export default function CraftSubmit() {
         icon="🛩️"
         title="Submit Your Project to AIR-Craft"
         subtitle="List public work on air.gyrogovernance.com/craft. Issues are Submit and Review only. Include a link to your Fellowship introduction."
-        tint="emerald"
+        tint="blue"
       />
 
-      <Section tint="teal" icon="📤" title="How it works">
+      <Section tint="blue" icon="📤" title="How it works">
         <Block className="space-y-4">
           <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-200 leading-relaxed">
             <li>
               If you have not already,{' '}
-              <a href={INTRO_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-700 dark:text-emerald-400">
+              <a href={INTRO_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-700 dark:text-blue-400">
                 post your introduction ↗
               </a>{' '}
               (open enrollment; you are a Fellow once you post).
@@ -36,7 +36,7 @@ export default function CraftSubmit() {
             <li>Work and iterate through Self-Audit on your own terms.</li>
             <li>
               Open the Submit form. Use your real public name and link your introduction. Agree to the{' '}
-              <a href={AGREEMENT_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-700 dark:text-emerald-400">
+              <a href={AGREEMENT_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-700 dark:text-blue-400">
                 Fellow Agreement ↗
               </a>
               .
@@ -60,7 +60,7 @@ export default function CraftSubmit() {
       <Section tint="cyan">
         <Block>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-center">
-            <Link to="/craft" className="font-semibold text-emerald-700 dark:text-emerald-400">
+            <Link to="/craft" className="font-semibold text-blue-700 dark:text-blue-400">
               ← Back to AIR-Craft
             </Link>
           </p>

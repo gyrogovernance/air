@@ -14,7 +14,7 @@ export default function Protocols() {
   return (
     <Page>
       <PageHero
-        icon="📜"
+        icon="📃"
         title="Protocols"
         subtitle="Shared methods for alignment work, with tools and templates you can use."
         tint="cyan"
@@ -30,14 +30,14 @@ export default function Protocols() {
         </Block>
       </PageHero>
 
-      <Section tint="teal" title="Four protocols" icon="🧭">
+      <Section tint="blue" title="Foundations" icon="🧭">
         <p className="flex justify-center text-sm text-gray-600 dark:text-gray-300">
           Each protocol is a shared method for alignment work.
         </p>
 
         <div className="flex justify-center">
           <span
-            className="inline-flex items-center px-3 py-1.5 text-center text-xs font-semibold tracking-wide rounded-lg border border-emerald-400/35 bg-emerald-500/10 text-emerald-900 dark:text-emerald-100"
+            className="inline-flex items-center px-3 py-1.5 text-center text-xs font-semibold tracking-wide rounded-lg border border-blue-400/35 bg-blue-500/10 text-blue-900 dark:text-blue-100"
             role="note"
           >
             Tip: tap a row to open or close it.
@@ -123,7 +123,7 @@ export default function Protocols() {
                     <li key={point}>{point}</li>
                   ))}
                 </ul>
-                <p className="text-xs font-semibold uppercase tracking-wide text-emerald-800 dark:text-emerald-300">
+                <p className="text-xs font-semibold uppercase tracking-wide text-blue-800 dark:text-blue-300">
                   {tool.supports}
                 </p>
                 <ul className="flex flex-wrap gap-x-4 gap-y-2">
@@ -140,8 +140,8 @@ export default function Protocols() {
       </Section>
 
       <Section
-        tint="emerald"
-        icon="🛤️"
+        tint="blue"
+        icon="🚶‍♀️‍➡️"
         title="Next steps"
         actions={
           <>

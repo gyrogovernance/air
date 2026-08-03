@@ -18,7 +18,7 @@ export function ExtLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="font-bold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
+      className="font-bold text-blue-700 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
     >
       {children} <span aria-hidden="true">↗</span>
     </a>
@@ -263,7 +263,7 @@ export const TOOLS: ToolDef[] = [
   },
   {
     id: 'gyrogem',
-    icon: '🎓',
+    icon: '💎',
     title: 'GyroGem',
     subtitle: 'AI safety agent for technological literacy',
     points: [

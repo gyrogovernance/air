@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import GlassCard, { GlassInner } from './GlassCard';
 
-type Tint = 'emerald' | 'green' | 'teal' | 'cyan' | 'blue' | 'purple' | 'orange' | 'none';
+type Tint = 'blue' | 'green' | 'teal' | 'cyan' | 'purple' | 'orange' | 'none';
 
 /** Consistent page column used by all routes. */
 export function Page({ children }: { children: ReactNode }) {
@@ -24,7 +24,7 @@ export function PageHero({
   belowTitle,
   icon,
   badge,
-  tint = 'emerald',
+  tint = 'blue',
   backdrop,
   children,
 }: {
@@ -88,7 +88,7 @@ export function PageHero({
  * `hero` promotes the section heading to page H1 with brand gradient (for merged page tops).
  */
 export function Section({
-  tint = 'emerald',
+  tint = 'blue',
   title,
   icon,
   children,

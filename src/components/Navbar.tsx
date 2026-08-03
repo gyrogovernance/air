@@ -1,7 +1,8 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { ChevronDown, Leaf } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import MobileMenu from './MobileMenu';
+import AirLogo from './AirLogo';
 import { isNavItemActive, navLinks, type NavItem } from '../lib/nav';
 
 function DesktopNavItem({ item }: { item: NavItem }) {
@@ -59,9 +60,7 @@ export default function Navbar() {
               className="flex items-center gap-2.5 focus:outline-none rounded-full hover:opacity-80 transition-opacity"
               aria-label="AIR - Home"
             >
-              <div className="w-9 h-9 bg-emerald-600 dark:bg-emerald-500 rounded-full flex items-center justify-center text-white shadow-sm">
-                <Leaf className="w-5 h-5" />
-              </div>
+              <AirLogo size={36} className="shrink-0" />
               <span className="text-xl font-extrabold tracking-tight text-gray-900 dark:text-white">
                 AIR
               </span>
@@ -78,7 +77,7 @@ export default function Navbar() {
 
               <Link
                 to="/superintelligence"
-                className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 hover:brightness-110 text-white shadow-lg transition-all"
+                className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 hover:brightness-110 text-white shadow-lg transition-all"
               >
                 Join us
               </Link>

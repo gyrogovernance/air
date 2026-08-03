@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Strands from '../components/Strands';
 import PrototypePill from '../components/PrototypePill';
+import AirLogo from '../components/AirLogo';
 import { Page, PageHero, Section, Block } from '../components/Section';
 
 /**
@@ -13,9 +14,9 @@ export default function Home() {
   return (
     <Page>
       <PageHero
-        tint="emerald"
+        tint="blue"
         badge={<PrototypePill />}
-        icon="🍃"
+        icon={<AirLogo variant="logo" size={64} className="mx-auto" alt="" />}
         title="AIR"
         belowTitle={
           <Block className="text-center">
@@ -57,7 +58,7 @@ export default function Home() {
 
       <Section
         tint="purple"
-        icon="⚖️"
+        icon="⚡"
         title="Power Concentration Risks"
         actions={
           <>

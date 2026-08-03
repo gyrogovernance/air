@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AirLogo from './AirLogo';
 
 const Footer: React.FC = () => {
   return (
@@ -8,9 +9,9 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-y-10 gap-x-8">
           {/* Brand */}
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2.5 mb-3">
+              <AirLogo size={28} className="shrink-0" />
               <span className="text-white text-xl font-extrabold tracking-tight">AIR</span>
-              <span className="text-emerald-400">🍃</span>
             </div>
             <p className="text-sm max-w-xs leading-relaxed">
               Alignment Infrastructure Routes for Independent Researchers and Engineers, 

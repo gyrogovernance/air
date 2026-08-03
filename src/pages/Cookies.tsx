@@ -8,11 +8,11 @@ export default function Cookies() {
         icon="🍪"
         title="Cookie Policy"
         meta="Last updated: August 1, 2026"
-        tint="teal"
+        tint="blue"
       />
 
       <Section
-        tint="teal"
+        tint="blue"
         actions={
           <Link to="/" className="btn-outline text-sm">
             ← Back to home

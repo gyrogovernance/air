@@ -7,7 +7,7 @@ export default function Infrastructure() {
     <Page>
       <Section
         hero
-        tint="teal"
+        tint="blue"
         icon="🤝"
         title="Human Capacity Development Infrastructure"
         actions={
@@ -57,7 +57,7 @@ export default function Infrastructure() {
 
       <Section
         tint="cyan"
-        icon="📜"
+        icon="📃"
         title="Protocols"
         actions={
           <Link to="/protocols" className="btn-outline text-sm">

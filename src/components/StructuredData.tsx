@@ -1,4 +1,6 @@
-import { SITE_URL, DEFAULT_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from '../lib/seo';
+import { SITE_URL, DEFAULT_DESCRIPTION, SITE_NAME, SITE_TAGLINE, SITE_OG_IMAGE } from '../lib/seo';
+
+const logoUrl = `${SITE_URL}${SITE_OG_IMAGE}`;
 
 const organization = {
   '@context': 'https://schema.org',
@@ -6,6 +8,8 @@ const organization = {
   name: SITE_NAME,
   alternateName: ['Alignment Infrastructure Routes', 'AIR by Gyro Governance Lab'],
   url: SITE_URL,
+  logo: logoUrl,
+  image: logoUrl,
   description: DEFAULT_DESCRIPTION,
   parentOrganization: {
     '@type': 'Organization',

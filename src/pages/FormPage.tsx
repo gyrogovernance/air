@@ -68,7 +68,7 @@ const FormPage: React.FC = () => {
   if (submitted) {
     return (
       <Page>
-        <Section tint="emerald" icon="🎉">
+        <Section tint="blue" icon="🎉">
           <Block className="text-center py-6">
             <h1 className="section-title title-gradient tracking-tight mb-3">Thank you!</h1>
             <p className="text-gray-600 dark:text-gray-300 max-w-sm mx-auto leading-relaxed">
@@ -88,13 +88,13 @@ const FormPage: React.FC = () => {
   return (
     <Page>
       <PageHero
-        icon="💚"
+        icon="❤️"
         title="Support interest"
         subtitle="This form registers interest in supporting the future fund. We are not accepting funds through this site at this time."
         tint="purple"
       />
 
-      <Section tint="emerald">
+      <Section tint="blue">
         <form onSubmit={handleSubmit} className="space-y-4">
           <Block className="space-y-6">
             <div>
@@ -159,7 +159,7 @@ const FormPage: React.FC = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full sm:w-auto min-w-[240px] py-3.5 px-8 rounded-full bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 hover:brightness-110 transition-all text-white font-bold text-sm tracking-wider shadow-lg disabled:opacity-60 disabled:pointer-events-none"
+              className="w-full sm:w-auto min-w-[240px] py-3.5 px-8 rounded-full bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 hover:brightness-110 transition-all text-white font-bold text-sm tracking-wider shadow-lg disabled:opacity-60 disabled:pointer-events-none"
             >
               {submitting ? 'SUBMITTING…' : 'REGISTER INTEREST'}
             </button>

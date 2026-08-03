@@ -50,8 +50,8 @@ export default function MobileMenu({ links }: MobileMenuProps) {
           nested ? 'pl-12 text-[0.95rem]' : ''
         } ${
           isActive
-            ? 'text-emerald-700 dark:text-emerald-400 bg-emerald-500/10'
-            : 'text-gray-800 dark:text-gray-100 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-500/10'
+            ? 'text-blue-700 dark:text-blue-400 bg-blue-500/10'
+            : 'text-gray-800 dark:text-gray-100 hover:text-blue-700 dark:hover:text-blue-400 hover:bg-blue-500/10'
         }`
       }
     >
@@ -104,7 +104,7 @@ export default function MobileMenu({ links }: MobileMenuProps) {
   return (
     <>
       <button
-        className="md:hidden text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors relative z-[1020]"
+        className="md:hidden text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative z-[1020]"
         aria-label="Toggle mobile menu"
         aria-expanded={isOpen}
         onClick={() => setIsOpen((open) => !open)}

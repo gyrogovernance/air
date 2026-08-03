@@ -17,7 +17,7 @@ const VOLUNTARY_COPY =
 export function VoluntaryPill() {
   return (
     <span
-      className="inline-flex max-w-xl text-center px-3 py-1.5 text-xs font-semibold leading-snug rounded-full border border-emerald-500/35 bg-emerald-500/10 text-emerald-900 dark:text-emerald-200"
+      className="inline-flex max-w-xl text-center px-3 py-1.5 text-xs font-semibold leading-snug rounded-full border border-blue-500/35 bg-blue-500/10 text-blue-900 dark:text-blue-200"
       role="note"
     >
       {VOLUNTARY_COPY}

@@ -9,7 +9,7 @@ export default function About() {
     <Page>
       <Section
         hero
-        tint="teal"
+        tint="blue"
         icon="ℹ️"
         title="About"
       >
@@ -47,7 +47,7 @@ export default function About() {
 
       <Section
         tint="purple"
-        icon="🤝"
+        icon="✋"
         title="Our Common Consensus"
         actions={
           <Link to="/infrastructure" className="btn-primary text-sm inline-flex">

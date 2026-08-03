@@ -8,11 +8,11 @@ export default function Privacy() {
         icon="🔒"
         title="Privacy Policy"
         meta="Effective: August 1, 2026"
-        tint="emerald"
+        tint="blue"
       />
 
       <Section
-        tint="emerald"
+        tint="blue"
         actions={
           <Link to="/" className="btn-outline text-sm">
             ← Back to home
