@@ -16,7 +16,7 @@ export default function About() {
         <Block>
           <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
             AIR is a framework for Alignment on Uniform Power Distribution through AI-Empowered Human Capacity Development.
-            This Alignment operates over a Unified Scope for AI safety and governance, enabling us to collectively address the interconnected crises of
+            This Alignment operates over a Unified Scope for Community Safety and Good Governance, enabling us to collectively address the interconnected crises of
             poverty, unemployment, misinformation, and ecological degeneration.
           </p>
         </Block>
@@ -40,7 +40,7 @@ export default function About() {
         <Block>
           <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
             We provide Guides to help you coordinate in any topic you choose, aligning all contributions with Four Routes
-            for effective operationalization of your AI safety and governance interventions.
+            for Effective Altruism, operationalization of AI Safety and Good Governance interventions.
           </p>
         </Block>
       </Section>

@@ -60,7 +60,7 @@ export default function Craft() {
       <PageHero
         icon="🛩️"
         title="AIR-Craft"
-        subtitle="Skilled work in AI safety and governance with datasets, reports, and tools by our Fellows and Lab."
+        subtitle="AI-Empowered Skilled work in Community Safety and Good Governance with reports, datasets and tools by our Fellows and Lab."
         tint="blue"
       />
 

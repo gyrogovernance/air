@@ -103,7 +103,7 @@ const pages: Record<string, PageSeo> = {
     path: '/superintelligence',
     title: 'Collective Superintelligence | AIR',
     description:
-      'Collective Superintelligence Fellowship: support for independent researchers contributing to AI safety and governance. Invest in human capacity for Transformative AI and AGI.',
+      'Collective Superintelligence Fellowship: support for independent researchers contributing to Community Safety and Good Governance. Invest in human capacity for Transformative AI and AGI.',
     keywords: [
       'collective superintelligence',
       'AI safety fellowship',

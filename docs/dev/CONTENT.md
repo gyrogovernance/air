@@ -67,8 +67,8 @@ Legacy redirects:
 
 ### `/about`  -  About
 
-- **About (ℹ️, page H1):** “AIR is a framework for Alignment on Uniform Power Distribution through AI-Empowered Human Capacity Development. This Alignment operates over a Unified Scope for AI safety and governance, enabling us to collectively address the interconnected crises of poverty, unemployment, misinformation, and ecological degeneration.”
-- **How we work (🔄):** Working-principle quote; “We provide Guides to help you coordinate in any topic you choose, aligning all contributions with Four Routes for effective operationalization of your AI safety and governance interventions.” CTA **Collective Superintelligence Fellowship** → `/superintelligence`.
+- **About (ℹ️, page H1):** “AIR is a framework for Alignment on Uniform Power Distribution through AI-Empowered Human Capacity Development. This Alignment operates over a Unified Scope for Community Safety and Good Governance, enabling us to collectively address the interconnected crises of poverty, unemployment, misinformation, and ecological degeneration.”
+- **How we work (🔄):** Working-principle quote; “We provide Guides to help you coordinate in any topic you choose, aligning all contributions with Four Routes for effective operationalization of your Community Safety and Good Governance interventions.” CTA **Collective Superintelligence Fellowship** → `/superintelligence`.
 - **Our Common Consensus (✋):** Consensus line; AI as pattern-matching / Indirect Authority and Agency; enhanced capability is more sophisticated transformation, not a change of class (Direct/Indirect); capacity vs identity; safety failures when the distinction is violated; four capacities and corresponding displacements. Dropdown accordion with full Mark text from `docs/the_human_mark/THM.md`. CTA **Alignment infrastructure** (primary/gradient) → `/infrastructure`.
 
 ### `/infrastructure`  -  Human Capacity Development Infrastructure
@@ -88,7 +88,7 @@ Section order matches live page:
 
 ### `/craft`  -  AIR-Craft
 
-- **Hero (🛩️):** “Skilled work in AI safety and governance with datasets, reports, and tools by our Fellows and Lab.”
+- **Hero (🛩️):** “AI-Empowered Skilled work in Community Safety and Good Governance with reports, datasets and tools by our Fellows and Lab.”
 - **Projects (🗂️):** Cards rendered from [gyrogovernance/air-craft](https://github.com/gyrogovernance/air-craft) `AIR-Craft.md`.
   - **Build snapshot** (`scripts/sync-air-craft.mjs` → `src/data/airCraft.generated.json`): first paint, `/craft` SEO description/keywords, refreshed on every `bun run build` and on the daily GitHub Pages deploy. Build override: `AIR_CRAFT_MD_URL` or `VITE_AIR_CRAFT_MD_URL`. If remote fetch fails at build: previous generated file, else seed list in the sync script.
   - **Live fetch** after mount: same raw URL; runtime override **`VITE_AIR_CRAFT_MD_URL` only**. On failure, keep the build snapshot. Live fetch updates cards only  -  document head / OG for `/craft` stay on the build snapshot until the next deploy.

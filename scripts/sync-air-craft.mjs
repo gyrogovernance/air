@@ -92,7 +92,7 @@ function seoPayload(projects) {
   const titles = projects.map((p) => p.title);
   const domains = [...new Set(projects.map((p) => p.domain))];
   const description =
-    `AIR-Craft is skilled work in AI safety and governance with datasets, reports, and tools across ${domains.join(', ')}. ${titles.join(', ')}.`;
+    `AIR-Craft is skilled work in Community Safety and Good Governance with datasets, reports, and tools across ${domains.join(', ')}. ${titles.join(', ')}.`;
   return {
     description,
     keywords: ['AIR-Craft', 'AIR Craft', 'AI safety tools', 'AI safety datasets', ...titles],
