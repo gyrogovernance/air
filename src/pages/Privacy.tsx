@@ -63,8 +63,16 @@ export default function Privacy() {
 
           <h3 className="!mt-6 font-bold text-lg">Contact Us</h3>
           <p>
-            If you have any questions about this Privacy Policy, please reach out via the contact methods listed
-            on the Gyro Governance Lab website or send an email to the address published on our site.
+            If you have any questions about this Privacy Policy, use the{' '}
+            <a
+              href="https://github.com/gyrogovernance/air-craft/issues/new?template=3-contact.yml"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Contact form on GitHub
+            </a>
+            , or reach out via the contact methods listed on the Gyro Governance Lab website.
           </p>
         </Block>
       </Section>

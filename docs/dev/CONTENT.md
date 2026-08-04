@@ -4,7 +4,7 @@ Model-facing outline of the public site at [air.gyrogovernance.com](https://air.
 
 **AIR** = Alignment Infrastructure Routes for Independent Researchers, Engineers, Offices of Community Safety, and AI Labs. Framework for Alignment on Uniform Power Distribution through AI-Empowered Human Capacity Development.
 
-**Prototype surfaces:** Home shows a `Prototype` badge. Craft submit (`/craft/form`) and Fellowship join (`/superintelligence/form`) show `Prototype · Do Not Apply · Not a working process yet` (`PrototypePill` detail). Fund form has no prototype pill.
+**Beta surfaces:** Home, Craft submit (`/craft/form`), and Fellowship join (`/superintelligence/form`) show a `Beta` badge under the title. Fund form has no beta pill.
 
 ---
 
@@ -30,7 +30,7 @@ Legacy redirects:
 
 **Primary nav** (`src/lib/nav.ts`): Home · About · Infrastructure (dropdown: Protocols, Craft, Superintelligence). Global CTA **Join us** → `/superintelligence`.
 
-**Footer EXPLORE:** About AIR, AI safety infrastructure, AIR-Craft tools & datasets, Collective Superintelligence Fellowship. **LEGAL:** Privacy Policy, Cookie Policy, Gyro Governance Lab (external). Footer brand line: “Alignment Infrastructure Routes for Independent Researchers and Engineers, Offices of Community Safety, and AI Labs.” Footer tagline: “Aligned on Uniform Power Distribution.” By Gyro Governance Lab • 2026 • CC BY-SA 4.0.
+**Footer EXPLORE:** About AIR, AI safety infrastructure, AIR-Craft tools & datasets, Collective Superintelligence Fellowship. **LEGAL:** Privacy Policy, Cookie Policy, Contact (GitHub Issue Form), Gyro Governance Lab (external). Footer brand line: “Alignment Infrastructure Routes for Independent Researchers and Engineers, Offices of Community Safety, and AI Labs.” Footer tagline: “Aligned on Uniform Power Distribution.” By Gyro Governance Lab • 2026 • CC BY-SA 4.0.
 
 ---
 
@@ -58,7 +58,7 @@ Legacy redirects:
 
 ### `/`  -  Home
 
-- **Hero (AIR + air_logo.svg):** Prototype badge; audience line “Alignment Infrastructure Routes for Independent Researchers, Engineers, Offices of Community Safety, and AI Labs.”; delivery subtitle; CTAs **About us** → `/about`, **Join us** → `/superintelligence`. WebGL `Strands` backdrop. Brand mark from `public/air_logo.svg` (not leaf emoji).
+- **Hero (AIR + air_logo.svg):** Beta badge under the title; audience line “Alignment Infrastructure Routes for Independent Researchers, Engineers, Offices of Community Safety, and AI Labs.”; delivery subtitle; CTAs **About us** → `/about`, **Join us** → `/superintelligence`. WebGL `Strands` backdrop. Brand mark from `public/air_logo.svg` (not leaf emoji).
 - **Power Concentration Risks (⚡):**
   - Lead: people believe power concentration from autonomy (humans or machines) is the root behind high risks to personal, social, and environmental safety.
   - **When does power really concentrate?** Power concentrates only when governance responsibilities are displaced by misattributing Authority and Agency as unique identities of someone or something, instead of recognizing them as capacities that operate across people and machines and originate in human ancestry.
@@ -115,7 +115,7 @@ Craft and Fellowship no longer use FormEasy. Fund still does.
 
 #### `/craft/form`  -  `CraftSubmit`
 
-Prototype detail pill. Static instructions. Links:
+Beta pill under the title. Static instructions. Links:
 
 - Primary: [Submit to AIR-Craft](https://github.com/gyrogovernance/air-craft/issues/new?template=1-submit.yml)
 - Secondary: [Review a submission](https://github.com/gyrogovernance/air-craft/issues/new?template=2-review.yml)
@@ -126,11 +126,11 @@ Issue Form requires: public name, GitHub profile, **link to Fellowship introduct
 
 #### `/superintelligence/form`  -  `FellowshipJoin`
 
-Prototype detail pill plus voluntary-contribution pill under the H1: “Contributions to AIR are made on a voluntary basis, with no compensation, unless a separate written agreement explicitly states otherwise.” Static instructions. Open enrollment  -  **not an admissions process**. “You are a Fellow once you post your introduction.”
+Beta pill under the H1. Subtitle: “Guaranteed Open Enrollment, without admissions requirements or waiting lists.” Then an inner Block with voluntary-contribution copy: “Contributions to AIR are made on a voluntary basis.” Static instructions. Open enrollment  -  **not an admissions process**. “You are a Fellow once you post your introduction.”
 
 - [Create GitHub account](https://github.com/join)
 - Primary CTA: **Post your introduction on GitHub** → [Introductions](https://github.com/gyrogovernance/air-craft/discussions/new?category=introductions)
-- Agreement linked in copy; optional [Assignments](https://github.com/gyrogovernance/air-craft/discussions/categories/assignments)
+- Agreement linked in copy
 
 No follow-up contact copy. No “Submit application” language.
 

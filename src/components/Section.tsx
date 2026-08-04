@@ -34,7 +34,7 @@ export function PageHero({
   /** Content directly under the H1 (e.g. mission line), before subtitle. */
   belowTitle?: ReactNode;
   icon?: ReactNode;
-  /** Optional status chip above the title (e.g. Prototype). */
+  /** Optional status chip under the title (e.g. Beta). */
   badge?: ReactNode;
   tint?: Tint;
   backdrop?: ReactNode;
@@ -49,8 +49,6 @@ export function PageHero({
       ) : null}
 
       <header className="relative z-10 p-6 sm:p-8 text-center">
-        {badge ? <div className="mb-3 flex justify-center">{badge}</div> : null}
-
         {icon ? (
           <div className="text-4xl sm:text-5xl mb-3 leading-none" aria-hidden="true">
             {icon}
@@ -58,6 +56,8 @@ export function PageHero({
         ) : null}
 
         <h1 className="section-title title-gradient tracking-tight">{title}</h1>
+
+        {badge ? <div className="mt-3 flex justify-center">{badge}</div> : null}
 
         {meta ? (
           <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">{meta}</p>

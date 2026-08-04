@@ -19,7 +19,7 @@ export default function Infrastructure() {
         <div className="grid md:grid-cols-2 gap-4">
           <Block>
             <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
-              <span aria-hidden="true">🛤️</span> Uniform Power Distribution Guides
+              <span aria-hidden="true">🚶‍♀️‍➡️</span> Uniform Power Distribution Guides
             </h3>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               Protocols as Infrastructure for shared coordination. The framework establishes four capacities for alignment

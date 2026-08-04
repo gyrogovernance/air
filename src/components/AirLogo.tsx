@@ -8,7 +8,7 @@ type AirLogoProps = {
   alt?: string;
 };
 
-/** Official AIR mark from `public/` — prefer this over emoji or Lucide leaf. */
+/** Official AIR mark from `public/` (`icons.svg` / `air_logo.svg`). */
 export default function AirLogo({
   className,
   size = 36,
@@ -18,7 +18,7 @@ export default function AirLogo({
   const src = variant === 'logo' ? '/air_logo.svg' : '/icons.svg';
   return (
     <img
-      src={src}
+      src={`${src}?v=2`}
       alt={alt}
       width={size}
       height={size}

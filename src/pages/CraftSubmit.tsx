@@ -16,7 +16,7 @@ export default function CraftSubmit() {
   return (
     <Page>
       <PageHero
-        badge={<PrototypePill detail />}
+        badge={<PrototypePill />}
         icon="🛩️"
         title="Submit Your Project to AIR-Craft"
         subtitle="List public work on air.gyrogovernance.com/craft. Issues are Submit and Review only. Include a link to your Fellowship introduction."

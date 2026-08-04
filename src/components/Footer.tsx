@@ -50,6 +50,14 @@ const Footer: React.FC = () => {
             <div className="flex flex-col gap-y-2 text-sm">
               <Link to="/privacy" className="hover:text-gray-200 transition-colors">Privacy Policy</Link>
               <Link to="/cookies" className="hover:text-gray-200 transition-colors">Cookie Policy</Link>
+              <a
+                href="https://github.com/gyrogovernance/air-craft/issues/new?template=3-contact.yml"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-200 transition-colors"
+              >
+                Contact
+              </a>
               <a href="https://gyrogovernance.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 transition-colors">
                 Gyro Governance Lab
               </a>

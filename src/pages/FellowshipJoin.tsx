@@ -1,33 +1,34 @@
 import { Link } from 'react-router-dom';
 import { Page, PageHero, Section, Block } from '../components/Section';
-import PrototypePill, { VoluntaryPill } from '../components/PrototypePill';
+import PrototypePill from '../components/PrototypePill';
 
 const INTRO_URL =
   'https://github.com/gyrogovernance/air-craft/discussions/new?category=introductions';
 const AGREEMENT_URL =
   'https://github.com/gyrogovernance/air-craft/blob/main/FELLOW_AGREEMENT.md';
 const GITHUB_JOIN_URL = 'https://github.com/join';
-const ASSIGNMENTS_URL =
-  'https://github.com/gyrogovernance/air-craft/discussions/categories/assignments';
+
+const VOLUNTARY_COPY = 'Contributions to AIR are made on a voluntary basis.';
 
 /** Join Fellowship via GitHub Discussions introduction (not FormEasy). */
 export default function FellowshipJoin() {
   return (
     <Page>
       <PageHero
-        badge={<PrototypePill detail />}
+        badge={<PrototypePill />}
         icon="🎫"
         title="Join the AIR Fellowship"
-        belowTitle={
-          <div className="flex justify-center">
-            <VoluntaryPill />
-          </div>
-        }
-        subtitle="Open enrollment, without admissions."
+        subtitle="Guaranteed Open Enrollment, without admissions requirements or waiting lists."
         tint="blue"
-      />
+      >
+        <Block className="text-center">
+          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed" role="note">
+            {VOLUNTARY_COPY}
+          </p>
+        </Block>
+      </PageHero>
 
-      <Section tint="cyan" icon="🛤️" title="Three steps">
+      <Section tint="cyan" icon="🚶‍♀️‍➡️" title="Three steps">
         <Block>
           <ol className="space-y-6">
             <li>
@@ -61,16 +62,7 @@ export default function FellowshipJoin() {
                 Post your introduction
               </p>
               <p className="mt-1.5 pl-6 text-gray-600 dark:text-gray-300 leading-relaxed">
-                Use your real public name. That post is your membership record. You can claim{' '}
-                <a
-                  href={ASSIGNMENTS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-blue-700 dark:text-blue-400"
-                >
-                  assignments ↗
-                </a>{' '}
-                later.
+                Use your real public name. That post is your membership record.
               </p>
             </li>
           </ol>
