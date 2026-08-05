@@ -205,6 +205,12 @@ both the source file and this section.
 - Block B — "What do we do to mitigate such risks?": protocols as shared infrastructure; welcome anyone without credential or hiring gatekeeping.
 - CTAs: **Alignment Infrastructure** → `/infrastructure` · **AI Safety Interventions** → `/craft`.
 
+**Section: Field Building and Public Goods** (tint `orange`, icon `🏛️`)
+- Lead paragraph: securing transformative technology requires a massive, distributed network of independent experts working in the open.
+- Block A — "Democratizing rigorous research": shared evaluation methods and coordination tools so unaffiliated experts can produce robust governance artifacts.
+- Block B — "Scaling community safety": protocols as shared public infrastructure give local offices and autonomous engineers the same operational capabilities as large institutions.
+- CTA: **Discover the protocols** → `/protocols`.
+
 ### `/about` — About (`src/pages/About.tsx`)
 
 **Section: About** (hero, tint `blue`, icon `ℹ️`)

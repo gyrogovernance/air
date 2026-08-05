@@ -6,9 +6,10 @@ import AirLogo from '../components/AirLogo';
 import { Page, PageHero, Section, Block } from '../components/Section';
 
 /**
- * Home page draft sections (docs/dev/draft.md [/]):
+ * Home page sections (docs/dev/CONTENT.md [/]):
  * 1. Hero: AIR + mission + tagline + About us / Join us
- * 2. Power Concentration Risks + Methodology / AIR-Craft
+ * 2. Power Concentration Risks
+ * 3. Field Building and Public Goods
  */
 export default function Home() {
   return (
@@ -97,6 +98,43 @@ export default function Home() {
             </h3>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               We provide protocols as shared infrastructure to help you research and build solutions to today’s most urgent crises in the age of Transformative AI, and we welcome anyone who wants to contribute, without credential or hiring gatekeeping.
+            </p>
+          </Block>
+        </div>
+      </Section>
+
+      <Section
+        tint="orange"
+        icon="🏛️"
+        title="Field Building and Public Goods"
+        actions={
+          <Link to="/protocols" className="btn-outline text-sm">
+            Discover the protocols
+          </Link>
+        }
+      >
+        <Block>
+          <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
+            Securing transformative technology requires more than isolated research. It demands a massive, distributed network of independent experts working in the open.
+          </p>
+        </Block>
+
+        <div className="grid md:grid-cols-2 gap-4">
+          <Block>
+            <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+              <span aria-hidden="true"></span> Democratizing rigorous research
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              Most capable individuals are locked out of safety work simply because they lack institutional affiliation. We provide the shared evaluation methods and coordination tools that allow unaffiliated experts to produce robust governance artifacts.
+            </p>
+          </Block>
+
+          <Block>
+            <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+              <span aria-hidden="true"></span> Scaling community safety
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              When protocols are treated as shared public infrastructure, local offices and autonomous engineers gain the exact same operational capabilities as large institutions.
             </p>
           </Block>
         </div>
