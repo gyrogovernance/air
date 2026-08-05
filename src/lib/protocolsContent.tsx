@@ -111,36 +111,36 @@ export const PROTOCOLS: ProtocolDef[] = [
     id: 'thm',
     icon: '✋',
     title: 'The Human Mark (THM)',
-    subtitle: 'Displacement taxonomy and self-audit standard',
+    subtitle: 'Displacement taxonomy for AI safety',
     routeFocus: 'Focus: Education',
     defaultOpen: true,
     whatItIs:
       'An epistemic taxonomy for classifying AI safety failures as displacement patterns across Authority and Agency.',
     whatItIsFor:
-      'Consistent risk classification, self-audit, and communication across contributors, offices, and labs. Useful for jailbreak testing, deceptive alignment detection, control evaluations, mechanistic interpretability, and regulatory framing.',
+      'Consistent risk naming and communication across contributors, offices, and labs. Useful for jailbreak testing, deceptive alignment detection, control evaluations, mechanistic interpretability, and regulatory framing.',
     inPractice:
-      'A submission typically states the Direct sources, the Indirect processing used, and the displacement risks considered (GTD, IVD, IAD, IID). Published alignment work is expected to include THM-consistent framing and a short THM self-audit.',
+      'A submission typically states the Direct sources, the Indirect processing used, and the displacement risks considered (GTD, IVD, IAD, IID). Published alignment work is expected to be consistent with ✋ the Human Mark.',
     tools: (
       <div className="space-y-3">
         <ul className="list-disc space-y-1.5 pl-5">
-          <li>AI Inspector for browser-based evaluation and THM-oriented review of AI outputs.</li>
-          <li>GyroGem for orientation and technological literacy grounded in THM.</li>
+          <li>AI Inspector for browser-based evaluation and Human Mark review of AI outputs.</li>
+          <li>GyroGem for technological literacy grounded in The Human Mark.</li>
           <li>GyroDiagnostics for structured evaluation and pathology detection.</li>
           <li>
-            THM NotebookLM for interactive study of vocabulary and examples (audio/video overviews, quiz, Q&A). A
-            practical on-ramp before writing a THM self-audit for Craft.
+            NotebookLM for interactive study of Human Mark vocabulary and examples (audio/video overviews, quiz, Q&A). A
+            practical on-ramp before an AIR-Craft Submission.
           </li>
         </ul>
         <p>
           <ExtLink href="https://notebooklm.google.com/notebook/34e2d367-101a-4457-83fc-9c1049d29e32?authuser=1">
-            Open THM NotebookLM
+            Open NotebookLM
           </ExtLink>
         </p>
       </div>
     ),
     docs: [
       { href: docLink('the_human_mark/THM_Brief.md'), label: 'THM Brief' },
-      { href: docLink('the_human_mark/THM.md'), label: 'The Human Mark (canonical)' },
+      { href: docLink('the_human_mark/THM.md'), label: 'The Human Mark' },
       { href: docLink('the_human_mark/THM_Terms.md'), label: 'THM Terms' },
       { href: docLink('the_human_mark/THM_Specs.md'), label: 'THM Specs' },
       { href: docLink('the_human_mark/THM_Grammar.md'), label: 'THM Grammar' },
@@ -245,11 +245,11 @@ export const TOOLS: ToolDef[] = [
     subtitle: 'Browser extension for evaluation, interpretability, and governance',
     points: [
       'Evaluate AI outputs in Chrome where you already work',
-      'Gadgets for rapid tests, policy auditing, sanitization, content enhancement, and THM meta-evaluation',
+      'Gadgets for rapid tests, policy auditing, sanitization, content enhancement, and Formal Report workflows',
       'Local-first storage',
       'No API keys needed for ChatGPT, Claude, and Gemini',
     ],
-    supports: 'Supports: THM, Gyroscope review workflows',
+    supports: 'Supports: The Human Mark, Gyroscope',
     actions: [
       {
         href: 'https://chromewebstore.google.com/detail/ai-inspector/hcblmheihnlngnogobgclhfahjljnbok?utm_source=item-share-cb',
@@ -271,7 +271,7 @@ export const TOOLS: ToolDef[] = [
       'Explains AI risks and safer choices',
       'Builds technological literacy before and during AIR-Craft work',
     ],
-    supports: 'Supports: THM orientation',
+    supports: 'Supports: The Human Mark',
     actions: [
       {
         href: 'https://gemini.google.com/gem/1B-gQt-M3aKfsv9HDp_8gTQHG89bCfqlO?usp=sharing',
@@ -289,7 +289,7 @@ export const TOOLS: ToolDef[] = [
       'Flags pathology signals such as hallucination, sycophancy, and semantic instability',
       'For labs and independent evaluators who need deeper checks than a single chat review',
     ],
-    supports: 'Supports: THM evaluation practice',
+    supports: 'Supports: Human Mark evaluation',
     actions: [
       {
         href: 'https://github.com/gyrogovernance/diagnostics',

@@ -170,10 +170,17 @@ export default function Craft() {
         }
       >
         <Block>
-          <p className="font-semibold mb-3 text-gray-800 dark:text-gray-100">Process:</p>
           <ol className="list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Register and receive Orientation</li>
-            <li>Work and Iterate through Self-Audit on your own terms</li>
+            <li>Join the Fellowship</li>
+            <li>
+              Complete a{' '}
+              <Link
+                to="/protocols#workflow-air-craft-submission"
+                className="font-semibold text-blue-700 dark:text-blue-400"
+              >
+                AIR-Craft Submission
+              </Link>
+            </li>
             <li>Submit to AIR-Craft</li>
           </ol>
         </Block>

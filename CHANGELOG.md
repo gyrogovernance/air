@@ -5,6 +5,15 @@ All notable changes to the AIR website are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1-AIR] - 2026-08-05
+
+**Workflows**
+
+- Added clear Submit and Formal Report workflows under Protocols
+- THM Submission is now required for AIR-Craft listings
+- Formal reports use a three-step Meta-Evaluation flow
+- Website and GitHub now share the same workflow docs and copy templates
+
 ## [0.1.0-AIR_Launch] - 2026-08-01
 
 ### Added

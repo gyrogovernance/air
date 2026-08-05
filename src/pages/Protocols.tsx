@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Accordion from '../components/Accordion';
 import { Page, PageHero, Section, Block } from '../components/Section';
 import Tabs from '../components/Tabs';
+import WorkflowsSection from '../components/WorkflowsSection';
 import {
   ExtLink,
   LinkList,
@@ -21,19 +22,23 @@ export default function Protocols() {
       >
         <Block className="text-left sm:text-center">
           <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-200">
-            Protocols define how work stays aligned on Uniform Power Distribution. Tools by Gyro Governance Lab help
+            Protocols define how work stays aligned on Uniform Power Distribution. Developed by Gyro Governance Lab help
             you apply those protocols in practice. AIR-Craft lists the work people produce with them.
-          </p>
-          <p className="mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-            Published alignment work is expected to include THM-consistent framing and a short THM self-audit.
           </p>
         </Block>
       </PageHero>
 
-      <Section tint="blue" title="Foundations" icon="🧭">
+      <Section tint="purple" title="Workflows" icon="⚡">
         <p className="flex justify-center text-sm text-gray-600 dark:text-gray-300">
-          Each protocol is a shared method for alignment work.
+          Copy-paste Guides for our Fellows and their AI.
         </p>
+        <p className="flex justify-center text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+          Published alignment work is expected to be consistent with ✋ the Human Mark.
+        </p>
+        <WorkflowsSection />
+      </Section>
+
+      <Section tint="blue" title="Foundations" icon="🧭">
 
         <div className="flex justify-center">
           <span
@@ -99,7 +104,7 @@ export default function Protocols() {
         </div>
       </Section>
 
-      <Section tint="orange" title="Tools by Gyro Governance Lab" icon="🛠️" hero={false}>
+      <Section tint="orange" title="Developed by Gyro Governance Lab" icon="🛠️" hero={false}>
         <p className="flex justify-center text-sm text-gray-600 dark:text-gray-300">
           Tools and templates you can use in research, evaluation, and work.
         </p>

@@ -40,7 +40,7 @@ export default function About() {
         <Block>
           <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
             We provide Guides to help you coordinate in any topic you choose, aligning all contributions with Four Routes
-            for Effective Altruism, operationalization of AI Safety and Good Governance interventions.
+            for Effective operationalization of AI Safety and Good Governance interventions.
           </p>
         </Block>
       </Section>

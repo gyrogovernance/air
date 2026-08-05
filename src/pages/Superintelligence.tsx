@@ -33,7 +33,7 @@ export default function Superintelligence() {
       <Section
         tint="cyan"
         icon="👥"
-        title="Our Fellowship"
+        title="AIR Fellowship"
         actions={
           <Link to="/superintelligence/form" className="btn-primary">
             Join

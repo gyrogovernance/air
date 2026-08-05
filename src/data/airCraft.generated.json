@@ -1,9 +1,9 @@
 {
-  "fetchedAt": "2026-08-02T21:29:35.027Z",
+  "fetchedAt": "2026-08-05T10:14:29.635Z",
   "source": "https://raw.githubusercontent.com/gyrogovernance/air-craft/main/AIR-Craft.md",
   "sourceStatus": "live",
   "seo": {
-    "description": "AIR-Craft is skilled work in Community Safety and Good Governance with datasets, reports, and tools across Economy, Employment, Education, Ecology. Moments Economy, Holonomic QVM: hQVM Kernel, AI Inspector Browser Extension, Alignment Infrastructure Routes (AIR), Gyroscopic ASI Runtime, Gyroscope Protocol, GyroGem: AI Safety Agent, The Human Mark (THM), GyroDiagnostics, Gyroscopic Global Governance (GGG), Computational Climate Control.",
+    "description": "AIR-Craft is skilled work in Community Safety and Good Governance with datasets, reports, and tools across Economy, Employment, Education, Ecology. Moments Economy, Holonomic QVM: hQVM Kernel, AI Inspector Browser Extension, Alignment Infrastructure Routes (AIR), Gyroscopic ASI Runtime, Gyroscope Protocol, GyroGem: AI Safety Agent, The Human Mark (THM), GyroDiagnostics, Gyroscopic Global Governance (GGG).",
     "keywords": [
       "AIR-Craft",
       "AIR Craft",
@@ -18,8 +18,7 @@
       "GyroGem: AI Safety Agent",
       "The Human Mark (THM)",
       "GyroDiagnostics",
-      "Gyroscopic Global Governance (GGG)",
-      "Computational Climate Control"
+      "Gyroscopic Global Governance (GGG)"
     ]
   },
   "projects": [
@@ -102,14 +101,6 @@
       "description": "A Post-AGI Multi-domain Governance Sandbox",
       "linkText": "Read More",
       "linkUrl": "https://gyrogovernance.com/articles/ggg-simulator-results/"
-    },
-    {
-      "domain": "Ecology",
-      "emoji": "🌡️",
-      "title": "Computational Climate Control",
-      "description": "Runtime control layer for AI execution stability and hidden inefficiency reduction",
-      "linkText": "Read the Brief",
-      "linkUrl": "https://github.com/gyrogovernance/superintelligence/blob/main/docs/programs/Computational_Climate_Control_Brief.md"
     }
   ]
 }

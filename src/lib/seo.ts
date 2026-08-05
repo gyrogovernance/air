@@ -81,7 +81,7 @@ const pages: Record<string, PageSeo> = {
     path: '/protocols',
     title: 'Protocols | AIR',
     description:
-      'Shared alignment protocols (CGM, The Human Mark, Gyroscope, GGG) and tools by Gyro Governance Lab that Fellows can use in AIR-Craft work.',
+      'Shared alignment protocols (CGM, The Human Mark, Gyroscope, GGG) and Developed by Gyro Governance Lab that Fellows can use in AIR-Craft work.',
     keywords: [
       'AI safety protocols',
       'The Human Mark',

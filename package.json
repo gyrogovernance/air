@@ -4,9 +4,10 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node scripts/sync-workflows.mjs && vite",
     "sync:air-craft": "node scripts/sync-air-craft.mjs",
-    "build": "node scripts/sync-air-craft.mjs && tsc -b && vite build && node scripts/copy-spa-fallback.mjs",
+    "sync:workflows": "node scripts/sync-workflows.mjs",
+    "build": "node scripts/sync-air-craft.mjs && node scripts/sync-workflows.mjs && tsc -b && vite build && node scripts/copy-spa-fallback.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },
