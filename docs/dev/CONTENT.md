@@ -17,7 +17,7 @@ source files named below win over this document; update both together.
 - **Production site:** [air.gyrogovernance.com](https://air.gyrogovernance.com)
 - **Site license:** CC BY-SA 4.0
 - **Hub repo (license):** MIT — [gyrogovernance/air-craft](https://github.com/gyrogovernance/air-craft)
-- **Audience line:** "Alignment Infrastructure Routes for Independent Researchers, Engineers, Offices of Community Safety, and AI Labs."
+- **Audience line:** "Alignment Infrastructure Routes for Independent Researchers and Engineers, Offices of Community Safety, and AI Labs."
 - **Delivery line:** "We deliver AI-Empowered Human Capacity Development for Alignment on Uniform Power Distribution."
 - **Last-updated stamp used across legal pages:** August 1, 2026
 
@@ -84,7 +84,7 @@ Global CTA: Join us → /superintelligence
 
 ### Footer (`src/components/Footer.tsx`)
 
-- **Brand block:** AIR logo + wordmark; audience line; tagline "Aligned on Uniform Power Distribution"; "By Gyro Governance Lab • 2026 • CC BY-SA 4.0".
+- **Brand block:** AIR logo + wordmark; audience line "Alignment Infrastructure Routes for Independent Researchers and Engineers, Offices of Community Safety, and AI Labs."; tagline "Aligned on Uniform Power Distribution"; "By Gyro Governance Lab • 2026 • CC BY-SA 4.0".
 - **EXPLORE:** About AIR → `/about` · AI safety infrastructure → `/infrastructure` · AIR-Craft tools & datasets → `/craft` · Collective Superintelligence Fellowship → `/superintelligence`.
 - **LEGAL:** Privacy Policy → `/privacy` · Cookie Policy → `/cookies` · Contact → GitHub Contact Issue Form · Gyro Governance Lab → external.
 
@@ -201,8 +201,8 @@ both the source file and this section.
 
 **Section: Power Concentration Risks** (tint `purple`, icon `⚡`)
 - Lead paragraph: people believe power concentration from autonomy is the root behind high risks.
-- Block A — "When does power really concentrate?": governance responsibilities displaced by misattributing Authority and Agency as unique identities.
-- Block B — "What do we do to mitigate such risks?": protocols as shared infrastructure; welcome anyone without credential or hiring gatekeeping.
+- Block A — "When does power really concentrate?": Power concentrates only when governance responsibilities are displaced by misattributing Authority and Agency as unique identities of someone or something, instead of recognizing them as capacities that operate across people and machines and originate in human ancestry.
+- Block B — "What do we do to mitigate such risks?": We provide protocols as shared infrastructure to help you research and build solutions to today’s most urgent crises in the age of Transformative AI, and we welcome anyone who wants to contribute, without credential or hiring gatekeeping.
 - CTAs: **Alignment Infrastructure** → `/infrastructure` · **AI Safety Interventions** → `/craft`.
 
 **Section: Field Building and Public Goods** (tint `orange`, icon `🏛️`)
@@ -348,7 +348,7 @@ Gyro Governance Labs crafts are approached as canonical tools. Do not propose an
 
 **Section: AIR Fellowship** (tint `cyan`, icon `👥`)
 - Block: "Built for misfits, generalists, autodidacts, and marginalized individuals who want to contribute to independent AI safety research and governance now."
-- Block — "Who is eligible?": supports the 99% of AI safety candidates whom existing labs lack capacity to integrate.
+- Block — "Who is eligible?": We support the 99% of AI safety candidates who wish to build their portfolio and career in alignment and AGI safety, but existing labs often do not have the capacity to integrate.
 - CTA: **Join** → `/superintelligence/form`.
 
 **Section: Invest in Humanity** (tint `purple`, icon `❤️`)
@@ -390,7 +390,7 @@ No FormEasy. No "Submit application" language.
 
 - **Submit:** POST JSON as `text/plain` to `VITE_FORMEASY_URL`. Button label: `REGISTER INTEREST`.
 - **Cancel:** link to `/superintelligence`.
-- **Success state:** "Thank you for registering your interest. We are not accepting funds through this site at this time." CTA: **Back to homepage** → `/`.
+- **Success state:** "Thank you for registering your interest. We are not accepting funds through this site at this time. We will be in touch when the fund pathway opens." CTA: **Back to homepage** → `/`.
 - Privacy and Cookie Policy links are rendered under the submit button.
 
 ### `/privacy` — Privacy (`src/pages/Privacy.tsx`)
